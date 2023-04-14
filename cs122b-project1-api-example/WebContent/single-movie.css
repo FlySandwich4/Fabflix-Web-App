@@ -1,0 +1,124 @@
+body{
+    font-family: "Apple Chancery", serif;
+    margin: 0 auto;
+    padding: 0;
+    animation: yue-title-anime 2s forwards;
+    text-align: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1{
+    margin: 2px;
+    color: #9611d8;
+    font-weight: 800;
+}
+
+.yue-back-main{
+    background-image: linear-gradient(to bottom right,yellow,pink);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yue-back-button{
+    font-weight: bolder;
+    color: white;
+    width: 200px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: purple;
+    scale: 1.0;
+    transition: transform 0.3s, scale 0.3s;
+}
+/*comment*/
+.yue-back-button:hover{
+    animation: yue-back-button-floating 0.33s infinite;
+    scale: 1.1;
+}
+
+.yue-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:25px;
+}
+
+.yue-card {
+    -webkit-box-shadow: 10px 10px 15px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 15px -12px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 15px -12px rgba(0,0,0,0.75);
+    background-image: linear-gradient(to bottom right,powderblue,darkseagreen);
+    border-radius: 30px;
+    width: 80vw;
+    animation: yue-title-anime 2s forwards;
+}
+
+.yue-content{
+    color: black;
+    font-size: 22px;
+}
+
+.yue-star-link{
+    font-weight: bold;
+    color: inherit;
+    transition: color 0.2s, font-size 0.2s, padding 0.2s;
+    text-decoration: underline;
+    /*transition-timing-function: ease-in-out;*/
+}
+
+.yue-star-link:hover {
+    color: purple;
+    font-size: 28px;
+    padding: 2px;
+}
+
+.yue-deco {
+    font-size: 22px;
+}
+
+.yue-strong {
+    font-size: 30px;
+    color: #9611d8;
+    font-weight: 800;
+}
+
+
+@keyframes yue-title-anime {
+    0%  {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes yue-back-button-floating {
+    0%{
+        transform: rotate(0deg)
+    }
+    25%{
+        transform: rotate(-2deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(2deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
