@@ -63,7 +63,7 @@ function handleStarResult(resultData) {
                         "</div>" +
                         "<div class='yue-movie-row yue-start-left-flex'>"
         for(let j=0; j<Math.min(resultData[i]["star"].length, 3);j++){
-            rowHTML +=      "<div class='yue-movie-row-item'><a href='single-star.html?id=" +
+            rowHTML +=      "<div class='yue-movie-row-item yue-star-link'><a href='single-star.html?id=" +
                             resultData[i]["star"][j]["id"]+"'>" +
                             resultData[i]["star"][j]["name"]+"</a></div>"
         }
