@@ -24,7 +24,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>cs122b-project1-api-example</finalName>
+        <finalName>project1</finalName>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
