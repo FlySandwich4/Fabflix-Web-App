@@ -52,7 +52,7 @@ function handleResult(resultData) {
     if(resultData["star_dob"] === null){
         html_content += "<div class='yue-content'><span class='yue-strong'>Birth Year</span> : No information yet :)</div>"
     }else {
-        html_content += "<div class='yue-content'><span class='yue-strong'>Birth Year</span> : "+ resultData["star_dob"] +"</div>"
+        html_content += "<div class='yue-content'><span class='yue-strong'>Birth Year</span> : "+ resultData["star_dob"] +"</div>
     }
 
 
