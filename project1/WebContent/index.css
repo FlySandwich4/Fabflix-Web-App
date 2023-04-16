@@ -7,13 +7,12 @@ body{
 }
 a {
     color: inherit;
-    text-decoration: underline;
-    transition: color 0.3s;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
-    color: purple;
+    text-decoration: none;
+    color: inherit;
 }
 
 .yue-title{
@@ -57,13 +56,17 @@ a:hover {
     font-weight: bolder;
     margin: 0 auto;
     font-size: 36px;
+    color: inherit;
+    text-decoration: underline;
+    transform: scale(1);
     transition: color 0.2s, transform 0.2s, padding 0.2s;
 }
 
 .yue-movie-title:hover{
     transform: scale(1.1);
-
-    padding: 2px;
+    color: purple;
+    padding: 3px;
+    transition: color 0.2s, transform 0.2s, padding 0.2s;
 }
 
 .yue-seperate-line{
