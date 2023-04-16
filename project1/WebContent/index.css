@@ -16,6 +16,7 @@ a:hover {
 }
 
 .yue-title{
+    position:relative;
     font-style: italic;
     font-family: 'Lobster', cursive;
     font-weight: 400;
@@ -33,6 +34,15 @@ a:hover {
     font-size: 100px;
     color: #9611d8;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+}
+
+.yue-overlay{
+    color: #9611d8;
+    font-size: 20px;
+    position:absolute;
+    right: 10px;
+    bottom: 2px;
+    z-index: 999;
 }
 
 .yue-card-continer{
