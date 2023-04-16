@@ -62,14 +62,13 @@ a:hover {
 }
 
 .yue-movie-title{
-    width: 100%;
     font-weight: bolder;
     margin: 0 auto;
     font-size: 36px;
     color: inherit;
     text-decoration: underline;
     transform: scale(1);
-    transition: color 0.2s, transform 0.2s, padding 0.2s;
+    transition: transform 0.2s, color 0.2s,  padding 0.2s;
 }
 
 .yue-movie-title:hover{

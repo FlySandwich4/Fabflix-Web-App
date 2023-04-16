@@ -48,8 +48,13 @@ function handleResult(resultData) {
     let html_content = "";
 
     html_content +=
-        "<div class='yue-content'><span class='yue-strong'>Star Name</span> : "+ resultData["star_name"]+"</div>"+
-        "<div class='yue-content'><span class='yue-strong'>Birth Year</span> : "+ resultData["star_dob"] +"</div>"
+        "<div class='yue-content'><span class='yue-strong'>Star Name</span> : "+ resultData["star_name"]+"</div>"
+    if(resultData["star_dob"] === null){
+        html_content += "<div class='yue-content'><span class='yue-strong'>Birth Year</span> : No information yet :)</div>"
+    }else {
+        html_content += "<div class='yue-content'><span class='yue-strong'>Birth Year</span> : "+ resultData["star_dob"] +"</div>"
+    }
+
 
     content.append(html_content);
 
