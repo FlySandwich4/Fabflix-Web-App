@@ -55,12 +55,12 @@ public class SearchServlet extends HttpServlet {
         try (Connection conn = dataSource.getConnection()) {
             // Get a connection from dataSource
 
-            String query = "SELECT \n" +
+            String query = "SELECT mv.id,\n" +
                     "    mv.title,\n" +
                     "    mv.director,\n" +
                     "    mv.year,\n" +
-                    "    GROUP_CONCAT(DISTINCT s.name SEPARATOR ', ') AS stars,\n" +
-                    "    GROUP_CONCAT(DISTINCT g.name SEPARATOR ', ') AS genres,\n" +
+                    "    GROUP_CONCAT(DISTINCT s.name, ':' , s.id SEPARATOR ', ') AS stars,\n" +
+                    "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id SEPARATOR ', ') AS genres,\n" +
                     "    r.rating \n" +
 
                     "FROM movies AS mv, \n" +
@@ -116,13 +116,22 @@ public class SearchServlet extends HttpServlet {
                 String[] stars = rsStars.split(", ");
                 JsonArray starArr = new JsonArray();
                 for(String eachStar: stars){
-                    starArr.add(eachStar);
+                    String[] starAndId = eachStar.split(":");
+                    JsonObject starAndIdJson = new JsonObject();
+                    starAndIdJson.addProperty("name",starAndId[0]);
+                    starAndIdJson.addProperty("id",starAndId[1]);
+                    starArr.add(starAndIdJson);
                 }
                 jsonObj.add("stars", starArr);
+
                 String[] genres = rsGenres.split(", ");
                 JsonArray genreArr = new JsonArray();
                 for(String eachGenre: genres){
-                    genreArr.add(eachGenre);
+                    String[] genreAndId = eachGenre.split(":");
+                    JsonObject genreAndIdJson = new JsonObject();
+                    genreAndIdJson.addProperty("name",genreAndId[0]);
+                    genreAndIdJson.addProperty("id",genreAndId[1]);
+                    genreArr.add(genreAndIdJson);
                 }
                 jsonObj.add("genres", genreArr);
                 jsonObj.addProperty("rating", rsRating);
