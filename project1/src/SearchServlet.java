@@ -97,10 +97,11 @@ public class SearchServlet extends HttpServlet {
 
             PreparedStatement statement = conn.prepareStatement(query);
             ResultSet rs = statement.executeQuery();
-            JsonObject jsonObj = new JsonObject();
 
+            JsonArray jsonArray = new JsonArray();
             // Iterate through each row of rs
             while (rs.next()) {
+                JsonObject jsonObj = new JsonObject();
                 String rsTitle = rs.getString("mv.title");
                 String rsYear = rs.getString("mv.year");
                 String rsDirector = rs.getString("mv.director");
@@ -125,21 +126,21 @@ public class SearchServlet extends HttpServlet {
                 }
                 jsonObj.add("genres", genreArr);
                 jsonObj.addProperty("rating", rsRating);
+                jsonArray.add(jsonObj);
             }
             // System.out.println(jsonObj.toString());
             rs.close();
             statement.close();
 
-
-
             // Write JSON string to output
-            response.getWriter().write(jsonObj.toString());
+            response.getWriter().write(jsonArray.toString());
             // Set response status to 200 (OK)
             response.setStatus(200);
 
         } catch (Exception e) {
             // Write error message JSON object to output
             JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("status", "fail");
             jsonObject.addProperty("errorMessage", e.getMessage());
             response.getWriter().write(jsonObject.toString());
 
