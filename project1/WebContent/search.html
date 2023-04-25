@@ -5,6 +5,43 @@
     <title>Search</title>
 </head>
 <body>
+
     Search what u want
+    <form id="searchForm" action="#">
+        <label><b>title</b></label>
+        <label>
+            <input name="title" placeholder="Enter title">
+        </label>
+        <br>
+        <label><b>star</b></label>
+        <label>
+            <input name="star" placeholder="Enter star">
+        </label>
+        <br>
+        <label><b>director</b></label>
+        <label>
+            <input name="director" placeholder="Enter director">
+        </label>
+        <br>
+        <label><b>year</b></label>
+        <label>
+            <input name="year" placeholder="Enter year">
+        </label>
+        <br>
+        <input type="submit" value="Search">
+    </form>
+
+    <div id="errorMessage"></div>
+
+
+
+
+    <!-- include jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- include our own JS file -->
+    <script src="./search.js"></script>
+
+
 </body>
 </html>
+
