@@ -29,11 +29,30 @@ a:hover {
 }
 
 .yue-title-text{
-
     font-weight: 800;
     font-size: 100px;
     color: #9611d8;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+}
+
+.yue-menu-bar{
+    display: flex;
+    justify-content: right;
+    background-color: #9611d8;
+    font-size: 20px;
+    position:absolute;
+    width: 100%;
+    top: 0px;
+    z-index: 999;
+}
+
+.yue-menu-button{
+    color: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .yue-overlay{

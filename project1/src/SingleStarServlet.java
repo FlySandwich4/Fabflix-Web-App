@@ -41,6 +41,8 @@ public class SingleStarServlet extends HttpServlet {
 
         // Retrieve parameter id from url request.
         String id = request.getParameter("id");
+        String sd = request.getParameter("sd");
+        System.out.println(sd);
 
         // The log message can be found in localhost log
         request.getServletContext().log("getting id: " + id);

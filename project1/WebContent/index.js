@@ -80,7 +80,7 @@ function handleStarResult(resultData) {
 
 
 /**
- * Once this .js is loaded, following scripts will be executed by the browser
+ * Once this .js is loaded, following scripts will be 56o43executed by the browser
  */
 
 // Makes the HTTP GET request and registers on success callback function handleStarResult
