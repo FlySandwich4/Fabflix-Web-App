@@ -108,7 +108,9 @@ public class SearchServlet extends HttpServlet {
                 String rsStars = rs.getString("stars");
                 String rsGenres = rs.getString("genres");
                 String rsRating = rs.getString("r.rating");
+                String rsMovieId = rs.getString("mv.id");
 
+                jsonObj.addProperty("id", rsMovieId);
                 jsonObj.addProperty("title", rsTitle);
                 jsonObj.addProperty("year", rsYear);
                 jsonObj.addProperty("director", rsDirector);
