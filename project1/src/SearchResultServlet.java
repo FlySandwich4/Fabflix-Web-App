@@ -10,13 +10,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-@WebServlet(name = "SearchServlet", urlPatterns = "/api/search")
-public class SearchServlet extends HttpServlet {
+@WebServlet(name = "SearchResultServlet", urlPatterns = "/api/searchResult")
+public class SearchResultServlet extends HttpServlet {
     private static final long serialVersionUID = 2L;
 
     // Create a dataSource which registered in web.xml
@@ -38,11 +37,20 @@ public class SearchServlet extends HttpServlet {
 
         response.setContentType("application/json"); // Response mime type
 
+
         // Retrieve parameter id from url request.
+
+        String seachType = request.getParameter("search");
+        String genreId = request.getParameter("genre");
+        String letter = request.getParameter("letter");
+
         String title = request.getParameter("title");
         String year = request.getParameter("year");
         String director = request.getParameter("director");
         String star = request.getParameter("star");
+        String sort = request.getParameter("sort");
+        String limit = request.getParameter("limit");
+        String page = request.getParameter("page");
 
         // The log message can be found in localhost log
         request.getServletContext().log("title: " + title);
@@ -59,8 +67,8 @@ public class SearchServlet extends HttpServlet {
                     "    mv.title,\n" +
                     "    mv.director,\n" +
                     "    mv.year,\n" +
-                    "    GROUP_CONCAT(DISTINCT s.name, ':' , s.id SEPARATOR ', ') AS stars,\n" +
-                    "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id SEPARATOR ', ') AS genres,\n" +
+                    "    GROUP_CONCAT(DISTINCT s.name, ':' , s.id,':',num_movies ORDER BY num_movies DESC, s.name ASC SEPARATOR ', ' ) AS stars,\n" +
+                    "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id ORDER BY g.name ASC SEPARATOR ', ' ) AS genres,\n" +
                     "    r.rating \n" +
 
                     "FROM movies AS mv, \n" +
@@ -68,37 +76,121 @@ public class SearchServlet extends HttpServlet {
                     "    stars AS s, \n" +
                     "    genres_in_movies AS gim, \n" +
                     "    stars_in_movies AS sim, \n" +
-                    "    ratings AS r " +
+                    "    ratings AS r, " +
+                    "   (" +
+                    "       SELECT starId, COUNT(sim.movieId) AS num_movies\n" +
+                    "       FROM stars_in_movies AS sim\n" +
+                    "       GROUP BY starId\n" +
+                    "    ) AS sm  \n" +
                     "WHERE \n" +
                     "    mv.id=gim.movieId \n" +
                     "    AND mv.id=r.movieId \n" +
                     "    AND gim.genreId=g.Id \n" +
                     "    AND mv.id=sim.movieId \n" +
-                    "    AND sim.starId=s.id \n"
+                    "    AND sim.starId=s.id \n" +
+                    "    AND sm.starId=s.id \n"
                     ;
 
-            if(title != null){
-                query += "AND mv.title LIKE '%"+title+"%' \n";
+            if(seachType == null){
+                Object objseachType = request.getSession().getAttribute("searchType");
+                seachType = objseachType != null ? objseachType.toString() : null;
+
+                Object objgenreId = request.getSession().getAttribute("genre");
+                genreId = objgenreId != null ? objgenreId.toString() : null;
+
+                Object objletter = request.getSession().getAttribute("letter");
+                letter = objletter != null ? objletter.toString() : null;
+
+                Object objtitle = request.getSession().getAttribute("title");
+                title = objtitle != null ? objtitle.toString() : null;
+
+                Object objyear = request.getSession().getAttribute("year");
+                year  = objyear != null ? objyear.toString() : null;
+
+                Object objdirector = request.getSession().getAttribute("director");
+                director  = objdirector != null ? objdirector.toString() : null;
+
+                Object objstar = request.getSession().getAttribute("star");
+                star = objstar != null ? objstar.toString() : null;
+
+                Object objpage = request.getSession().getAttribute("page");
+                page = objpage != null ? objpage.toString() : null;
+
+                System.out.println("Session Read For Back: "+seachType);
             }
-            if(star != null){
+            if(seachType.equals("genre")){
+                request.getSession().setAttribute("searchType","genre");
+                request.getSession().setAttribute("genre",genreId);
                 query += "AND EXISTS (\n" +
                         "            SELECT *\n" +
-                        "            FROM stars AS s2, movies AS mv2, stars_in_movies AS sim2\n" +
-                        "            WHERE s2.id=sim2.starId AND sim2.movieId=mv.id AND s2.name LIKE '%" +
-                        star +       "%'\n)";
+                        "            FROM genres AS g2, movies AS mv2, genres_in_movies AS gim2\n" +
+                        "            WHERE g2.id=gim2.genreId AND gim2.movieId=mv.id AND g2.id=" +
+                        genreId +       " \n)";
             }
-            if(year != null){
-                query += "AND mv.year LIKE '%" + year + "%' \n";
+            else if(seachType.equals("letter")){
+                request.getSession().setAttribute("searchType","letter");
+                request.getSession().setAttribute("letter",letter);
+                query += "AND mv.title LIKE '"+letter+"%' \n";
             }
-            if(director != null){
-                query += "AND mv.director LIKE '%" + director + "%' \n";
+            else if(seachType.equals("search")){
+                request.getSession().setAttribute("searchType","search");
+                request.getSession().setAttribute("title",title);
+                request.getSession().setAttribute("star",star);
+                request.getSession().setAttribute("year",year);
+                request.getSession().setAttribute("director",director);
+
+                if(title != null){
+                    query += "AND mv.title LIKE '%"+title+"%' \n";
+                }
+                if(star != null){
+                    query += "AND EXISTS (\n" +
+                            "            SELECT *\n" +
+                            "            FROM stars AS s2, movies AS mv2, stars_in_movies AS sim2\n" +
+                            "            WHERE s2.id=sim2.starId AND sim2.movieId=mv.id AND s2.name LIKE '%" +
+                            star +       "%'\n)";
+                }
+                if(year != null){
+                    query += "AND mv.year LIKE '" + year + "' \n";
+                }
+                if(director != null){
+                    query += "AND mv.director LIKE '%" + director + "%' \n";
+                }
             }
-            query += " GROUP BY mv.id;";
+
+            query += " GROUP BY mv.id \n";
+
+            if(sort != null){
+                if(sort.equals("rating")){
+                    query += "ORDER BY r.rating DESC\n";
+                }
+                if(sort.equals("title")){
+                    query += "ORDER BY mv.title \n";
+                }
+                if(sort.equals("genre")){
+                    query += "ORDER BY genres \n";
+                }
+            }
+            if(limit != null){
+                query += "LIMIT "+limit+" \n";
+            }
+
+            if(page != null){
+                request.getSession().setAttribute("page",page);
+                int numPage = Integer.parseInt(page);
+                if(numPage > 1){
+                    query += "OFFSET "+ (numPage-1)*10 +" \n";
+                }
+            }
+            query += ";";
+
+
 
             PreparedStatement statement = conn.prepareStatement(query);
             ResultSet rs = statement.executeQuery();
 
             JsonArray jsonArray = new JsonArray();
+
+
             // Iterate through each row of rs
             while (rs.next()) {
                 JsonObject jsonObj = new JsonObject();
@@ -122,6 +214,7 @@ public class SearchServlet extends HttpServlet {
                     JsonObject starAndIdJson = new JsonObject();
                     starAndIdJson.addProperty("name",starAndId[0]);
                     starAndIdJson.addProperty("id",starAndId[1]);
+                    starAndIdJson.addProperty("total-movies",starAndId[2]);
                     starArr.add(starAndIdJson);
                 }
                 jsonObj.add("stars", starArr);

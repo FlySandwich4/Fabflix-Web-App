@@ -2,10 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <div class="yue-menu-bar">
+        <a href="search.html"><div class="yue-menu-button">
+            Home
+        </div></a>
+        <a href="index.html"><div class="yue-menu-button">
+            Top 20 Movies
+        </div></a>
+        <a href="login.html"><div class="yue-menu-button">
+            login
+        </div></a>
+    </div>
     Search what u want
     <form id="searchForm" action="#">
         <label><b>title</b></label>
@@ -31,6 +47,20 @@
         <input type="submit" value="Search">
     </form>
 
+    <select id="sort" onchange="submitLimitSearch()">
+        <option value="default">Default</option>
+        <option value="title">Title</option>
+        <option value="rating">Rating</option>
+        <option value="genre">Genre</option>
+    </select>
+    <select id="limit" onchange="submitLimitSearch()">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+
+    <div id="searchResult"></div>
     <div id="errorMessage"></div>
 
 
@@ -39,7 +69,8 @@
     <!-- include jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- include our own JS file -->
-    <script src="./search.js"></script>
+    <script src="search.js"></script>
+    <script src="searchResult.js"></script>
 
 
 </body>

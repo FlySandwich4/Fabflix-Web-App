@@ -15,18 +15,6 @@ a:hover {
     color: inherit;
 }
 
-.yue-title{
-    position:relative;
-    font-style: italic;
-    font-family: 'Lobster', cursive;
-    font-weight: 400;
-    height: 50vh;
-    background-image: linear-gradient(to bottom right,yellow,pink);
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
 
 .yue-title-text{
     font-weight: 800;
@@ -35,36 +23,7 @@ a:hover {
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
 }
 
-.yue-menu-bar{
-    display: flex;
-    height: 35px;
-    align-items: center;
-    justify-content: right;
-    background-color: #9611d8;
-    font-size: 20px;
-    position:absolute;
-    width: 100%;
-    top: 0px;
-    z-index: 999;
-}
 
-.yue-menu-button{
-    color: white;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.yue-overlay{
-    color: #9611d8;
-    font-size: 20px;
-    position:absolute;
-    right: 10px;
-    bottom: 2px;
-    z-index: 999;
-}
 
 .yue-card-continer{
     display: flex;

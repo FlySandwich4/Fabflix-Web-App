@@ -1,30 +1,62 @@
-let searchForm = $("#searchForm");
+let searchResultDiv = jQuery("#searchResult");
 
-function handleSearchResult(searchResult) {
-    console.log(searchResult);
+searchResultDiv.empty()
 
-    // If login succeeds, it will redirect the user to index.html
-    if (searchResult["status"] === "success") {
-        window.location.replace("index.html");
-    } else {
-        // If login fails, the web page will display
-        // error messages on <div> with id "login_error_message"
-        console.log("show error message");
-        console.log(searchResult["errorMessage"]);
-        $("#errorMessage").text(searchResult["errorMessage"]);
+
+function handleGenreList(genreList){
+    console.log(genreList)
+    let innerHtml = ""
+    for(let i=0; i<genreList.length;i++){
+        innerHtml += "<div><a href='#' onclick='submitGenreSearch("+
+            genreList[i]["id"] +")'>" +
+            genreList[i]["name"] +
+            "</a></div>"
     }
+
+    for(let charI=97; charI<=122; charI++){
+        innerHtml += "<div><a href='#' onclick='submitLetterSearch(\""+
+            String.fromCharCode(charI)+"\")'>" +
+            String.fromCharCode(charI) +
+            "</a></div>"
+    }
+    searchResultDiv.append(innerHtml)
 }
 
-function submitSearch(formGetEvent){
-    formGetEvent.preventDefault()
-    $.ajax("api/search", {
-            method: "GET",
-            data: searchForm.serialize(),
-            success: result => handleSearchResult(result)
-        }
-    );
+function handleGenreRequest(searchResult){
+
+}
+function submitGenreSearch(genreId){
+    let sort = $("#sort").val()
+    let limit = $("#limit").val()
+    let page = $("#page").val()
+    if(page === undefined || page === null){
+        page = 1;
+    }
+    let url = `api/searchResult?sort=${sort}&limit=${limit}&page=${page}&search=genre&genre=${genreId}`
+    console.log(url)
+    $.ajax(url,{
+        method : "Get",
+        success : result=>handleSearchResult(result)
+    })
 }
 
-searchForm.submit(submitSearch)
+function submitLetterSearch(letter){
+    let sort = $("#sort").val()
+    let limit = $("#limit").val()
+    let page = $("#page").val()
+    if(page === undefined || page === null){
+        page = 1;
+    }
+    let url = `api/searchResult?sort=${sort}&limit=${limit}&page=${page}&search=letter&letter=${letter}`
+    console.log(url)
+    $.ajax(url,{
+        method : "Get",
+        success : result=>handleSearchResult(result)
+    })
+}
 
 
+$.ajax("api/searchInit",{
+    method: "Get",
+    success: result => handleGenreList(result)
+})

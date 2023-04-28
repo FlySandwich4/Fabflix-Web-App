@@ -25,7 +25,6 @@ function handleStarResult(resultData) {
 
         // Concatenate the html tags with resultData jsonObject
         let rowHTML = "";
-        rowHTML += "<div>";
         rowHTML +=
             "<div class='yue-card-continer'>" +
                 "<div class='yue-card'>" +
