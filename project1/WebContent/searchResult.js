@@ -1,4 +1,6 @@
 let searchForm = $("#searchForm");
+let pages;
+let current;
 
 function handleSearchResult(searchResult) {
     console.log(searchResult);
@@ -13,7 +15,7 @@ function handleSearchResult(searchResult) {
     } else {
         let searchResultDiv = jQuery("#searchResult");
         searchResultDiv.empty()
-        for(let i=0; i < searchResult.length; i++){
+        for(let i=1; i < searchResult.length; i++){
             rowHTML = ""
             rowHTML +=
                 "<div class='yue-card-continer'>" +
@@ -38,8 +40,10 @@ function handleSearchResult(searchResult) {
                 "</div>" +
                 "<div class='yue-movie-row yue-start-left-flex'>"
             for(let j=0; j<Math.min(searchResult[i]["genres"].length, 3);j++){
-                rowHTML +=      "<div class='yue-movie-row-item'>" +
-                    searchResult[i]["genres"][j]["name"]+"</div>"
+                rowHTML +=      "<div class='yue-movie-row-item yue-star-link'>" +
+                    "<a href='#' onclick='submitGenreSearch("+
+                    searchResult[i]["genres"][j]["id"] + ")'>" +
+                    searchResult[i]["genres"][j]["name"]+"</a></div>"
             }
             rowHTML +=
                 "</div>" +
@@ -64,6 +68,34 @@ function handleSearchResult(searchResult) {
 
             searchResultDiv.append(rowHTML);
         }
+
+        /**
+         * Page buttons part
+         */
+
+        pages = Math.floor(searchResult[0]["count"]/searchResult[0]["limit"])
+        current = searchResult[0]["current"]
+        if (searchResult[0]["count"] % searchResult[0]["limit"] > 0){
+            pages += 1
+        }
+        let pageButtons = "<div>"
+        pageButtons += "<a href='#' onclick='submitPageSearch("+ (current-1) +")'>"+
+            " Previous </a>"
+        for(let i = 1; i <= pages; i++){
+            if (i === searchResult[0]["current"]){
+                pageButtons += "<a href='#' style='background-color: #67b767' onclick='submitPageSearch("+ i +")'> "+
+                    i + " </a>"
+            }else{
+                pageButtons += "<a href='#' onclick='submitPageSearch("+ i +")'> "+
+                    i + " </a>"
+            }
+        }
+        pageButtons += "<a href='#' onclick='submitPageSearch("+ (current+1) +")'>"+
+            " Next </a>"
+        pageButtons += "</div>"
+        document.getElementById("sort").selectedIndex= parseInt(searchResult[0]["sortSelect"])
+        document.getElementById("limit").selectedIndex= parseInt(searchResult[0]["limitSelect"])
+        searchResultDiv.append(pageButtons)
     }
 }
 
@@ -76,41 +108,46 @@ function sortResult(){
 
 function submitSearch(formGetEvent){
     formGetEvent.preventDefault()
-    let url = `api/searchResult?search=search&limit=${$("#limit").val()}&${searchForm.serialize()}`
+    let sort = $("#sort").val()
+    let limit = $("#limit").val()
+    let url = `api/searchResult?search=search&limit=${limit}&sort=${sort}&page=1`
     $.ajax(url, {
             method: "GET",
+            data: searchForm.serialize(),
             success: result => handleSearchResult(result)
         }
     );
 }
 
-function submitSortSearch(){
-    let sort = $("#sort");
-    console.log(sort.val())
-    let searchFormData = searchForm.serialize();
-    let sortValue = sort.val();
-    let url = `api/searchResult?sort=${sortValue}`;
+
+function submitLimitSearch(){
+    let sort = $("#sort")
+    let limit = $("#limit")
+    let url = `api/searchResult?sort=${sort.val()}&limit=${limit.val()}&page=1`;
     console.log(url)
+
     $.ajax(url, {
         method: "GET",
         success: result => handleSearchResult(result)
     });
 }
 
-function submitLimitSearch(){
+function submitPageSearch(page){
     let sort = $("#sort")
     let limit = $("#limit")
-    let page = $("#page")
-    console.log(sort.val())
-    console.log(limit.val())
-    let searchFormData = searchForm.serialize();
-    let url = `api/searchResult?sort=${sort.val()}&limit=${limit.val()}`;
+    let url = `api/searchResult?sort=${sort.val()}&limit=${limit.val()}&page=${page}`;
     console.log(url)
+    if(page > 0 && page <= pages){
+        $.ajax(url, {
+            method: "GET",
+            success: result => handleSearchResult(result)
+        });
+    }else if(page <= 0){
+        alert("No more previous pages!")
+    }else{
+        alert("No more next pages!")
+    }
 
-    $.ajax(url, {
-        method: "GET",
-        success: result => handleSearchResult(result)
-    });
 }
 
 

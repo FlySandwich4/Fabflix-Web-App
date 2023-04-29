@@ -48,10 +48,14 @@
     </form>
 
     <select id="sort" onchange="submitLimitSearch()">
-        <option value="default">Default</option>
-        <option value="title">Title</option>
-        <option value="rating">Rating</option>
-        <option value="genre">Genre</option>
+        <option value="ta-ra">Title &uarr; Rating &darr;</option>
+        <option value="ta-rd">Title &uarr; Rating &uarr;</option>
+        <option value="td-ra">Title &darr; Rating &uarr;</option>
+        <option value="td-rd">Title &darr; Rating &darr;</option>
+        <option value="ra-ta">Rating &uarr; Title &uarr;</option>
+        <option value="ra-td">Rating &uarr; Title &darr;</option>
+        <option value="rd-ta">Rating &darr; Title &uarr;</option>
+        <option value="rd-td">Rating &darr; Title &darr;</option>
     </select>
     <select id="limit" onchange="submitLimitSearch()">
         <option value="10">10</option>

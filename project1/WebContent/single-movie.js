@@ -57,7 +57,10 @@ function handleResult(resultData) {
 
     let gen_html = jQuery("#genres");
     for(let i=0; i<resultData["gen"].length; i++){
-        gen_html.append("<div class='yue-deco'>"+resultData["gen"][i]["name"]+"</div>")
+        gen_html.append("<div class='yue-star-link yue-deco'> <a href='search.html?back=1&search=genre&genre=" +
+            resultData["gen"][i]["genId"]+"'>" +
+            resultData["gen"][i]["name"] +"</a></div>")
+
     }
 
     let star_html = jQuery("#stars");
