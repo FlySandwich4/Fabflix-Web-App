@@ -40,7 +40,7 @@ public class SearchResultServlet extends HttpServlet {
 
         // Retrieve parameter id from url request.
 
-        String seachType = request.getParameter("search");
+        String searchType = request.getParameter("search");
         String genreId = request.getParameter("genre");
         String letter = request.getParameter("letter");
 
@@ -51,6 +51,8 @@ public class SearchResultServlet extends HttpServlet {
         String sort = request.getParameter("sort");
         String limit = request.getParameter("limit");
         String page = request.getParameter("page");
+
+        String back = request.getParameter("back");
 
         // The log message can be found in localhost log
         request.getServletContext().log("title: " + title);
@@ -91,9 +93,12 @@ public class SearchResultServlet extends HttpServlet {
                     "    AND sm.starId=s.id \n"
                     ;
 
-            if(seachType == null){
-                Object objseachType = request.getSession().getAttribute("searchType");
-                seachType = objseachType != null ? objseachType.toString() : null;
+            //|| searchType.equals("")
+            if(searchType == null ){
+                System.out.println("Triggered can not find searchType");
+
+                Object objsearchType = request.getSession().getAttribute("searchType");
+                searchType = objsearchType != null ? objsearchType.toString() : null;
 
                 Object objgenreId = request.getSession().getAttribute("genre");
                 genreId = objgenreId != null ? objgenreId.toString() : null;
@@ -113,12 +118,22 @@ public class SearchResultServlet extends HttpServlet {
                 Object objstar = request.getSession().getAttribute("star");
                 star = objstar != null ? objstar.toString() : null;
 
-                Object objpage = request.getSession().getAttribute("page");
-                page = objpage != null ? objpage.toString() : null;
+                if(back != null && !back.isEmpty()){
+                    Object objpage = request.getSession().getAttribute("page");
+                    page = objpage != null ? objpage.toString() : null;
 
-                System.out.println("Session Read For Back: "+seachType);
+                    Object objsort = request.getSession().getAttribute("sort");
+                    sort = objsort != null ? objsort.toString() : null;
+
+                    Object objlimit = request.getSession().getAttribute("limit");
+                    limit = objlimit != null ? objlimit.toString() : null;
+
+                }
+
+
+                System.out.println("Session Read For Back: "+searchType);
             }
-            if(seachType.equals("genre")){
+            if(searchType.equals("genre")){
                 request.getSession().setAttribute("searchType","genre");
                 request.getSession().setAttribute("genre",genreId);
                 query += "AND EXISTS (\n" +
@@ -127,68 +142,138 @@ public class SearchResultServlet extends HttpServlet {
                         "            WHERE g2.id=gim2.genreId AND gim2.movieId=mv.id AND g2.id=" +
                         genreId +       " \n)";
             }
-            else if(seachType.equals("letter")){
+            else if(searchType.equals("letter")){
                 request.getSession().setAttribute("searchType","letter");
                 request.getSession().setAttribute("letter",letter);
-                query += "AND mv.title LIKE '"+letter+"%' \n";
+                if(letter.equals("*")){
+                    query += "AND mv.title REGEXP '^[^A-Za-z0-9].*' \n";
+                }else{
+                    query += "AND mv.title LIKE '"+letter+"%' \n";
+                }
+
             }
-            else if(seachType.equals("search")){
+            else if(searchType.equals("search")){
                 request.getSession().setAttribute("searchType","search");
                 request.getSession().setAttribute("title",title);
                 request.getSession().setAttribute("star",star);
                 request.getSession().setAttribute("year",year);
                 request.getSession().setAttribute("director",director);
 
-                if(title != null){
+                System.out.println(title + " " + star + year + director);
+
+                if(title != null && !title.isEmpty()){
+                    System.out.println("title");
                     query += "AND mv.title LIKE '%"+title+"%' \n";
                 }
-                if(star != null){
+                if(star != null && !star.isEmpty()){
+                    System.out.println("star");
                     query += "AND EXISTS (\n" +
                             "            SELECT *\n" +
                             "            FROM stars AS s2, movies AS mv2, stars_in_movies AS sim2\n" +
                             "            WHERE s2.id=sim2.starId AND sim2.movieId=mv.id AND s2.name LIKE '%" +
                             star +       "%'\n)";
                 }
-                if(year != null){
+                if(year != null && !year.isEmpty()){
+                    System.out.println("year");
                     query += "AND mv.year LIKE '" + year + "' \n";
                 }
-                if(director != null){
+                if(director != null && !director.isEmpty()){
+                    System.out.println("direct");
                     query += "AND mv.director LIKE '%" + director + "%' \n";
                 }
             }
 
             query += " GROUP BY mv.id \n";
 
-            if(sort != null){
-                if(sort.equals("rating")){
-                    query += "ORDER BY r.rating DESC\n";
+
+
+            // HERE
+            // COUNT TOTAL DATA WE GOT !!!!!
+            String countTotal = "SELECT COUNT(*) AS count FROM (" + query + ") AS c";
+
+            int sortSelect = 0;
+
+            if(sort != null && !sort.isEmpty()){
+                request.getSession().setAttribute("sort",sort);
+                if(sort.equals("ta-ra")){
+                    query += "ORDER BY mv.title ASC, r.rating ASC \n";
+                    sortSelect = 0;
                 }
-                if(sort.equals("title")){
-                    query += "ORDER BY mv.title \n";
+                if(sort.equals("ta-rd")){
+                    query += "ORDER BY mv.title ASC, r.rating DESC \n";
+                    sortSelect = 1;
                 }
-                if(sort.equals("genre")){
-                    query += "ORDER BY genres \n";
+                if(sort.equals("td-ra")){
+                    query += "ORDER BY mv.title DESC, r.rating ASC \n";
+                    sortSelect = 2;
+                }
+                if(sort.equals("td-rd")){
+                    query += "ORDER BY mv.title DESC, r.rating DESC \n";
+                    sortSelect = 3;
+                }
+                if(sort.equals("ra-ta")){
+                    query += "ORDER BY r.rating ASC, mv.title ASC \n";
+                    sortSelect = 4;
+                }
+                if(sort.equals("ra-td")){
+                    query += "ORDER BY r.rating ASC, mv.title DESC \n";
+                    sortSelect = 5;
+                }
+                if(sort.equals("rd-ta")){
+                    query += "ORDER BY r.rating DESC, mv.title ASC \n";
+                    sortSelect = 6;
+                }
+                if(sort.equals("rd-td")){
+                    query += "ORDER BY r.rating DESC, mv.title DESC \n";
+                    sortSelect = 7;
                 }
             }
-            if(limit != null){
+            int limitSelect = 0;
+            if(limit != null && !limit.isEmpty()){
+                request.getSession().setAttribute("limit",limit);
                 query += "LIMIT "+limit+" \n";
+                if(limit.equals("10")){
+                    limitSelect = 0;
+                }
+                if(limit.equals("25")){
+                    limitSelect = 1;
+                }
+                if(limit.equals("50")){
+                    limitSelect = 2;
+                }
+                if(limit.equals("100")){
+                    limitSelect = 3;
+                }
+
             }
 
-            if(page != null){
+            if(page != null && !page.isEmpty()){
                 request.getSession().setAttribute("page",page);
+                System.out.println("page = " + page);
                 int numPage = Integer.parseInt(page);
                 if(numPage > 1){
-                    query += "OFFSET "+ (numPage-1)*10 +" \n";
+                    query += "OFFSET "+ (numPage-1)* Integer.parseInt(limit) +" \n";
                 }
             }
             query += ";";
 
+            JsonArray jsonArray = new JsonArray();
 
-
+            PreparedStatement countstatement = conn.prepareStatement(countTotal);
+            ResultSet count = countstatement.executeQuery();
+            JsonObject Info = new JsonObject();
+            while (count.next()){
+                Info.addProperty("count",count.getInt("count"));
+                Info.addProperty("current",Integer.parseInt(page));
+                Info.addProperty("limit",Integer.parseInt(limit));
+            }
+            Info.addProperty("sortSelect",sortSelect);
+            Info.addProperty("limitSelect",limitSelect);
+            jsonArray.add(Info);
             PreparedStatement statement = conn.prepareStatement(query);
             ResultSet rs = statement.executeQuery();
 
-            JsonArray jsonArray = new JsonArray();
+
 
 
             // Iterate through each row of rs
