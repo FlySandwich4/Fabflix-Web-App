@@ -101,6 +101,4 @@ if(back === null || back === undefined){
     }else if(searchType==="genre"){
         submitGenreSearch(getParameterByName("genre"))
     }
-
-
 }

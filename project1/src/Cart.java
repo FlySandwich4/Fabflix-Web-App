@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import java.awt.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,17 +30,36 @@ public class Cart extends HttpServlet {
         }
     }
 
+    // { movieId: {num: num of movie, name: name of the movie}}
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         response.setContentType("application/json"); // Response mime type
+        if(request.getParameter("updateType")==null){
 
-        if(request.getSession().getAttribute("cart") == null){
-            request.getSession().setAttribute("cart",new JsonObject());
+
+            if (request.getSession().getAttribute("cart") == null) {
+                request.getSession().setAttribute("cart", new JsonObject());
+            }
+            try {
+                response.getWriter().write(request.getSession().getAttribute("cart").toString());
+            } catch (Exception e) {
+                response.getWriter().write(e.toString());
+            }
+        }else if(request.getParameter("updateType").equals("delete")){
+            try{
+                deleteItem(request,response);
+            }catch (Exception e){
+                System.out.println(e);
+            }
         }
-        try{
-            response.getWriter().write(request.getSession().getAttribute("cart").toString());
-        }catch (Exception e){
-            response.getWriter().write(e.toString());
+        else{
+            try{
+                putSome(request,response);
+            }catch (Exception e){
+                System.out.println(e);
+                response.getWriter().write(e.toString());
+                response.setStatus(500);
+            }
+
         }
 
 
@@ -48,6 +68,7 @@ public class Cart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String movieId = req.getParameter("movieId");
+        String name = req.getParameter("name");
         try{
             if (req.getSession().getAttribute("cart") == null) {
                 req.getSession().setAttribute("cart", new JsonObject());
@@ -55,12 +76,17 @@ public class Cart extends HttpServlet {
             JsonObject cartInfo = (JsonObject) req.getSession().getAttribute("cart");
 
             if (cartInfo.has(movieId)) {
-                cartInfo.addProperty(movieId, cartInfo.get(movieId).getAsInt() + 1);
+                JsonObject prop = (JsonObject) cartInfo.get(movieId);
+                prop.addProperty("num",prop.get("num").getAsInt() + 1);
+                cartInfo.add(movieId, prop);
             } else {
-                cartInfo.addProperty(movieId, 1);
+                JsonObject prop = new JsonObject();
+                prop.addProperty("num", 1);
+                prop.addProperty("name", name);
+                cartInfo.add(movieId, prop);
             }
-
-            resp.getWriter().write("{ok:1}");
+            req.getSession().setAttribute("cart",cartInfo);
+            resp.getWriter().write(req.getSession().getAttribute("cart").toString());
             resp.setStatus(200);
         }catch (Exception e){
             resp.getWriter().write(e.toString());
@@ -68,14 +94,14 @@ public class Cart extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+    protected void putSome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("put execute");
         try{
             if (req.getSession().getAttribute("cart") == null) {
                 req.getSession().setAttribute("cart", new JsonObject());
             }
-
+            System.out.println("put 1");
             /**
              * @movieId : in params
              * @updateType : in params
@@ -84,25 +110,34 @@ public class Cart extends HttpServlet {
             String movieId = req.getParameter("movieId");
             String updateType = req.getParameter("updateType");
             JsonObject cartInfo = (JsonObject) req.getSession().getAttribute("cart");
+            System.out.println("put 2" + movieId + updateType);
 
             if(updateType.equals("increment")){
-                cartInfo.addProperty(movieId, cartInfo.get(movieId).getAsInt() + 1);
+                JsonObject prop = (JsonObject) cartInfo.get(movieId);
+                prop.addProperty("num",prop.get("num").getAsInt() + 1);
+                cartInfo.add(movieId, prop);
             }
             else if(updateType.equals("decrement")){
-                cartInfo.addProperty(movieId, cartInfo.get(movieId).getAsInt() + 1);
-                if(cartInfo.get(movieId).getAsInt()==0){
+                JsonObject prop = (JsonObject) cartInfo.get(movieId);
+                prop.addProperty("num",prop.get("num").getAsInt() - 1);
+
+                if(prop.get("num").getAsInt()==0){
                     cartInfo.remove(movieId);
+                }else{
+                    cartInfo.add(movieId, prop);
                 }
             }
-            resp.getWriter().write("{ok:1}");
+            System.out.println("put 3");
+            req.getSession().setAttribute("cart",cartInfo);
+            resp.getWriter().write(req.getSession().getAttribute("cart").toString());
         }catch (Exception e){
             resp.getWriter().write(e.toString());
             resp.setStatus(500);
         }
     }
 
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    protected void deleteItem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             if (req.getSession().getAttribute("cart") == null) {
                 req.getSession().setAttribute("cart", new JsonObject());
@@ -113,11 +148,12 @@ public class Cart extends HttpServlet {
              * @cartInfo : in Session
              */
             String movieId = req.getParameter("movieId");
+            System.out.println(movieId + " Deleted");
             JsonObject cartInfo = (JsonObject) req.getSession().getAttribute("cart");
 
             cartInfo.remove(movieId);
-
-            resp.getWriter().write("{ok:1}");
+            req.getSession().setAttribute("cart",cartInfo);
+            resp.getWriter().write(req.getSession().getAttribute("cart").toString());
         }catch (Exception e){
             resp.getWriter().write(e.toString());
             resp.setStatus(500);

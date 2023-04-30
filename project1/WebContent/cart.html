@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="yue-menu-bar">
+        <a href="search.html"><div class="yue-menu-button">
+            Home
+        </div></a>
+        <a href="index.html"><div class="yue-menu-button">
+            Top 20 Movies
+        </div></a>
+        <a href="login.html"><div class="yue-menu-button">
+            login
+        </div></a>
+        <a href="cart.html"><div class="yue-menu-button">
+            Cart
+        </div></a>
+    </div>
 
+
+    <div id="cart-body">
+
+    </div>
+
+    <div><a href="payment.html">Proceed to Payment</a></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        $.ajax("api/cart",{
+            method: "GET",
+            success: data => handleCartGet(data)
+        })
+    </script>
 </body>
 </html>
