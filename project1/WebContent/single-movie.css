@@ -32,10 +32,11 @@ h1{
 
 .yue-back-button{
     font-family: 'DynaPuff', cursive;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 700;
     color: white;
-    width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: 5px;
     border-radius: 10px;
     background-color: purple;
@@ -46,6 +47,7 @@ h1{
 .yue-back-button:hover{
     animation: yue-back-button-floating 0.33s infinite;
     scale: 1.1;
+    color:white;
 }
 
 .yue-card-container{
@@ -94,6 +96,13 @@ h1{
     font-weight: 800;
 }
 
+.yue-flex{
+    margin:10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @keyframes yue-title-anime {
     0%  {

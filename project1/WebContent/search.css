@@ -54,6 +54,9 @@ a:hover {
     align-items: center;
     justify-content: center;
 }
+.search:hover{
+    cursor: pointer;
+}
 .element-selected{
     font-size: 18px;
     font-weight: 600;

@@ -24,6 +24,7 @@ function submitCartAdd(id,name){
         data: {"movieId":id, "name":name},
         success: data => {
             console.log("Post added: " + data)
+            window.alert("Movie Added to Cart!")
         }
     })
 }

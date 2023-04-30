@@ -4,28 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Login to Fablix</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
-<h2>Login to Fablix</h2>
+
 <!-- Set the method to POST to avoid showing the username/password in the URL
      The default action is disabled to allow your own implementation. -->
-<form id="login_form" method="post" action="#">
-    <label><b>Email</b></label>
-    <label>
-        <input name="email" placeholder="Enter Email" type="email">
-    </label>
-    <br>
-    <label><b>Password</b></label>
-    <label>
-        <input name="password" placeholder="Enter Password" type="password">
-    </label>
-    <br>
-    <input type="submit" value="Login">
-</form>
+<div class="login-container">
+    <div class="login-element">Login to Fablix</div>
+
+    <form class="login-form" id="login_form" method="post" action="#">
+        <label class="login-element"><b>Email</b></label>
+        <label class="login-element">
+            <input class="login-input" name="email" placeholder="Enter Email" type="email">
+        </label>
+        <br>
+        <label class="login-element"><b>Password</b></label>
+        <label class="login-element">
+            <input class="login-input" name="password" placeholder="Enter Password" type="password">
+        </label>
+        <br>
+        <input class="login-button" type="submit" value="Login">
+    </form>
+    <div class="login-error" id="login_error_message"></div>
+</div>
 
 
 
-<div id="login_error_message"></div>
+
 
 <!-- include jQuery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

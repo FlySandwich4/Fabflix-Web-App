@@ -76,7 +76,7 @@ public class MoviesServlet extends HttpServlet {
                 jsonObject.addProperty("movie_rating", rating);
 
                 // Get top 3 genre
-                String gen_q = "SELECT DISTINCT genres.name FROM genres " +
+                String gen_q = "SELECT DISTINCT * FROM genres " +
                         "INNER JOIN genres_in_movies ON genres.id = genres_in_movies.genreId " +
                         "INNER JOIN movies ON genres_in_movies.movieId = movies.id " +
                         "WHERE movies.id =  '" + movie_id +"';";
@@ -84,7 +84,10 @@ public class MoviesServlet extends HttpServlet {
                 ResultSet gen_rs = gen_state.executeQuery(gen_q);
                 JsonArray gen_array = new JsonArray();
                 while (gen_rs.next()){
-                    gen_array.add(gen_rs.getString("genres.name"));
+                    JsonObject gen = new JsonObject();
+                    gen.addProperty("name",gen_rs.getString("genres.name"));
+                    gen.addProperty("id",gen_rs.getString("genres.id"));
+                    gen_array.add(gen);
                 }
                 jsonObject.add("gen", gen_array);
                 gen_rs.close();

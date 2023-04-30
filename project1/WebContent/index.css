@@ -146,6 +146,23 @@ a:hover {
 .yue-star-link:hover{
     color: purple;
 }
+
+
+.yue-add-cart{
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    padding:7px;
+    margin:12px;
+    background-color: #67b767;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.yue-add-cart:hover{
+    transform: scale(1.1);
+
+}
 @keyframes yue-title-anime {
     0%  {
         transform: translateY(50px);
