@@ -73,17 +73,16 @@ public class Payment extends HttpServlet {
                     System.out.println("inserted: " + insertSale);
                 }
                 JsonObject res = new JsonObject();
-                res.addProperty("ok",1);
+                res.addProperty("success",1);
                 response.getWriter().write(res.toString());
             }else{
                 JsonObject res = new JsonObject();
-                res.addProperty("ok",0);
+                res.addProperty("success",0);
                 response.getWriter().write(res.toString());
             }
 
             rs.close();
             statement.close();
-            response.getWriter().write(genreList.toString());
             response.setStatus(200);
 
         } catch (Exception e){

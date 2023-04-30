@@ -15,6 +15,42 @@ a:hover {
     color: inherit;
 }
 
+.element-list{
+    width: 90%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.element{
+    margin: 10px;
+    padding: 15px;
+    background-image: linear-gradient(to bottom right,powderblue,darkseagreen);
+    border-radius: 20px;
+    font-size: 27px;
+    transition: color 0.2s;
+}
+.element:hover{
+    color: #9611d8;
+}
+
+.element2{
+    margin: 10px;
+    padding: 15px;
+    background-image: linear-gradient(to bottom right,powderblue,darkseagreen);
+    border-radius: 20px;
+    font-size: 20px;
+    border-style: none;
+    transition: color 0.2s;
+}
+.element2:hover{
+    color: #9611d8;
+}
+
+
 
 .yue-title-text{
     font-weight: 800;

@@ -20,7 +20,15 @@ function submitCreditCardForm(event){
             data: creditCardForm.serialize(),
             success: data => {
                 console.log("success")
-                window.location.replace("index.html")
+
+                if(data["success"] === 1 ){
+                    window.location.replace("conformation.html")
+                }else{
+                    let errDiv = $("#error")
+                    errDiv.empty()
+                    errDiv.append("Incorrect Credit Card Information")
+                }
+
             }
         }
     );

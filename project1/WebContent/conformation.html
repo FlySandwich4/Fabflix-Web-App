@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title id="title">Movie Page</title>
+    <title>Title</title>
     <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="single-movie.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
+
 </head>
 <body>
-<!--    id="movie_body"-->
 <div class="yue-menu-bar">
     <a href="search.html"><div class="yue-menu-button">
         Home
@@ -25,28 +24,17 @@
         Checkout
     </div></a>
 </div>
-<div class="yue-back-main">
-    <a href="index.html">
-        <div class="yue-back-button">Back to HOME</div>
-    </a>
-</div>
-<div class="yue-card-container">
-    <div class="yue-card " id="content">
 
-    </div>
-</div>
-
-<div class="yue-card-container">
-    <div class="yue-card" id="star_movie">
-        <h1>Movies: </h1>
-
-    </div>
-</div>
-
-<a href="search.html?back=1">BACK TO SEARCH</a>
+<div id="cartBody"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="single-star.js"></script>
+<script src="conformation.js"></script>
+<script>
+    $.ajax("api/cart",{
+        method: "GET",
+        success: data => handleConformation(data)
+    })
+</script>
+
 </body>
 </html>

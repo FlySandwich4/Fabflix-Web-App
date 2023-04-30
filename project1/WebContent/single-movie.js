@@ -69,6 +69,11 @@ function handleResult(resultData) {
             +resultData["star"][i]["name"]+"</a></div>")
     }
 
+    let addCart = "<div><a href='#' onclick='submitCartAdd(\""+
+        resultData["id"] + "\",\"" + resultData["title"]
+        +"\")'>Add to cart</a></div>"
+    $("#add").append(addCart)
+
 
 }
 

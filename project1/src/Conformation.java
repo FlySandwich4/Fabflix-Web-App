@@ -1,0 +1,44 @@
+import com.google.gson.JsonObject;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
+import java.io.IOException;
+
+
+@WebServlet(name = "Conformation", urlPatterns = "/api/Conformation")
+public class Conformation extends HttpServlet {
+    private static final long serialVersionUID = 2L;
+    private DataSource dataSource;
+
+    public void init(ServletConfig config) {
+        try {
+            dataSource = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/moviedb");
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // { movieId: {num: num of movie, name: name of the movie}}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("application/json"); // Response mime type
+
+            if (request.getSession().getAttribute("cart") == null) {
+                request.getSession().setAttribute("cart", new JsonObject());
+            }
+            try {
+                response.getWriter().write(request.getSession().getAttribute("cart").toString());
+            } catch (Exception e) {
+                response.getWriter().write(e.toString());
+            }
+
+
+
+    }
+
+}
