@@ -66,7 +66,7 @@ function handleSearchResult(searchResult) {
                         "</div>" +
                     "</div>"+
                 "<div class='yue-seperate-line'></div>" +
-                "<div class='yue-movie-title'><a href='#' onclick='submitCartAdd(\""+
+                "<div class='yue-add-cart'><a href='#' onclick='submitCartAdd(\""+
                 searchResult[i]["id"] + "\",\"" + searchResult[i]["title"]
                 +"\")'>Add to cart</a></div>" +
                 "</div>"+
@@ -84,19 +84,19 @@ function handleSearchResult(searchResult) {
         if (searchResult[0]["count"] % searchResult[0]["limit"] > 0){
             pages += 1
         }
-        let pageButtons = "<div>"
-        pageButtons += "<a href='#' onclick='submitPageSearch("+ (current-1) +")'>"+
+        let pageButtons = "<div class='element-list'>"
+        pageButtons += "<a href='#' class='element-page' onclick='submitPageSearch("+ (current-1) +")'>"+
             " Previous </a>"
         for(let i = 1; i <= pages; i++){
             if (i === searchResult[0]["current"]){
-                pageButtons += "<a href='#' style='background-color: #67b767' onclick='submitPageSearch("+ i +")'> "+
+                pageButtons += "<a class='element-selected' href='#' style='background-color: #67b767' onclick='submitPageSearch("+ i +")'> "+
                     i + " </a>"
             }else{
-                pageButtons += "<a href='#' onclick='submitPageSearch("+ i +")'> "+
+                pageButtons += "<a class='element-page' href='#' onclick='submitPageSearch("+ i +")'> "+
                     i + " </a>"
             }
         }
-        pageButtons += "<a href='#' onclick='submitPageSearch("+ (current+1) +")'>"+
+        pageButtons += "<a href='#' class='element-page' onclick='submitPageSearch("+ (current+1) +")'>"+
             " Next </a>"
         pageButtons += "</div>"
         document.getElementById("sort").selectedIndex= parseInt(searchResult[0]["sortSelect"])
