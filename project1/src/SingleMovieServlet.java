@@ -57,7 +57,7 @@ public class SingleMovieServlet extends HttpServlet {
 
             // Single movie general infomation
             // Construct a query with parameter represented by "?"
-            String query = "SELECT * from movies, ratings WHERE movies.id=ratings.movieId AND movies.id = ?;";
+            String query = "SELECT * from movies, ratings WHERE movies.id=ratings.movieId AND movies.id = ?";
 
             // Declare our statement
             PreparedStatement statement = conn.prepareStatement(query);
@@ -75,6 +75,7 @@ public class SingleMovieServlet extends HttpServlet {
             jsonRes.addProperty("year",rs.getString("movies.year"));
             jsonRes.addProperty("director",rs.getString("movies.director"));
             jsonRes.addProperty("rating",rs.getString("ratings.rating"));
+            jsonRes.addProperty("id",rs.getString("movies.id"));
 
             // Close the rs and statement
             rs.close();
@@ -83,7 +84,8 @@ public class SingleMovieServlet extends HttpServlet {
             /**
              *  Get every genre of the movie
              */
-            query = "SELECT * from genres, genres_in_movies as gm WHERE gm.movieId = ? AND gm.genreId = genres.id;";
+            query = "SELECT * from genres, genres_in_movies as gm WHERE gm.movieId = ? AND gm.genreId = genres.id " +
+                    "ORDER BY genres.name;";
             statement = conn.prepareStatement(query);
             statement.setString(1, id);
             rs = statement.executeQuery();
@@ -102,7 +104,16 @@ public class SingleMovieServlet extends HttpServlet {
             /**
              *  Get every stars of the movie
              */
-            query = "SELECT * from stars, stars_in_movies as sm, movies WHERE sm.movieId = ? AND sm.starId = stars.id AND sm.movieId = movies.id;";
+            query = "SELECT * from stars, stars_in_movies as sm, movies, " +
+                    "(" +
+                    "       SELECT starId, COUNT(sim.movieId) AS num_movies\n" +
+                    "       FROM stars_in_movies AS sim\n" +
+                    "       GROUP BY starId\n" +
+                    "    ) AS sm1  \n"+
+                    "WHERE sm.movieId = ? AND sm.starId = stars.id" +
+                    " AND sm.movieId = movies.id " +
+                    " AND sm1.starId=sm.starId " +
+                    " ORDER BY sm1.num_movies DESC, stars.name ASC;";
             statement = conn.prepareStatement(query);
             statement.setString(1, id);
             rs = statement.executeQuery();

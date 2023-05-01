@@ -21,33 +21,46 @@
         <a href="login.html"><div class="yue-menu-button">
             login
         </div></a>
+        <a href="cart.html"><div class="yue-menu-button">
+            Checkout
+        </div></a>
     </div>
-    Search what u want
-    <form id="searchForm" action="#">
-        <label><b>title</b></label>
-        <label>
-            <input name="title" placeholder="Enter title">
-        </label>
-        <br>
+
+    <form class="element-list" id="searchForm" action="#">
+        <div class="element">
+            <label><b>title</b></label>
+            <label>
+                <input style="font-size:23px" name="title" placeholder="Enter title">
+            </label>
+        </div>
+
+        <div class="element">
         <label><b>star</b></label>
         <label>
-            <input name="star" placeholder="Enter star">
+            <input style="font-size:23px" name="star" placeholder="Enter star">
         </label>
-        <br>
+        </div>
+
+        <div class="element">
         <label><b>director</b></label>
         <label>
-            <input name="director" placeholder="Enter director">
+            <input style="font-size:23px" name="director" placeholder="Enter director">
         </label>
-        <br>
+        </div>
+
+        <div class="element">
         <label><b>year</b></label>
         <label>
-            <input name="year" placeholder="Enter year">
+            <input style="font-size:23px" name="year" placeholder="Enter year">
         </label>
-        <br>
-        <input type="submit" value="Search">
+        </div>
+
+        <input class='element search' style="border-style: none" type="submit" value="Search">
     </form>
 
-    <select id="sort" onchange="submitLimitSearch()">
+    <div class="element-list">
+        <h2>Sort By</h2>
+    <select class="element2" style="font-weight:800" id="sort" onchange="submitLimitSearch()">
         <option value="ta-ra">Title &uarr; Rating &darr;</option>
         <option value="ta-rd">Title &uarr; Rating &uarr;</option>
         <option value="td-ra">Title &darr; Rating &uarr;</option>
@@ -57,12 +70,14 @@
         <option value="rd-ta">Rating &darr; Title &uarr;</option>
         <option value="rd-td">Rating &darr; Title &darr;</option>
     </select>
-    <select id="limit" onchange="submitLimitSearch()">
+        <h2>Nums of Data</h2>
+    <select class="element2" style="font-weight:800" id="limit" onchange="submitLimitSearch()">
         <option value="10">10</option>
         <option value="25">25</option>
         <option value="50">50</option>
         <option value="100">100</option>
     </select>
+    </div>
 
     <div id="searchResult"></div>
     <div id="errorMessage"></div>
@@ -73,6 +88,7 @@
     <!-- include jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- include our own JS file -->
+    <script src="cart.js"></script>
     <script src="search.js"></script>
     <script src="searchResult.js"></script>
 

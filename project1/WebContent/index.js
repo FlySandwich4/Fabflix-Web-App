@@ -48,8 +48,10 @@ function handleStarResult(resultData) {
                         "</div>" +
                         "<div class='yue-movie-row yue-start-left-flex'>"
         for(let j=0; j<Math.min(resultData[i]["gen"].length, 3);j++){
-            rowHTML +=      "<div class='yue-movie-row-item'>" +
-                            resultData[i]["gen"][j]+"</div>"
+            rowHTML +=      "<div class='yue-movie-row-item yue-star-link'>" +
+                "<a href='search.html?back=1&search=genre&genre="+
+                resultData[i]["gen"][j]["id"] + "'>" +
+                resultData[i]["gen"][j]["name"]+"</a></div>"
         }
         rowHTML +=
                         "</div>" +
@@ -69,6 +71,10 @@ function handleStarResult(resultData) {
                     rowHTML +=
                         "</div>" +
                     "</div>"+
+                "<div class='yue-seperate-line'></div>" +
+                "<div class='yue-add-cart'><a href='#' onclick='submitCartAdd(\""+
+                resultData[i]["movie_id"] + "\",\"" + resultData[i]["movie_title"]
+                +"\")'>Add to cart</a></div>" +
                 "</div>"+
             "</div>"
 

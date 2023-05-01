@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="yue-menu-bar">
+        <a href="search.html"><div class="yue-menu-button">
+            Home
+        </div></a>
+        <a href="index.html"><div class="yue-menu-button">
+            Top 20 Movies
+        </div></a>
+        <a href="login.html"><div class="yue-menu-button">
+            login
+        </div></a>
+        <a href="cart.html"><div class="yue-menu-button">
+            Checkout
+        </div></a>
+    </div>
+    <div class="login-container">
+    <form class="login-form" id="creditCardForm" method="post" action="#">
+        <label class="login-element"><b>First Name</b></label>
+        <label class="login-element">
+            <input class="login-input" name="firstName" placeholder="Enter First Name">
+        </label>
+        <br>
+        <label class="login-element"><b>Last Name</b></label>
+        <label class="login-element">
+            <input class="login-input" name="lastName" placeholder="Enter Last Name">
+        </label>
+        <br>
+        <label class="login-element"><b>Credit Card Number</b></label>
+        <label class="login-element">
+            <input class="login-input" name="creditCard" placeholder="Enter Card Number">
+        </label>
+        <br>
+        <label class="login-element"><b>Expiration Date</b></label>
+        <label class="login-element">
+            <input class="login-input" name="expiration" type="date">
+        </label>
+        <br>
+        <input class="login-button" type="submit" value="Proceed Payment">
+    </form>
+        <div class="login-element" id="paymentShow"></div>
+        <div class="login-error" id="error"></div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="payment.js"></script>
+    <script>
+        $.ajax("api/cart",{
+            method: "GET",
+            success: data => handlePaymentGet(data)
+        })
+    </script>
+</body>
+</html>

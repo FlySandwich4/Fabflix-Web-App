@@ -69,6 +69,11 @@ function handleResult(resultData) {
             +resultData["star"][i]["name"]+"</a></div>")
     }
 
+    let addCart = "<div class=\"yue-flex\"><a href='#' onclick='submitCartAdd(\""+
+        resultData["id"] + "\",\"" + resultData["title"]
+        +"\")'><div class=\"yue-back-button\">Add this movie to cart</div></a></div>"
+    $("#add").append(addCart)
+
 
 }
 

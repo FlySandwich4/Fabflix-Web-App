@@ -19,52 +19,58 @@ function handleSearchResult(searchResult) {
             rowHTML = ""
             rowHTML +=
                 "<div class='yue-card-continer'>" +
-                "<div class='yue-card'>" +
-                "<div class='yue-movie-title'>" +
-                '<a href="single-movie.html?id=' + searchResult[i]['id'] + '">'
-                + searchResult[i]["title"] +     // display star_name for the link text
-                '</a>' +
-                "</div>" +
-                "<div class='yue-movie-row'>" +
-                "<div class='yue-movie-row-item'><span class='yue-deco'>Year</span> :" +
-                searchResult[i]["year"]+"</div>"+
-                "<div class='yue-movie-row-item'><span class='yue-deco'>Director</span> :" +
-                searchResult[i]["director"]+"</div>"+
-                "<div class='yue-movie-row-item'><span class='yue-deco'>Rating</span> :" +
-                searchResult[i]["rating"]+"</div>"+
-                "</div>" +
-                "<div class='yue-seperate-line'></div>" +
-                // 3 genres
-                "<div class='yue-one-to-more'>" +
-                "<div class='yue-one yue-deco'>First 3 Genres: " +
-                "</div>" +
-                "<div class='yue-movie-row yue-start-left-flex'>"
+                    "<div class='yue-card'>" +
+                        "<div class='yue-movie-title'>" +
+                            '<a href="single-movie.html?id=' + searchResult[i]['id'] + '">'
+                            + searchResult[i]["title"] +     // display star_name for the link text
+                            '</a>' +
+                        "</div>" +
+                        "<div class='yue-movie-row'>" +
+                            "<div class='yue-movie-row-item'><span class='yue-deco'>Year</span> :" +
+                            searchResult[i]["year"]+"</div>"+
+                            "<div class='yue-movie-row-item'><span class='yue-deco'>Director</span> :" +
+                            searchResult[i]["director"]+"</div>"+
+                            "<div class='yue-movie-row-item'><span class='yue-deco'>Rating</span> :" +
+                            searchResult[i]["rating"]+"</div>"+
+                        "</div>" +
+                        "<div class='yue-seperate-line'></div>" +
+                            // 3 genres
+                        "<div class='yue-one-to-more'>" +
+                            "<div class='yue-one yue-deco'>First 3 Genres: " +
+                            "</div>" +
+                            "<div class='yue-movie-row yue-start-left-flex'>"
             for(let j=0; j<Math.min(searchResult[i]["genres"].length, 3);j++){
                 rowHTML +=      "<div class='yue-movie-row-item yue-star-link'>" +
-                    "<a href='#' onclick='submitGenreSearch("+
-                    searchResult[i]["genres"][j]["id"] + ")'>" +
-                    searchResult[i]["genres"][j]["name"]+"</a></div>"
+                                    "<a href='#' onclick='submitGenreSearch("+
+                                    searchResult[i]["genres"][j]["id"] + ")'>" +
+                                    searchResult[i]["genres"][j]["name"]+"</a></div>"
             }
             rowHTML +=
-                "</div>" +
+                        "</div>" +
+
                 "</div>" +
                 "<div class='yue-seperate-line'></div>"
 
             // 3 stars
-            rowHTML +=  "<div class='yue-one-to-more'>" +
-                "<div class='yue-one yue-deco'>First 3 Stars: " +
-                "</div>" +
-                "<div class='yue-movie-row yue-start-left-flex'>"
+            rowHTML +=
+                "<div class='yue-one-to-more'>" +
+                    "<div class='yue-one yue-deco'>First 3 Stars: " +
+                    "</div>" +
+                    "<div class='yue-movie-row yue-start-left-flex'>"
             for(let j=0; j<Math.min(searchResult[i]["stars"].length, 3);j++){
                 rowHTML +=      "<div class='yue-movie-row-item yue-star-link'><a href='single-star.html?id=" +
-                    searchResult[i]["stars"][j]["id"]+"'>" +
-                    searchResult[i]["stars"][j]["name"]+"</a></div>"
+                                searchResult[i]["stars"][j]["id"]+"'>" +
+                                searchResult[i]["stars"][j]["name"]+"</a></div>"
             }
             rowHTML +=
-                "</div>" +
+                        "</div>" +
+                    "</div>"+
+                "<div class='yue-seperate-line'></div>" +
+                "<div class='yue-add-cart'><a href='#' onclick='submitCartAdd(\""+
+                searchResult[i]["id"] + "\",\"" + searchResult[i]["title"]
+                +"\")'>Add to cart</a></div>" +
                 "</div>"+
-                "</div>"+
-                "</div>"
+            "</div>"
 
             searchResultDiv.append(rowHTML);
         }
@@ -78,19 +84,19 @@ function handleSearchResult(searchResult) {
         if (searchResult[0]["count"] % searchResult[0]["limit"] > 0){
             pages += 1
         }
-        let pageButtons = "<div>"
-        pageButtons += "<a href='#' onclick='submitPageSearch("+ (current-1) +")'>"+
+        let pageButtons = "<div class='element-list'>"
+        pageButtons += "<a href='#' class='element-page' onclick='submitPageSearch("+ (current-1) +")'>"+
             " Previous </a>"
         for(let i = 1; i <= pages; i++){
             if (i === searchResult[0]["current"]){
-                pageButtons += "<a href='#' style='background-color: #67b767' onclick='submitPageSearch("+ i +")'> "+
+                pageButtons += "<a class='element-selected' href='#' style='background-color: #67b767' onclick='submitPageSearch("+ i +")'> "+
                     i + " </a>"
             }else{
-                pageButtons += "<a href='#' onclick='submitPageSearch("+ i +")'> "+
+                pageButtons += "<a class='element-page' href='#' onclick='submitPageSearch("+ i +")'> "+
                     i + " </a>"
             }
         }
-        pageButtons += "<a href='#' onclick='submitPageSearch("+ (current+1) +")'>"+
+        pageButtons += "<a href='#' class='element-page' onclick='submitPageSearch("+ (current+1) +")'>"+
             " Next </a>"
         pageButtons += "</div>"
         document.getElementById("sort").selectedIndex= parseInt(searchResult[0]["sortSelect"])

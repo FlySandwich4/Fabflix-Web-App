@@ -20,31 +20,37 @@ function getParameterByName(target) {
 
 function handleGenreList(genreList){
     console.log(genreList)
-    let innerHtml = ""
+    let innerHtml = "<h1>Search By Genres</h1>"
+
+    innerHtml += "<div class='element-list'>"
     for(let i=0; i<genreList.length;i++){
-        innerHtml += "<div><a href='#' onclick='submitGenreSearch("+
+        innerHtml += "<div class='element'><a href='#' onclick='submitGenreSearch("+
             genreList[i]["id"] +")'> " +
             genreList[i]["name"] +
             " </a></div>"
     }
+    innerHtml += "</div>"
 
-    innerHtml += "<div><a href='#' onclick='submitLetterSearch(\"*\")'> " +
+    innerHtml += "<h1>Search By Characters</h1>"
+    innerHtml += "<div class='element-list'>"
+    innerHtml += "<div class='element'><a href='#' onclick='submitLetterSearch(\"*\")'> " +
         "*" +
         " </a></div>"
 
     for(let i = 0; i < 10; i++){
-        innerHtml += "<div><a href='#' onclick='submitLetterSearch(\""+
+        innerHtml += "<div class='element'><a href='#' onclick='submitLetterSearch(\""+
             i+"\")'> " +
             i +
             " </a></div>"
     }
 
     for(let charI=97; charI<=122; charI++){
-        innerHtml += "<div><a href='#' onclick='submitLetterSearch(\""+
+        innerHtml += "<div class='element'><a href='#' onclick='submitLetterSearch(\""+
             String.fromCharCode(charI)+"\")'> " +
             String.fromCharCode(charI) +
             " </a></div>"
     }
+    innerHtml += "</div>"
     searchResultDiv.append(innerHtml)
 }
 
@@ -101,6 +107,4 @@ if(back === null || back === undefined){
     }else if(searchType==="genre"){
         submitGenreSearch(getParameterByName("genre"))
     }
-
-
 }
