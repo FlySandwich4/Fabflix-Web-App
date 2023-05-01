@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="payment.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
@@ -23,33 +24,35 @@
             Checkout
         </div></a>
     </div>
-
-    <form id="creditCardForm" method="post" action="#">
-        <label><b>First Name</b></label>
-        <label>
-            <input name="firstName" placeholder="Enter First Name">
+    <div class="login-container">
+    <form class="login-form" id="creditCardForm" method="post" action="#">
+        <label class="login-element"><b>First Name</b></label>
+        <label class="login-element">
+            <input class="login-input" name="firstName" placeholder="Enter First Name">
         </label>
         <br>
-        <label><b>Last Name</b></label>
-        <label>
-            <input name="lastName" placeholder="Enter Last Name">
+        <label class="login-element"><b>Last Name</b></label>
+        <label class="login-element">
+            <input class="login-input" name="lastName" placeholder="Enter Last Name">
         </label>
         <br>
-        <label><b>Credit Card Number</b></label>
-        <label>
-            <input name="creditCard" placeholder="Enter Credit Card Number">
+        <label class="login-element"><b>Credit Card Number</b></label>
+        <label class="login-element">
+            <input class="login-input" name="creditCard" placeholder="Enter Card Number">
         </label>
         <br>
-        <label><b>Expiration Date</b></label>
-        <label>
-            <input name="expiration" type="date">
+        <label class="login-element"><b>Expiration Date</b></label>
+        <label class="login-element">
+            <input class="login-input" name="expiration" type="date">
         </label>
         <br>
-        <input type="submit" value="Proceed Payment">
+        <input class="login-button" type="submit" value="Proceed Payment">
     </form>
+        <div class="login-element" id="paymentShow"></div>
+        <div class="login-error" id="error"></div>
+    </div>
 
-    <div id="paymentShow"></div>
-    <div id="error"></div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="payment.js"></script>

@@ -58,21 +58,41 @@ public class Payment extends HttpServlet {
             JsonArray genreList = new JsonArray();
 
             if(rs.next()){
+                // cartInfo: {cart : { movieId: {...}, movieId: {...}}}
                 JsonObject cartInfo = (JsonObject)request.getSession().getAttribute("cart");
+                JsonObject cartInfoCopy = (JsonObject)request.getSession().getAttribute("cart");
                 for(Map.Entry<String, JsonElement> each: cartInfo.entrySet()){
+                    // each: {movieID : {num: 1, name: title}
                     String insertSale = "INSERT INTO sales (customerId, movieId,saleDate) VALUES('" +
                             rs.getString("c.id") + "','" +
                             each.getKey() + "','"+
                             java.sql.Date.valueOf(LocalDate.now()) + "');";
                     PreparedStatement insertSales = conn.prepareStatement(insertSale);
                     JsonObject prop = (JsonObject) each.getValue();
+                    // prop: {num:1, name: title}
+                    JsonArray saleId = new JsonArray();
                     for(int i=0; i<prop.get("num").getAsInt();i++){
                         insertSales.executeUpdate();
+                        String getLastSaleId = "SELECT id FROM sales WHERE customerId = ? ORDER BY id DESC LIMIT 1";
+                        PreparedStatement getLastSaleIdStmt = conn.prepareStatement(getLastSaleId);
+                        getLastSaleIdStmt.setString(1, rs.getString("c.id"));
+                        ResultSet lastOne = getLastSaleIdStmt.executeQuery();
+                        if(lastOne.next()){
+                            saleId.add(lastOne.getString("id"));
+                        }
                     }
+                    System.out.println("here" + prop);
+                    // prop: {num: 1, name: title, saleId: [ id, id, id]}
+                    prop.add("saleId",saleId);
+                    // add prop to cartCopy
+                    cartInfoCopy.add(each.getKey(),prop);
+
                     insertSales.close();
                     System.out.println("inserted: " + insertSale);
                 }
+                request.getSession().setAttribute("cart",cartInfoCopy);
                 JsonObject res = new JsonObject();
+                System.out.println(request.getSession().getAttribute("cart"));
                 res.addProperty("success",1);
                 response.getWriter().write(res.toString());
             }else{

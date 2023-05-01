@@ -30,7 +30,7 @@ public class Cart extends HttpServlet {
         }
     }
 
-    // { movieId: {num: num of movie, name: name of the movie}}
+    // { movieId: {num: num of movie, name: name of the movie, salesid:[...]}}
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("application/json"); // Response mime type
         if(request.getParameter("updateType")==null){

@@ -3,7 +3,7 @@ function handleCartGet(data){
     console.log(data)
     cartBody.empty()
     let totalPrice = 0
-    let appendHtml = ""
+    let appendHtml = "<div class='header-font'>Your Shopping Cart</div>"
     appendHtml +=  "<div class='card'>" +
         "<div class='card-item title purple'>Movie Title</div>" +
         "<div class='card-item small purple'>Add One</div>" +
@@ -14,18 +14,22 @@ function handleCartGet(data){
         "</div>"
     for(let key in data){
         totalPrice += 50 * parseInt(data[key]["num"])
+        appendHtml += "<div class='line'></div>"
         appendHtml +=  "<div class='card'>" +
             "<div class='card-item title'>" + data[key]["name"] + "</div>" +
             "<div class='card-item small action'><a href='#' onclick='submitCartIncrement(\"" + key +  "\")'> +1 item </a></div>" +
             "<div class='card-item small'>" +data[key]["num"] + "</div>" +
             "<div class='card-item small action'><a href='#' onclick='submitCartDecrement(\"" + key +  "\")'> -1 item </a></div>" +
             "<div class='card-item small'> $" + (50 * parseInt(data[key]["num"])) +"</div>" +
-            "<div class='card-item small action'><a href='#' onclick='submitCartDelete(\"" + key +  "\")'> Delete this movie </a></div>"+
+            "<div class='card-item small action'><a href='#' onclick='submitCartDelete(\"" + key +  "\")'> Delete </a></div>"+
             "</div>"
+
     }
     appendHtml+="<h1> Total Price: $"+totalPrice+"</h1>" +
         "<div class='proceed'><a href=\"payment.html\">Proceed to Payment</a></div>"
+
     cartBody.append(appendHtml)
+
 
 }
 

@@ -42,8 +42,10 @@ body{
     padding-left: 20px;
     margin: 30px;
     font-size: 40px;
+    font-weight: 800;
+    font-style: italic;
     border-style: none;
-    border-radius: 20px;
+    border-radius: 8px;
     background-color: #9611d8;
     color: white;
     transition: transform 0.3s;

@@ -38,10 +38,24 @@ a {
     font-weight: 600;
     text-align: center;
 }
+.line{
+    background-color: #b6b60b;
+    height: 2px;
+    border-radius: 1px;
+    width: 80%;
+}
 .purple{
     color: #9611d8;
 }
-
+.header-font{
+    margin-bottom: 25px;
+    font-size:45px;
+    font-family: 'Lobster', 'Times New Roman', cursive;
+    font-weight: 800;
+    color: darkgreen;
+    font-style: italic;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+}
 .title{
     width:300px;
 }
@@ -72,6 +86,9 @@ a {
     transform: scale(1.1);
 }
 
+.spacer{
+    height: 30px;
+}
 @keyframes yue-title-anime {
     0%  {
         transform: translateY(50px);
