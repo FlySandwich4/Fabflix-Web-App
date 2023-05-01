@@ -2,18 +2,29 @@ let cartBody = $("#cart-body")
 function handleCartGet(data){
     console.log(data)
     cartBody.empty()
-    cartBody.append("welcome to cart")
     let totalPrice = 0
-    let appendHtml = "<div>"
+    let appendHtml = ""
+    appendHtml +=  "<div class='card'>" +
+        "<div class='card-item title purple'>Movie Title</div>" +
+        "<div class='card-item small purple'>Add One</div>" +
+        "<div class='card-item small purple'>Movie Counts</div>" +
+        "<div class='card-item small purple'>Remove One</div>" +
+        "<div class='card-item small purple'>Price</div>" +
+        "<div class='card-item small purple'>Delete</div>"+
+        "</div>"
     for(let key in data){
         totalPrice += 50 * parseInt(data[key]["num"])
-        appendHtml += "<div>"+ key + " " + data[key]["num"]+" " + data[key]["name"] + (50 * parseInt(data[key]["num"])) + "</div>"
-        + "<a href='#' onclick='submitCartIncrement(\"" + key +  "\")'> +1 to cart </a>" +
-            "<a href='#' onclick='submitCartDecrement(\"" + key +  "\")'> -1 to cart </a>" +
-            "<a href='#' onclick='submitCartDelete(\"" + key +  "\")'> Delete this movie </a>"
+        appendHtml +=  "<div class='card'>" +
+            "<div class='card-item title'>" + data[key]["name"] + "</div>" +
+            "<div class='card-item small action'><a href='#' onclick='submitCartIncrement(\"" + key +  "\")'> +1 item </a></div>" +
+            "<div class='card-item small'>" +data[key]["num"] + "</div>" +
+            "<div class='card-item small action'><a href='#' onclick='submitCartDecrement(\"" + key +  "\")'> -1 item </a></div>" +
+            "<div class='card-item small'> $" + (50 * parseInt(data[key]["num"])) +"</div>" +
+            "<div class='card-item small action'><a href='#' onclick='submitCartDelete(\"" + key +  "\")'> Delete this movie </a></div>"+
+            "</div>"
     }
-    appendHtml+="</div>"
-    appendHtml+="<h1> Total Price: $"+totalPrice+"</h1>"
+    appendHtml+="<h1> Total Price: $"+totalPrice+"</h1>" +
+        "<div class='proceed'><a href=\"payment.html\">Proceed to Payment</a></div>"
     cartBody.append(appendHtml)
 
 }
