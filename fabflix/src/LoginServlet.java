@@ -24,6 +24,10 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         JsonObject responseJsonObject = new JsonObject();
 
+        String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+        System.out.println("gRecaptchaResponse=" + gRecaptchaResponse);
+
+
         try {
             dataSource = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/moviedb");
         } catch (NamingException e) {
@@ -34,7 +38,6 @@ public class LoginServlet extends HttpServlet {
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setString(1, email);
             ResultSet rs = statement.executeQuery();
-            System.out.println("aaaaaaaaaaaaaa");
             if(!rs.next()){
                 responseJsonObject.addProperty("status", "fail");
                 responseJsonObject.addProperty("message", "user " + email + " doesn't exist");
@@ -49,6 +52,19 @@ public class LoginServlet extends HttpServlet {
                 // success attribute
                 responseJsonObject.addProperty("status", "success");
                 responseJsonObject.addProperty("message", "success");
+                try {
+                    RecaptchaVerifyUtils.verify(gRecaptchaResponse);
+                } catch (Exception e) {
+                    System.out.println("exception happened");
+                    responseJsonObject.addProperty("status", "recaptcha");
+                    responseJsonObject.addProperty("message", "Please do the verification");
+                    // Log error to localhost log
+                    request.getServletContext().log("Error:", e);
+                    // Set response status to 500 (Internal Server Error)
+                    response.setStatus(200);
+                    response.getWriter().write(responseJsonObject.toString());
+                    return;
+                }
             }else{
                 System.out.println("bad password");
                 responseJsonObject.addProperty("status", "fail");
