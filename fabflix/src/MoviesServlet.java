@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -79,9 +80,10 @@ public class MoviesServlet extends HttpServlet {
                 String gen_q = "SELECT DISTINCT * FROM genres " +
                         "INNER JOIN genres_in_movies ON genres.id = genres_in_movies.genreId " +
                         "INNER JOIN movies ON genres_in_movies.movieId = movies.id " +
-                        "WHERE movies.id =  '" + movie_id +"';";
-                Statement gen_state = conn.createStatement();
-                ResultSet gen_rs = gen_state.executeQuery(gen_q);
+                        "WHERE movies.id = ?";
+                PreparedStatement gen_state = conn.prepareStatement(gen_q);
+                gen_state.setString(1, movie_id);
+                ResultSet gen_rs = gen_state.executeQuery();
                 JsonArray gen_array = new JsonArray();
                 while (gen_rs.next()){
                     JsonObject gen = new JsonObject();
@@ -98,9 +100,10 @@ public class MoviesServlet extends HttpServlet {
                 String star_q = "SELECT DISTINCT * FROM stars " +
                         "INNER JOIN stars_in_movies ON stars.id = stars_in_movies.starId " +
                         "INNER JOIN movies ON stars_in_movies.movieId = movies.id " +
-                        "WHERE movies.id =  '" + movie_id +"';";
-                Statement star_state = conn.createStatement();
-                ResultSet star_rs = star_state.executeQuery(star_q);
+                        "WHERE movies.id = ?";
+                PreparedStatement star_state = conn.prepareStatement(star_q);
+                star_state.setString(1, movie_id);
+                ResultSet star_rs = star_state.executeQuery();
                 JsonArray star_arr = new JsonArray();
                 while (star_rs.next()){
                     JsonObject star_to_id = new JsonObject();
