@@ -48,12 +48,17 @@ public class Payment extends HttpServlet {
             String query = "SELECT *" +
                     "FROM creditcards AS cd, customers AS c " +
                     "WHERE cd.id=c.ccId " +
-                    "AND cd.firstName LIKE '" + firstName + "' \n" +
-                    "AND cd.lastName LIKE '" + lastName + "' \n" +
-                    "AND cd.id LIKE '" + creditCard + "' \n" +
-                    "AND DATE_FORMAT(cd.expiration, '%Y-%m-%d') LIKE '" + Date + "'; \n" ;
+                    "AND cd.firstName LIKE ? " +
+                    "AND cd.lastName LIKE ? " +
+                    "AND cd.id LIKE ? " +
+                    "AND DATE_FORMAT(cd.expiration, '%Y-%m-%d') LIKE ?";
             PreparedStatement statement = conn.prepareStatement(query);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setString(3, creditCard);
+            statement.setString(4, Date);
             ResultSet rs = statement.executeQuery();
+
 
             JsonArray genreList = new JsonArray();
 
@@ -63,11 +68,11 @@ public class Payment extends HttpServlet {
                 JsonObject cartInfoCopy = (JsonObject)request.getSession().getAttribute("cart");
                 for(Map.Entry<String, JsonElement> each: cartInfo.entrySet()){
                     // each: {movieID : {num: 1, name: title}
-                    String insertSale = "INSERT INTO sales (customerId, movieId,saleDate) VALUES('" +
-                            rs.getString("c.id") + "','" +
-                            each.getKey() + "','"+
-                            java.sql.Date.valueOf(LocalDate.now()) + "');";
+                    String insertSale = "INSERT INTO sales (customerId, movieId, saleDate) VALUES (?, ?, ?)";
                     PreparedStatement insertSales = conn.prepareStatement(insertSale);
+                    insertSales.setString(1, rs.getString("c.id"));
+                    insertSales.setString(2, each.getKey());
+                    insertSales.setDate(3, java.sql.Date.valueOf(LocalDate.now()));
                     JsonObject prop = (JsonObject) each.getValue();
                     // prop: {num:1, name: title}
                     JsonArray saleId = new JsonArray();

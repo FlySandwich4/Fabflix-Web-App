@@ -133,22 +133,30 @@ public class SearchResultServlet extends HttpServlet {
 
                 System.out.println("Session Read For Back: "+searchType);
             }
-            if(searchType.equals("genre")){
-                request.getSession().setAttribute("searchType","genre");
-                request.getSession().setAttribute("genre",genreId);
-                query += "AND EXISTS (\n" +
-                        "            SELECT *\n" +
-                        "            FROM genres AS g2, movies AS mv2, genres_in_movies AS gim2\n" +
-                        "            WHERE g2.id=gim2.genreId AND gim2.movieId=mv.id AND g2.id=" +
-                        genreId +       " \n)";
+//            if(searchType.equals("genre")){
+//                request.getSession().setAttribute("searchType","genre");
+//                request.getSession().setAttribute("genre",genreId);
+//                query += "AND EXISTS (\n" +
+//                        "            SELECT *\n" +
+//                        "            FROM genres AS g2, movies AS mv2, genres_in_movies AS gim2\n" +
+//                        "            WHERE g2.id=gim2.genreId AND gim2.movieId=mv.id AND g2.id=" +
+//                        genreId +       " \n)";
+//            }
+            if (searchType.equals("genre")) {
+                request.getSession().setAttribute("searchType", "genre");
+                request.getSession().setAttribute("genre", genreId);
+                query += " AND EXISTS ("
+                        + " SELECT * "
+                        + " FROM genres AS g2, movies AS mv2, genres_in_movies AS gim2 "
+                        + " WHERE g2.id=gim2.genreId AND gim2.movieId=mv.id AND g2.id=?) ";
             }
             else if(searchType.equals("letter")){
-                request.getSession().setAttribute("searchType","letter");
-                request.getSession().setAttribute("letter",letter);
-                if(letter.equals("*")){
-                    query += "AND mv.title REGEXP '^[^A-Za-z0-9].*' \n";
-                }else{
-                    query += "AND mv.title LIKE '"+letter+"%' \n";
+                request.getSession().setAttribute("searchType", "letter");
+                request.getSession().setAttribute("letter", letter);
+                if (letter.equals("")) {
+                    query += " AND mv.title REGEXP '^[^A-Za-z0-9].*' ";
+                } else {
+                    query += " AND mv.title LIKE ? ";
                 }
 
             }
@@ -163,23 +171,27 @@ public class SearchResultServlet extends HttpServlet {
 
                 if(title != null && !title.isEmpty()){
                     System.out.println("title");
-                    query += "AND mv.title LIKE '%"+title+"%' \n";
+                    query += "AND mv.title LIKE ? \n";
                 }
                 if(star != null && !star.isEmpty()){
                     System.out.println("star");
-                    query += "AND EXISTS (\n" +
-                            "            SELECT *\n" +
-                            "            FROM stars AS s2, movies AS mv2, stars_in_movies AS sim2\n" +
-                            "            WHERE s2.id=sim2.starId AND sim2.movieId=mv.id AND s2.name LIKE '%" +
-                            star +       "%'\n)";
+//                    query += "AND EXISTS (\n" +
+//                            "            SELECT *\n" +
+//                            "            FROM stars AS s2, movies AS mv2, stars_in_movies AS sim2\n" +
+//                            "            WHERE s2.id=sim2.starId AND sim2.movieId=mv.id AND s2.name LIKE '%" +
+//                            star +       "%'\n)";
+                    query += "AND EXISTS ( "
+                            + "SELECT * "
+                            + "FROM stars AS s2, movies AS mv2, stars_in_movies AS sim2 "
+                            + "WHERE s2.id=sim2.starId AND sim2.movieId=mv.id AND s2.name LIKE ?) ";
+
                 }
                 if(year != null && !year.isEmpty()){
-                    System.out.println("year");
-                    query += "AND mv.year LIKE '" + year + "' \n";
+                    query += "AND mv.year LIKE ? ";
                 }
                 if(director != null && !director.isEmpty()){
-                    System.out.println("direct");
-                    query += "AND mv.director LIKE '%" + director + "%' \n";
+                    //query += "AND mv.director LIKE '%" + director + "%' \n";
+                    query += "AND mv.director LIKE ? ";
                 }
             }
 
@@ -252,7 +264,8 @@ public class SearchResultServlet extends HttpServlet {
                 System.out.println("page = " + page);
                 int numPage = Integer.parseInt(page);
                 if(numPage > 1){
-                    query += "OFFSET "+ (numPage-1)* Integer.parseInt(limit) +" \n";
+                    // query += "OFFSET "+ (numPage-1)* Integer.parseInt(limit) +" \n";
+                    query += "OFFSET ? \n";
                 }
             }
             query += ";";
@@ -260,8 +273,34 @@ public class SearchResultServlet extends HttpServlet {
             JsonArray jsonArray = new JsonArray();
 
             PreparedStatement countstatement = conn.prepareStatement(countTotal);
+
+            // SET ? in prepared statement in CountStatement
+            int paramIndex = 1;
+            if (searchType.equals("genre")) {
+                countstatement.setString(paramIndex, genreId);
+            } else if (searchType.equals("letter")) {
+                if (!letter.equals("*")) {
+                    countstatement.setString(paramIndex, letter + "%");
+                }
+            } else if (searchType.equals("search")) {
+
+                if (title != null && !title.isEmpty()) {
+                    countstatement.setString(paramIndex++, "%" + title + "%");
+                }
+                if (star != null && !star.isEmpty()) {
+                    countstatement.setString(paramIndex++, "%" + star + "%");
+                }
+                if (year != null && !year.isEmpty()) {
+                    countstatement.setString(paramIndex++, year);
+                }
+                if (director != null && !director.isEmpty()) {
+                    countstatement.setString(paramIndex, "%" + director + "%");
+                }
+            }
+
             ResultSet count = countstatement.executeQuery();
             JsonObject Info = new JsonObject();
+            // count is used for store information about total records
             while (count.next()){
                 Info.addProperty("count",count.getInt("count"));
                 Info.addProperty("current",Integer.parseInt(page));
@@ -270,7 +309,40 @@ public class SearchResultServlet extends HttpServlet {
             Info.addProperty("sortSelect",sortSelect);
             Info.addProperty("limitSelect",limitSelect);
             jsonArray.add(Info);
+
+
             PreparedStatement statement = conn.prepareStatement(query);
+
+            paramIndex = 1;
+            if (searchType.equals("genre")) {
+                statement.setString(paramIndex++, genreId);
+            } else if (searchType.equals("letter")) {
+                if (!letter.equals("*")) {
+                    statement.setString(paramIndex++, letter + "%");
+                }
+            } else if (searchType.equals("search")) {
+
+                if (title != null && !title.isEmpty()) {
+                    statement.setString(paramIndex++, "%" + title + "%");
+                }
+                if (star != null && !star.isEmpty()) {
+                    statement.setString(paramIndex++, "%" + star + "%");
+                }
+                if (year != null && !year.isEmpty()) {
+                    statement.setString(paramIndex++, year);
+                }
+                if (director != null && !director.isEmpty()) {
+                    statement.setString(paramIndex++, "%" + director + "%");
+                }
+            }
+            if(page != null && !page.isEmpty()){
+                int numPage = Integer.parseInt(page);
+                if(numPage > 1){
+                    // query += "OFFSET "+ (numPage-1)* Integer.parseInt(limit) +" \n";
+                    statement.setInt(paramIndex, (numPage-1)* Integer.parseInt(limit));
+                }
+            }
+
             ResultSet rs = statement.executeQuery();
 
 
