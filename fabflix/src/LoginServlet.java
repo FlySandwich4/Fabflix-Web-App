@@ -13,6 +13,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.jasypt.util.password.StrongPasswordEncryptor;
+
+
 @WebServlet(name = "LoginServlet", urlPatterns = "/api/login")
 public class LoginServlet extends HttpServlet {
     private DataSource dataSource;
@@ -25,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         JsonObject responseJsonObject = new JsonObject();
 
         String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
-        System.out.println("gRecaptchaResponse=" + gRecaptchaResponse);
+        //System.out.println("gRecaptchaResponse=" + gRecaptchaResponse);
 
 
         try {
@@ -33,6 +36,8 @@ public class LoginServlet extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
         }
+
+
         try(Connection conn = dataSource.getConnection()){
             String query = "SELECT * from customers WHERE customers.email = ?";
             PreparedStatement statement = conn.prepareStatement(query);
@@ -44,7 +49,13 @@ public class LoginServlet extends HttpServlet {
                 return;
             }
             System.out.println("bbbbbbbbbbbbbbbb");
-            if(password.equals(rs.getString("password"))){
+            boolean success = false;
+
+            StrongPasswordEncryptor enc = new StrongPasswordEncryptor();
+            System.out.println("checking...");
+            success = enc.checkPassword(password, rs.getString("password"));
+            System.out.println(success);
+            if(success){
                 // success login set session
                 System.out.println("good password");
                 request.getSession().setAttribute("user", new User(email));
@@ -71,6 +82,7 @@ public class LoginServlet extends HttpServlet {
                 responseJsonObject.addProperty("message", "incorrect password");
             }
         } catch (Exception e){
+            e.printStackTrace();
             System.out.println("exception happened");
             responseJsonObject.addProperty("status", "fail");
 
@@ -80,7 +92,7 @@ public class LoginServlet extends HttpServlet {
             response.setStatus(500);
         }
         finally{
-            //System.out.println(responseJsonObject.toString());
+            System.out.println("error");
             response.getWriter().write(responseJsonObject.toString());
         }
 
