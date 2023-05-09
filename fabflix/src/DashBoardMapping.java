@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/_dashboard")
+@WebServlet(name = "MappingServlet", urlPatterns = "/_dashboard")
 public class DashBoardMapping extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

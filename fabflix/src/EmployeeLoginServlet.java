@@ -1,4 +1,5 @@
 import com.google.gson.JsonObject;
+import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +15,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-@WebServlet(name = "EmployeeLoginServlet", urlPatterns = "/api/employee-login")
+@WebServlet(name = "EmployeeLoginServlet", urlPatterns = "/api/employee-login",
+        initParams = {
+                @WebInitParam(name = "loadOnStartup", value = "2")
+        })
 public class EmployeeLoginServlet extends HttpServlet {
     private DataSource dataSource;
     /**

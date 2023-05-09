@@ -9,10 +9,9 @@ import java.util.ArrayList;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(filterName = "LoginFilter", urlPatterns = "/*",
-        initParams = {
-                @WebInitParam(name = "loadOnStartup", value = "1")
-        })
+@WebFilter(filterName = "LoginFilter", urlPatterns = "/*",initParams = {
+        @WebInitParam(name = "loadOnStartup", value = "1")
+})
 public class LoginFilter implements Filter {
     private final ArrayList<String> allowedURIs = new ArrayList<>();
 
@@ -58,7 +57,7 @@ public class LoginFilter implements Filter {
         allowedURIs.add("login.css");
         allowedURIs.add("api/login");
         allowedURIs.add("api/employee-login");
-        allowedURIs.add("/dashboard/*");
+        allowedURIs.add("dashboard/*");
         //allowedURIs.add("DashBoard/employee-login.html");
         allowedURIs.add("_dashboard");
     }

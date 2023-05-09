@@ -10,11 +10,7 @@ import java.util.ArrayList;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(filterName = "EmployeeLoginFilter", urlPatterns = "/dashboard/*",
-        initParams = {
-        @WebInitParam(name = "loadOnStartup", value = "2")
-}
-)
+@WebFilter(filterName = "EmployeeLoginFilter", urlPatterns = "/dashboard/*")
 public class EmployeeLoginFilter implements Filter {
     private final ArrayList<String> allowedURIs = new ArrayList<>();
 
@@ -38,7 +34,7 @@ public class EmployeeLoginFilter implements Filter {
 
         // Redirect to login page if the "user" attribute doesn't exist in session
         if (httpRequest.getSession().getAttribute("employee") == null) {
-            httpResponse.sendRedirect("dashboard/employee-login.html");
+            httpResponse.sendRedirect("employee-login.html");
         } else {
             chain.doFilter(request, response);
         }
@@ -60,9 +56,9 @@ public class EmployeeLoginFilter implements Filter {
 //        allowedURIs.add("login.css");
 //        allowedURIs.add("api/login");
         allowedURIs.add("api/employeeLogin");
-        allowedURIs.add("/dashboard/employee-login.js");
-        allowedURIs.add("/dashboard/employee-login.html");
-        allowedURIs.add("/dashboard/employee-login.css");
+        allowedURIs.add("dashboard/employee-login.js");
+        allowedURIs.add("dashboard/employee-login.html");
+        allowedURIs.add("dashboard/employee-login.css");
         allowedURIs.add("_dashboard");
     }
 
