@@ -3,17 +3,19 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(filterName = "LoginFilter", urlPatterns = "/*",
+@WebFilter(filterName = "EmployeeLoginFilter", urlPatterns = "/dashboard/*",
         initParams = {
-                @WebInitParam(name = "loadOnStartup", value = "1")
-        })
-public class LoginFilter implements Filter {
+        @WebInitParam(name = "loadOnStartup", value = "2")
+}
+)
+public class EmployeeLoginFilter implements Filter {
     private final ArrayList<String> allowedURIs = new ArrayList<>();
 
     /**
@@ -24,19 +26,19 @@ public class LoginFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        System.out.println("LoginFilter: " + httpRequest.getRequestURI());
+        System.out.println("Employee LoginFilter: " + httpRequest.getRequestURI());
 
         // Check if this URL is allowed to access without logging in
         if (this.isUrlAllowedWithoutLogin(httpRequest.getRequestURI())) {
-            System.out.println("Login: URL in allows");
             // Keep default action: pass along the filter chain
+            System.out.println("DashBoard: URL in allows");
             chain.doFilter(request, response);
             return;
         }
 
         // Redirect to login page if the "user" attribute doesn't exist in session
-        if (httpRequest.getSession().getAttribute("user") == null) {
-            httpResponse.sendRedirect("login.html");
+        if (httpRequest.getSession().getAttribute("employee") == null) {
+            httpResponse.sendRedirect("dashboard/employee-login.html");
         } else {
             chain.doFilter(request, response);
         }
@@ -53,13 +55,14 @@ public class LoginFilter implements Filter {
 
     public void init(FilterConfig fConfig) {
         allowedURIs.add("/");
-        allowedURIs.add("login.html");
-        allowedURIs.add("login.js");
-        allowedURIs.add("login.css");
-        allowedURIs.add("api/login");
-        allowedURIs.add("api/employee-login");
-        allowedURIs.add("/dashboard/*");
-        //allowedURIs.add("DashBoard/employee-login.html");
+//        allowedURIs.add("login.html");
+//        allowedURIs.add("login.js");
+//        allowedURIs.add("login.css");
+//        allowedURIs.add("api/login");
+        allowedURIs.add("api/employeeLogin");
+        allowedURIs.add("/dashboard/employee-login.js");
+        allowedURIs.add("/dashboard/employee-login.html");
+        allowedURIs.add("/dashboard/employee-login.css");
         allowedURIs.add("_dashboard");
     }
 
