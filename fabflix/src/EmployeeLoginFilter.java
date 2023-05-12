@@ -10,7 +10,10 @@ import java.util.ArrayList;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(filterName = "EmployeeLoginFilter", urlPatterns = "/dashboard/*")
+@WebFilter(filterName = "EmployeeLoginFilter", urlPatterns = "/dashboard/*",
+        initParams = {
+                @WebInitParam(name = "loadOnStartup", value = "2")
+        })
 public class EmployeeLoginFilter implements Filter {
     private final ArrayList<String> allowedURIs = new ArrayList<>();
 
@@ -34,8 +37,10 @@ public class EmployeeLoginFilter implements Filter {
 
         // Redirect to login page if the "user" attribute doesn't exist in session
         if (httpRequest.getSession().getAttribute("employee") == null) {
+            System.out.println("DashBoard: URL in Re");
             httpResponse.sendRedirect("employee-login.html");
         } else {
+            System.out.println("DashBoard: URL in continue");
             chain.doFilter(request, response);
         }
     }
@@ -60,6 +65,8 @@ public class EmployeeLoginFilter implements Filter {
         allowedURIs.add("dashboard/employee-login.html");
         allowedURIs.add("dashboard/employee-login.css");
         allowedURIs.add("_dashboard");
+
+
     }
 
     public void destroy() {

@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * Servlet Filter implementation class LoginFilter
@@ -25,8 +26,13 @@ public class LoginFilter implements Filter {
 
         System.out.println("LoginFilter: " + httpRequest.getRequestURI());
 
+        Pattern pattern = Pattern.compile("dashboard/.");
+        System.out.println("dashboard?:" + httpRequest.getRequestURI().matches(".dashboard/."));
+
         // Check if this URL is allowed to access without logging in
-        if (this.isUrlAllowedWithoutLogin(httpRequest.getRequestURI())) {
+        if (this.isUrlAllowedWithoutLogin(httpRequest.getRequestURI())
+                || httpRequest.getRequestURI().matches(".dashboard/.")
+        ) {
             System.out.println("Login: URL in allows");
             // Keep default action: pass along the filter chain
             chain.doFilter(request, response);
@@ -35,8 +41,10 @@ public class LoginFilter implements Filter {
 
         // Redirect to login page if the "user" attribute doesn't exist in session
         if (httpRequest.getSession().getAttribute("user") == null) {
+            System.out.println("Login: URL in Re");
             httpResponse.sendRedirect("login.html");
         } else {
+            System.out.println("Login: URL in Continue");
             chain.doFilter(request, response);
         }
     }
@@ -57,8 +65,19 @@ public class LoginFilter implements Filter {
         allowedURIs.add("login.css");
         allowedURIs.add("api/login");
         allowedURIs.add("api/employee-login");
-        allowedURIs.add("dashboard/*");
+        //allowedURIs.add("/dashboard/*");
+
+        allowedURIs.add("dashboard/employee-login.html");
+        allowedURIs.add("dashboard/employee-login.css");
+        allowedURIs.add("dashboard/employee-login.js");
+
+        allowedURIs.add("dashboard/dashboard.html");
+        allowedURIs.add("dashboard/dashboard.js");
         //allowedURIs.add("DashBoard/employee-login.html");
+
+        allowedURIs.add("dashboard/api/addstar");
+
+
         allowedURIs.add("_dashboard");
     }
 

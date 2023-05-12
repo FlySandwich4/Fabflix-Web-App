@@ -15,10 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-@WebServlet(name = "EmployeeLoginServlet", urlPatterns = "/api/employee-login",
-        initParams = {
-                @WebInitParam(name = "loadOnStartup", value = "2")
-        })
+@WebServlet(name = "EmployeeLoginServlet", urlPatterns = "/api/employee-login")
 public class EmployeeLoginServlet extends HttpServlet {
     private DataSource dataSource;
     /**
@@ -64,19 +61,19 @@ public class EmployeeLoginServlet extends HttpServlet {
                 // success attribute
                 responseJsonObject.addProperty("status", "success");
                 responseJsonObject.addProperty("message", "success");
-                try {
-                    RecaptchaVerifyUtils.verify(gRecaptchaResponse);
-                } catch (Exception e) {
-                    System.out.println("exception happened");
-                    responseJsonObject.addProperty("status", "recaptcha");
-                    responseJsonObject.addProperty("message", "Please do the verification");
-                    // Log error to localhost log
-                    request.getServletContext().log("Error:", e);
-                    // Set response status to 500 (Internal Server Error)
-                    response.setStatus(200);
-                    response.getWriter().write(responseJsonObject.toString());
-                    return;
-                }
+//                try {
+//                    RecaptchaVerifyUtils.verify(gRecaptchaResponse);
+//                } catch (Exception e) {
+//                    System.out.println("exception happened");
+//                    responseJsonObject.addProperty("status", "recaptcha");
+//                    responseJsonObject.addProperty("message", "Please do the verification");
+//                    // Log error to localhost log
+//                    request.getServletContext().log("Error:", e);
+//                    // Set response status to 500 (Internal Server Error)
+//                    response.setStatus(200);
+//                    response.getWriter().write(responseJsonObject.toString());
+//                    return;
+//                }
             }else{
                 System.out.println("bad password");
                 responseJsonObject.addProperty("status", "fail");
@@ -93,7 +90,6 @@ public class EmployeeLoginServlet extends HttpServlet {
             response.setStatus(500);
         }
         finally{
-            System.out.println("error");
             response.getWriter().write(responseJsonObject.toString());
         }
 
