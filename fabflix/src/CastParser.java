@@ -23,7 +23,6 @@ public class CastParser {
     HashMap<String,String> movieExistence = new HashMap<>();
     HashSet<String> connectionExistence = new HashSet<>();
 
-    int mv_id;
     int s_id;
 
 
@@ -35,22 +34,148 @@ public class CastParser {
 
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         Connection connection = DriverManager.getConnection(loginUrl, loginUser, loginPasswd);
+        connection.setAutoCommit(false);
 
         setUpMovie(connection);
         setUpStar(connection);
         setUpConnect(connection);
         parseXmlFile();
 
+        PreparedStatement addStarState = addStar(connection);
+        PreparedStatement addRelationState = addRelation(connection);
+
+        try{
+            addStarState.executeBatch();
+            addRelationState.executeBatch();
+            System.out.println("[SUCCESS]Finish execute Batches");
+            connection.commit();
+            connection.close();
+        }catch (Exception e){
+            System.out.println("[ERROR]EXECUTE BATCH ERROR: "+ e);
+
+        }
+
 
     }
 
-    public void addStar(Connection conn) throws Exception{
+    public PreparedStatement addStar(Connection conn) throws Exception{
         String addStarQuery = "insert into stars (id,name,birthYear) values (?,?,?)";
         PreparedStatement addStarState = conn.prepareStatement(addStarQuery);
 
         Element starDoc = starDom.getDocumentElement();
-        NodeList
+        NodeList starList = starDoc.getElementsByTagName("actor");
+        for(int eachStarI = 0; eachStarI < starList.getLength(); eachStarI++){
+            try{
+                System.out.println("\n[START]Adding actor index: " + eachStarI);
+                Element starEle = (Element) starList.item(eachStarI);
+                String name = null;
+                try {
+                    name = getTextValue(starEle, "stagename");
+                }catch (Exception e){
+                    System.out.println("  |  [ERROR]name in XML might be error, skip adding");
+                    continue;
+                }
+                String birthYear;
 
+                // Check if name is null
+                if(name==null){
+                    System.out.println("  |  [Warning]Star name is null, skip adding");
+                    continue;
+                }
+
+                // Check if starList already contains this star
+                if(starExistence.containsKey(name)){
+                    System.out.println("  |  [Warning]Star: " + name + " already exist, skip adding");
+                    continue;
+                }
+
+                // Try to get the birthYear of star, handle null result
+                try{
+                    birthYear = getTextValue(starEle, "dob");
+                }catch (Exception e){
+                    System.out.println("  |  [Warning]Star: "+name+" doesn't have birthday year, insert as null");
+                    birthYear = null;
+                }
+
+                // Adding record to hashmap, for later star checking
+                starExistence.put(name,"nm"+s_id);
+
+                // Setting prepared statements, add to batch
+                addStarState.setString(1,starExistence.get(name));
+                addStarState.setString(2,name);
+                if(birthYear == null){
+                    addStarState.setNull(3, Types.INTEGER);
+                }else{
+                    addStarState.setInt(3,Integer.parseInt(birthYear));
+                }
+
+                addStarState.addBatch();
+                s_id++;
+
+            }catch (Exception e){
+                System.out.println("\n  |  [ERROR]Add Star Error: " + e + "\n");
+                continue;
+            }
+            finally {
+                System.out.println("[END]");
+            }
+        }
+        return addStarState;
+
+    }
+
+    public PreparedStatement addRelation(Connection conn) throws Exception{
+        String addConnection = "insert into stars_in_movies (movieId,starId) values (?,?)";
+        PreparedStatement addRelationState = conn.prepareStatement(addConnection);
+
+        //Test
+        int a = 0;
+
+        Element castDoc = castDom.getDocumentElement();
+        NodeList relationList = castDoc.getElementsByTagName("m");
+        System.out.println("   NumOfRelation in Star:"+relationList.getLength());
+        for(int eachRelI = 0; eachRelI < relationList.getLength(); eachRelI++){
+            System.out.println("\n[START]Adding actor-movie relationship index: " + eachRelI);
+            Element eachM = (Element) relationList.item(eachRelI);
+
+            String title=null, star=null;
+            try{
+                title = getTextValue(eachM,"t");
+                star = getTextValue(eachM,"a");
+                System.out.println("  |  [Log]Adding title:"+title +" star:"+star);
+            }catch (Exception e){
+                System.out.println("  |  [ERROR]Title or Star in XML might be error, skip adding");
+                continue;
+            }
+            if(title == null || star == null){
+                System.out.println("  |  [Warning]Title or Star might be null, skip adding");
+                continue;
+            }
+
+
+            String movieId = movieExistence.get(title);
+            String starId = starExistence.get(star);
+            String s_mId = starId+"-"+movieId;
+
+            if(starId==null || movieId==null){
+                System.out.println("  |  [Warning]StarId or MovieId: " +starId + ", " + movieId+" is null, skip adding");
+                continue;
+            }
+            if(connectionExistence.contains(s_mId)){
+                System.out.println("  |  [Warning]Relation: " +s_mId+" already exist, skip adding");
+                continue;
+            }
+
+            connectionExistence.add(s_mId);
+
+            addRelationState.setString(1,movieId);
+            addRelationState.setString(2,starId);
+            addRelationState.addBatch();
+            a++;
+            System.out.println(a);
+
+        }
+        return addRelationState;
     }
 
     private void parseXmlFile() {
@@ -100,14 +225,11 @@ public class CastParser {
         PreparedStatement s = conn.prepareStatement(query);
         ResultSet rs = s.executeQuery();
 
-        if(rs.next()){
-            mv_id = Integer.parseInt(rs.getString("id").substring(2))+1;
-            movieExistence.put(rs.getString("title"),rs.getString("id"));
-            System.out.println(mv_id);
-        }
         while(rs.next()){
             movieExistence.put(rs.getString("title"),rs.getString("id"));
         }
+        s.close();
+        rs.close();
 
     }
 
@@ -117,13 +239,15 @@ public class CastParser {
         ResultSet rs = s.executeQuery();
 
         if(rs.next()){
-            s_id = Integer.parseInt(rs.getString("id"))+ 1;
+            s_id = Integer.parseInt(rs.getString("id").substring(2))+ 1;
             starExistence.put(rs.getString("name"),rs.getString("id"));
             System.out.println(s_id);
         }
         while(rs.next()){
             starExistence.put(rs.getString("name"),rs.getString("id"));
         }
+        s.close();
+        rs.close();
     }
 
     private void setUpConnect(Connection conn) throws Exception {
@@ -132,15 +256,17 @@ public class CastParser {
         ResultSet rs = s.executeQuery();
 
         while(rs.next()){
-            connectionExistence.add(rs.getInt("starId") +"-" + rs.getString( "movieId") );
+            connectionExistence.add(rs.getString("starId") +"-" + rs.getString( "movieId") );
         }
+        s.close();
+        rs.close();
     }
 
 
 
     public static void main(String[] args) {
         // create an instance
-        MovieParser domParserExample = new MovieParser();
+        CastParser domParserExample = new CastParser();
 
         // call run example
         try{

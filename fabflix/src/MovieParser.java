@@ -80,7 +80,7 @@ public class MovieParser {
                         }
 
                         if(movieExistence.containsKey(title)){
-                            System.out.println("    "+ title +"  Already Exist\n");
+                            System.out.println("    Movie: "+ title +"  already exist");
                             continue;
                         }else{
                             movieExistence.put(title,"tt"+mv_id);
@@ -121,8 +121,6 @@ public class MovieParser {
                                 addMovieGenState.setInt(2,genreExistence.get(catName));
                                 addMovieGenState.addBatch();
                             }
-
-
                         }
 
 
@@ -208,7 +206,8 @@ public class MovieParser {
         while(rs.next()){
             movieExistence.put(rs.getString("title"),rs.getString("id"));
         }
-
+        s.close();
+        rs.close();
     }
 
     private void setUpGenre(Connection conn) throws Exception {
@@ -224,6 +223,8 @@ public class MovieParser {
         while(rs.next()){
             genreExistence.put(rs.getString("name"),rs.getInt("id"));
         }
+        s.close();
+        rs.close();
     }
 
     private void setUpConnect(Connection conn) throws Exception {
@@ -234,6 +235,8 @@ public class MovieParser {
         while(rs.next()){
             connectionExistence.add(rs.getInt("genreId") +"-" + rs.getString( "movieId") );
         }
+        s.close();
+        rs.close();
     }
 
     public static void main(String[] args) {
