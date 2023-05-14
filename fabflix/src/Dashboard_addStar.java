@@ -243,7 +243,11 @@ public class Dashboard_addStar extends HttpServlet {
             addStatement.setInt(2,Integer.parseInt(year));
             addStatement.setString(3,director);
             addStatement.setString(4,star);
-            addStatement.setInt(5,Integer.parseInt(starYear));
+            if(starYear!=null&& !starYear.equals("")){
+                addStatement.setInt(5,Integer.parseInt(starYear));
+            }else{
+                addStatement.setNull(5,java.sql.Types.INTEGER);
+            }
             addStatement.setString(6,genre);
 
             addStatement.registerOutParameter(7, Types.VARCHAR); // mv_id
