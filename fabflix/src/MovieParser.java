@@ -59,10 +59,12 @@ public class MovieParser {
         // get a nodelist of employee Elements, parse each into Employee object
         NodeList directorFilmsList = documentElement.getElementsByTagName("directorfilms");
         for (int i = 0; i < directorFilmsList.getLength(); i++) {
+
             try {
                 Element directorFilmsElement = (Element) directorFilmsList.item(i);
 
                 String directorName = getTextValue(directorFilmsElement, "dirname");
+                System.out.println("[EXECUTE] ADDING movies from Director: "+directorName);
                 if(directorName == null){
                     mv_incon++;
                     continue;
@@ -155,8 +157,11 @@ public class MovieParser {
         }
 
         // Start adding things to DB
+        System.out.println("[EXECUTE]Adding Movie");
         statement.executeBatch();
+        System.out.println("[EXECUTE]Adding Genre");
         addGenreState.executeBatch();
+        System.out.println("[EXECUTE]Adding Genre_Movie relationship");
         addMovieGenState.executeBatch();
         connection.commit();
         statement.close();
