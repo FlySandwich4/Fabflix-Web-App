@@ -1,7 +1,9 @@
 let htmlBody = $("#htmlBody")
+let messageDiv = $("#messageDiv")
 
 function displayAddStar(){
     htmlBody.empty()
+    messageDiv.empty()
     let addStarHtml = "<h2>Insert Star</h2>\n" +
         "    <form id=\"insert-star\" method=\"post\" action=\"#\">\n" +
         "        <label><b>Name</b></label>\n" +
@@ -53,6 +55,7 @@ function submitAddStarForm(formSubmitEvent) {
 function displayMeta(data){
     console.log(data)
     htmlBody.empty()
+    messageDiv.empty()
     metaHtml = ""
 
     for(let key in data){
@@ -86,6 +89,8 @@ function requestMeta(){
 // Display Add Movie
 function displayAddMovie(){
     htmlBody.empty()
+    messageDiv.empty()
+
     let addStarHtml = "<h2>Add Movie</h2>\n" +
         "    <form id=\"add-movie\" method=\"post\" action=\"#\">\n" +
 
@@ -144,7 +149,7 @@ function submitAddMovieForm(formSubmitEvent) {
             data: addMovieForm.serialize(),
             success: data=>{
                 console.log(data)
-                let messageDiv = $("#messageDiv")
+
                 messageDiv.empty();
                 if(data["success"] === "yes"){
                     messageDiv.append("Successfully added new Star")

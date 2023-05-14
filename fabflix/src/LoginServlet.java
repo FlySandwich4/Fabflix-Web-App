@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                 responseJsonObject.addProperty("message", "user " + email + " doesn't exist");
                 return;
             }
-            System.out.println("bbbbbbbbbbbbbbbb");
+            //System.out.println("bbbbbbbbbbbbbbbb");
             boolean success = false;
 
             StrongPasswordEncryptor enc = new StrongPasswordEncryptor();
@@ -73,7 +73,6 @@ public class LoginServlet extends HttpServlet {
                     request.getServletContext().log("Error:", e);
                     // Set response status to 500 (Internal Server Error)
                     response.setStatus(200);
-                    response.getWriter().write(responseJsonObject.toString());
                     return;
                 }
             }else{

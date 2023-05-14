@@ -25,6 +25,9 @@ public class CastParser {
 
     int s_id;
 
+    int star_in=0, star_dup=0,star_not_found=0,mv_no_star=0,star_no_dob=0,star_no_name=0;
+    int star_relation_in=0, relation_no_enough=0,relation_exist=0;
+
 
     public void runExample() throws Exception{
 
@@ -47,11 +50,27 @@ public class CastParser {
         try{
             addStarState.executeBatch();
             addRelationState.executeBatch();
-            System.out.println("[SUCCESS]Finish execute Batches");
+            System.out.println("[SUCCESS]Finished executing Batches");
             connection.commit();
             connection.close();
         }catch (Exception e){
             System.out.println("[ERROR]EXECUTE BATCH ERROR: "+ e);
+        }finally {
+            System.out.println("\n[RESULT]");
+            System.out.println("  |  [Stars]");
+            System.out.println("  |    |  Stars inserted: "+star_in);
+            System.out.println("  |    |  Duplicate stars: "+star_dup);
+            System.out.println("  |    |  Stars not found(xml or other issue): "+star_not_found);
+            System.out.println("  |    |  Stars without Birth Year: "+star_no_dob);
+            System.out.println("  |    |  Stars without Name: "+star_no_name);
+            System.out.println("  |  ");
+            System.out.println("  |  [Relation]");
+            System.out.println("  |    |  Stars_in_movies inserted: "+star_relation_in);
+            System.out.println("  |    |  Movie without star: "+mv_no_star);
+            System.out.println("  |    |  Relation Information not Enough: "+relation_no_enough);
+            System.out.println("  |    |  Relation Already Exist: "+relation_exist);
+            System.out.println("  |  ");
+            System.out.println("[END]");
 
         }
 
@@ -66,26 +85,29 @@ public class CastParser {
         NodeList starList = starDoc.getElementsByTagName("actor");
         for(int eachStarI = 0; eachStarI < starList.getLength(); eachStarI++){
             try{
-                System.out.println("\n[START]Adding actor index: " + eachStarI);
+                //System.out.println("\n[START]Adding actor index: " + eachStarI);
                 Element starEle = (Element) starList.item(eachStarI);
                 String name = null;
                 try {
                     name = getTextValue(starEle, "stagename");
                 }catch (Exception e){
-                    System.out.println("  |  [ERROR]name in XML might be error, skip adding");
+//                    System.out.println("  |  [ERROR]name in XML might be error, skip adding");
+                    star_no_name++;
                     continue;
                 }
                 String birthYear;
 
                 // Check if name is null
                 if(name==null){
-                    System.out.println("  |  [Warning]Star name is null, skip adding");
+                    //System.out.println("  |  [Warning]Star name is null, skip adding");
+                    star_no_name++;
                     continue;
                 }
 
                 // Check if starList already contains this star
                 if(starExistence.containsKey(name)){
-                    System.out.println("  |  [Warning]Star: " + name + " already exist, skip adding");
+                    //System.out.println("  |  [Warning]Star: " + name + " already exist, skip adding");
+                    star_dup++;
                     continue;
                 }
 
@@ -93,12 +115,17 @@ public class CastParser {
                 try{
                     birthYear = getTextValue(starEle, "dob");
                 }catch (Exception e){
-                    System.out.println("  |  [Warning]Star: "+name+" doesn't have birthday year, insert as null");
+                    //System.out.println("  |  [Warning]Star: "+name+" doesn't have birthday year, insert as null");
+                    star_no_dob++;
                     birthYear = null;
                 }
 
                 // Adding record to hashmap, for later star checking
-                starExistence.put(name,"nm"+s_id);
+                String star_string_id = "nm" + s_id;
+                while(star_string_id.length() <9){
+                    star_string_id = star_string_id.substring(0,2) + "0" + star_string_id.substring(2);
+                }
+                starExistence.put(name,star_string_id);
 
                 // Setting prepared statements, add to batch
                 addStarState.setString(1,starExistence.get(name));
@@ -111,14 +138,16 @@ public class CastParser {
 
                 addStarState.addBatch();
                 s_id++;
+                star_in++;
 
             }catch (Exception e){
-                System.out.println("\n  |  [ERROR]Add Star Error: " + e + "\n");
+                //System.out.println("\n  |  [ERROR]Add Star Error: " + e + "\n");
+                star_not_found++;
                 continue;
             }
-            finally {
-                System.out.println("[END]");
-            }
+//            finally {
+//                System.out.println("[END]");
+//            }
         }
         return addStarState;
 
@@ -133,22 +162,24 @@ public class CastParser {
 
         Element castDoc = castDom.getDocumentElement();
         NodeList relationList = castDoc.getElementsByTagName("m");
-        System.out.println("   NumOfRelation in Star:"+relationList.getLength());
+        //System.out.println("   NumOfRelation in Star:"+relationList.getLength());
         for(int eachRelI = 0; eachRelI < relationList.getLength(); eachRelI++){
-            System.out.println("\n[START]Adding actor-movie relationship index: " + eachRelI);
+            //System.out.println("\n[START]Adding actor-movie relationship index: " + eachRelI);
             Element eachM = (Element) relationList.item(eachRelI);
 
             String title=null, star=null;
             try{
                 title = getTextValue(eachM,"t");
                 star = getTextValue(eachM,"a");
-                System.out.println("  |  [Log]Adding title:"+title +" star:"+star);
+                //System.out.println("  |  [Log]Adding title:"+title +" star:"+star);
             }catch (Exception e){
-                System.out.println("  |  [ERROR]Title or Star in XML might be error, skip adding");
+                // System.out.println("  |  [ERROR]Title or Star in XML might be error, skip adding");
+                relation_no_enough++;
                 continue;
             }
             if(title == null || star == null){
-                System.out.println("  |  [Warning]Title or Star might be null, skip adding");
+                //System.out.println("  |  [Warning]Title or Star might be null, skip adding");
+                mv_no_star++;
                 continue;
             }
 
@@ -158,11 +189,13 @@ public class CastParser {
             String s_mId = starId+"-"+movieId;
 
             if(starId==null || movieId==null){
-                System.out.println("  |  [Warning]StarId or MovieId: " +starId + ", " + movieId+" is null, skip adding");
+                //System.out.println("  |  [Warning]StarId or MovieId: " +starId + ", " + movieId+" is null, skip adding");
+                relation_no_enough++;
                 continue;
             }
             if(connectionExistence.contains(s_mId)){
-                System.out.println("  |  [Warning]Relation: " +s_mId+" already exist, skip adding");
+                //System.out.println("  |  [Warning]Relation: " +s_mId+" already exist, skip adding");
+                relation_exist++;
                 continue;
             }
 
@@ -173,7 +206,7 @@ public class CastParser {
             addRelationState.addBatch();
             a++;
             System.out.println(a);
-
+            star_relation_in++;
         }
         return addRelationState;
     }
@@ -241,7 +274,7 @@ public class CastParser {
         if(rs.next()){
             s_id = Integer.parseInt(rs.getString("id").substring(2))+ 1;
             starExistence.put(rs.getString("name"),rs.getString("id"));
-            System.out.println(s_id);
+            //System.out.println(s_id);
         }
         while(rs.next()){
             starExistence.put(rs.getString("name"),rs.getString("id"));

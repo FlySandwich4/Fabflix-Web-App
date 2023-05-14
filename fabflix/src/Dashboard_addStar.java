@@ -215,9 +215,25 @@ public class Dashboard_addStar extends HttpServlet {
             ){
                 responseJsonObject.addProperty("success", "no");
                 responseJsonObject.addProperty("message", "Some Field Lost");
-                response.getWriter().write(responseJsonObject.toString());
-                response.setStatus(500);
+                //response.getWriter().write(responseJsonObject.toString());
+                response.setStatus(200);
                 return;
+            }
+
+            String checkMovieQuery = "SELECT COUNT(*) AS c FROM movies WHERE title=?;";
+            PreparedStatement checkMovieStatement = conn.prepareStatement(checkMovieQuery);
+            checkMovieStatement.setString(1,title);
+            ResultSet checkRs = checkMovieStatement.executeQuery();
+            if (checkRs.next()) {
+                int count = checkRs.getInt("c");
+                checkMovieStatement.close();
+                checkRs.close();
+                if (count > 0) {
+                    responseJsonObject.addProperty("success", "no");
+                    responseJsonObject.addProperty("message", "Movie already exists");
+                    response.setStatus(200);
+                    return;
+                }
             }
 
             // INSERT data to star
@@ -243,7 +259,7 @@ public class Dashboard_addStar extends HttpServlet {
             // Log error to localhost log
             request.getServletContext().log("Error:", e);
             // Set response status to 500 (Internal Server Error)
-            response.setStatus(500);
+            // response.setStatus(200);
         }
         finally{
             response.getWriter().write(responseJsonObject.toString());

@@ -25,6 +25,7 @@ public class MovieParser {
     int mv_id;
     int g_id;
 
+    int mv_in=0, mv_dup=0, mv_no=0, mv_incon=0,mv_no_gen=0,gen_in_mv=0,dir_err=0,new_gen=0,relation_exist=0;
 
     public void runExample() throws Exception{
 
@@ -63,9 +64,10 @@ public class MovieParser {
 
                 String directorName = getTextValue(directorFilmsElement, "dirname");
                 if(directorName == null){
+                    mv_incon++;
                     continue;
                 }
-                System.out.println(directorName);
+                //System.out.println(directorName);
                 NodeList films = directorFilmsElement.getElementsByTagName("film");
                 for (int j = 0; j < films.getLength(); j++) {
                     try {
@@ -73,17 +75,23 @@ public class MovieParser {
 
                         String title = getTextValue(filmElement, "t");
                         String year = getTextValue(filmElement, "year");
-                        System.out.println("    tt" + mv_id + "  |  " + title + "  |  " + year);
+                        //System.out.println("    tt" + mv_id + "  |  " + title + "  |  " + year);
 
                         if(title == null || year == null){
+                            mv_incon++;
                             continue;
                         }
 
                         if(movieExistence.containsKey(title)){
-                            System.out.println("    Movie: "+ title +"  already exist");
+                            //System.out.println("    Movie: "+ title +"  already exist");
+                            mv_dup++;
                             continue;
                         }else{
-                            movieExistence.put(title,"tt"+mv_id);
+                            String mv_string_id = "tt" + mv_id;
+                            while(mv_string_id.length() <9){
+                                mv_string_id = mv_string_id.substring(0,2) + "0" + mv_string_id.substring(2);
+                            }
+                            movieExistence.put(title,mv_string_id);
 
                             statement.setString(1,movieExistence.get(title));
                             statement.setString(2,directorName);
@@ -91,6 +99,7 @@ public class MovieParser {
                             statement.setInt(4,Integer.parseInt(year));
 
                             statement.addBatch();
+                            mv_in++;
                             mv_id++;
                         }
 
@@ -101,16 +110,18 @@ public class MovieParser {
                             Element singleCat = (Element) catList.item(eachCat);
                             String catName = singleCat.getFirstChild().getNodeValue();
                             if(catName == null){
+                                mv_no_gen++;
                                 continue;
                             }
                             if(!genreExistence.containsKey(catName)){
                                 genreExistence.put(catName,g_id);
-                                System.out.println("    Cat added: " + catName);
+                                //System.out.println("    Cat added: " + catName);
 
                                 addGenreState.setInt(1,genreExistence.get(catName));
                                 addGenreState.setString(2,catName);
                                 addGenreState.addBatch();
 
+                                new_gen++;
                                 g_id++;
                             }
                             int catId = genreExistence.get(catName);
@@ -120,30 +131,48 @@ public class MovieParser {
                                 addMovieGenState.setString(1,movieExistence.get(title));
                                 addMovieGenState.setInt(2,genreExistence.get(catName));
                                 addMovieGenState.addBatch();
+                                gen_in_mv++;
+                            }else {
+                                relation_exist++;
                             }
                         }
 
 
 
                     }catch (Exception e){
-                        System.out.println("    filmElement ERROR: " + e);
+                        //System.out.println("    filmElement ERROR: " + e);
+                        mv_no++;
                         continue;
                     }
                 }
 
             }catch (Exception e){
-                System.out.println("    directorFilmsElement ERROR: " + e);
+                //System.out.println("    directorFilmsElement ERROR: " + e);
+                dir_err++;
                 continue;
             }
 
         }
 
         // Start adding things to DB
-        //statement.executeBatch();
+        statement.executeBatch();
         addGenreState.executeBatch();
-        System.out.println("here");
         addMovieGenState.executeBatch();
         connection.commit();
+        System.out.println("\n[RESULT]");
+        System.out.println("  |  [Movies]");
+        System.out.println("  |    |  Movies inserted: "+mv_in);
+        System.out.println("  |    |  Duplicate movies: "+mv_dup);
+        System.out.println("  |    |  Movies err: "+ mv_no);
+        System.out.println("  |    |  Movies without related info in xml: "+mv_incon);
+        System.out.println("  |  ");
+        System.out.println("  |  [Relation]");
+        System.out.println("  |    |  Genres_in_movies inserted: "+gen_in_mv);
+        System.out.println("  |    |  already exist relationship: "+relation_exist);
+        System.out.println("  |    |  Movie without genre: "+mv_no_gen);
+        System.out.println("  |    |  new Genres: "+new_gen);
+        System.out.println("  |  ");
+        System.out.println("[END]");
 
     }
 
@@ -201,7 +230,7 @@ public class MovieParser {
         if(rs.next()){
             mv_id = Integer.parseInt(rs.getString("id").substring(2))+1;
             movieExistence.put(rs.getString("title"),rs.getString("id"));
-            System.out.println(mv_id);
+            //System.out.println(mv_id);
         }
         while(rs.next()){
             movieExistence.put(rs.getString("title"),rs.getString("id"));
@@ -218,7 +247,7 @@ public class MovieParser {
         if(rs.next()){
             g_id = rs.getInt("id") + 1;
             genreExistence.put(rs.getString("name"),rs.getInt("id"));
-            System.out.println(g_id);
+            //System.out.println(g_id);
         }
         while(rs.next()){
             genreExistence.put(rs.getString("name"),rs.getInt("id"));

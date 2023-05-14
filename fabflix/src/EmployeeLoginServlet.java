@@ -71,7 +71,6 @@ public class EmployeeLoginServlet extends HttpServlet {
                     request.getServletContext().log("Error:", e);
                     // Set response status to 500 (Internal Server Error)
                     response.setStatus(200);
-                    response.getWriter().write(responseJsonObject.toString());
                     return;
                 }
             }else{
