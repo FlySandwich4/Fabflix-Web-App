@@ -5,4 +5,4 @@ CREATE TABLE IF NOT EXISTS employees(
     PRIMARY KEY (email)
     );
 
-INSERT INTO employees (email, password, fullname) VALUES ('classta@email.edu', 'encrypted_password', 'TA CS122B');
+INSERT INTO employees (email, password, fullname) VALUES ('classta@email.edu', 'classta', 'TA CS122B');
