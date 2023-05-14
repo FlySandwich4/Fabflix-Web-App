@@ -3,7 +3,7 @@ s23-122b-flysandwich created by GitHub Classroom
 
 # CURRENT LINK OF THE WEBSITE #
 
-http://54.183.234.77:8080/fabflix/
+https://54.183.250.173:8443/fabflix/
 
 # PROJECT 1 Video Demo Link: #
 https://youtu.be/BRLU-ovfwyc
