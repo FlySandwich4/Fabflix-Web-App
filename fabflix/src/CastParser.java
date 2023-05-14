@@ -47,13 +47,21 @@ public class CastParser {
         PreparedStatement addStarState = addStar(connection);
         PreparedStatement addRelationState = addRelation(connection);
 
+        starExistence.clear();
+        movieExistence.clear();
+        connectionExistence.clear();
         try{
+            System.out.println("[EXECUTE]Adding Stars");
             addStarState.executeBatch();
-            addRelationState.executeBatch();
-            System.out.println("[SUCCESS]Finished executing Batches");
-            connection.commit();
             addStarState.close();
+            System.out.println("[EXECUTE]Adding Stars_movie Realtions");
+            addRelationState.executeBatch();
             addRelationState.close();
+            System.out.println("[SUCCESS]Finished executing Batches");
+
+
+            connection.commit();
+
             connection.close();
         }catch (Exception e){
             System.out.println("[ERROR]EXECUTE BATCH ERROR: "+ e);

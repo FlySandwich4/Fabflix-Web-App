@@ -156,17 +156,20 @@ public class MovieParser {
 
         }
 
+        movieExistence.clear();
+        genreExistence.clear();
+        connectionExistence.clear();
         // Start adding things to DB
         System.out.println("[EXECUTE]Adding Movie");
         statement.executeBatch();
+        statement.close();
         System.out.println("[EXECUTE]Adding Genre");
         addGenreState.executeBatch();
+        addGenreState.close();
         System.out.println("[EXECUTE]Adding Genre_Movie relationship");
         addMovieGenState.executeBatch();
-        connection.commit();
-        statement.close();
-        addGenreState.close();
         addMovieGenState.close();
+        connection.commit();
         connection.close();
         System.out.println("\n[RESULT]");
         System.out.println("  |  [Movies]");
