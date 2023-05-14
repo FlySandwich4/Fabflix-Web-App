@@ -12,10 +12,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.stream.Stream;
 
 import org.jasypt.util.password.StrongPasswordEncryptor;
@@ -145,6 +142,7 @@ public class Dashboard_addStar extends HttpServlet {
             }
             addStatement.executeUpdate();
             responseJsonObject.addProperty("success", "yes");
+            responseJsonObject.addProperty("message", "Successfully Added StarId: "+newId);
 
 
         } catch (Exception e){
@@ -170,7 +168,7 @@ public class Dashboard_addStar extends HttpServlet {
         String director = request.getParameter("director");
         String star = request.getParameter("star-name");
         String starYear = request.getParameter("star-year");
-        String genre = request.getParameter("year");
+        String genre = request.getParameter("genre");
 
         JsonObject responseJsonObject = new JsonObject();
 
@@ -204,7 +202,7 @@ public class Dashboard_addStar extends HttpServlet {
 
             }catch (Exception e){
                 System.out.println("Error with procedure, might already exist");
-                System.out.println(e);
+                //System.out.println(e);
             }
 
             if(title==null || title.equals("") ||
@@ -236,9 +234,11 @@ public class Dashboard_addStar extends HttpServlet {
                 }
             }
 
-            // INSERT data to star
-            String addMovieQuery = "CALL add_movie(?,?,?,?,?,?); ";
-            PreparedStatement addStatement = conn.prepareStatement(addMovieQuery);
+            System.out.println("\n\nGenre:"+genre);
+
+            // INSERT movie to  data
+            String addMovieQuery = "CALL add_movie(?,?,?,?,?,?,?,?,?); ";
+            CallableStatement addStatement = conn.prepareCall(addMovieQuery);
             addStatement.setString(1,title);
             addStatement.setInt(2,Integer.parseInt(year));
             addStatement.setString(3,director);
@@ -246,9 +246,20 @@ public class Dashboard_addStar extends HttpServlet {
             addStatement.setInt(5,Integer.parseInt(starYear));
             addStatement.setString(6,genre);
 
-            addStatement.executeUpdate();
-            responseJsonObject.addProperty("success", "yes");
+            addStatement.registerOutParameter(7, Types.VARCHAR); // mv_id
+            addStatement.registerOutParameter(8, Types.INTEGER); // genre_id
+            addStatement.registerOutParameter(9, Types.VARCHAR); // star_id
 
+            addStatement.execute();
+
+            String mv_id = addStatement.getString(7);
+            System.out.println("    Add movie: mv_id: "+mv_id);
+            int genre_id = addStatement.getInt(8);
+            System.out.println("    Add movie: genre_id: "+genre_id);
+            String star_id = addStatement.getString(9);
+            System.out.println("    Add movie: star_id: "+star_id);
+            responseJsonObject.addProperty("success", "yes");
+            responseJsonObject.addProperty("message", "Added movieId: "+mv_id+" genreId: "+genre_id+" starId: "+star_id);
 
         } catch (Exception e){
             e.printStackTrace();

@@ -73,24 +73,31 @@ public class SearchResultServlet extends HttpServlet {
                     "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id ORDER BY g.name ASC SEPARATOR ', ' ) AS genres,\n" +
                     "    r.rating \n" +
 
-                    "FROM movies AS mv, \n" +
-                    "    genres AS g, \n" +
-                    "    stars AS s, \n" +
-                    "    genres_in_movies AS gim, \n" +
-                    "    stars_in_movies AS sim, \n" +
-                    "    ratings AS r, " +
-                    "   (" +
-                    "       SELECT starId, COUNT(sim.movieId) AS num_movies\n" +
-                    "       FROM stars_in_movies AS sim\n" +
-                    "       GROUP BY starId\n" +
-                    "    ) AS sm  \n" +
-                    "WHERE \n" +
-                    "    mv.id=gim.movieId \n" +
-                    "    AND mv.id=r.movieId \n" +
-                    "    AND gim.genreId=g.Id \n" +
-                    "    AND mv.id=sim.movieId \n" +
-                    "    AND sim.starId=s.id \n" +
-                    "    AND sm.starId=s.id \n"
+//                    "FROM movies AS mv, \n" +
+//                    "    genres AS g, \n" +
+//                    "    stars AS s, \n" +
+//                    "    genres_in_movies AS gim, \n" +
+//                    "    stars_in_movies AS sim, \n" +
+//                    "    ratings AS r, " +
+//                    "   (" +
+//                    "       SELECT starId, COUNT(sim.movieId) AS num_movies\n" +
+//                    "       FROM stars_in_movies AS sim\n" +
+//                    "       GROUP BY starId\n" +
+//                    "    ) AS sm  \n" +
+
+                    "FROM movies AS mv\n" +
+                    "JOIN genres_in_movies AS gim ON mv.id = gim.movieId\n" +
+                    "JOIN stars_in_movies AS sim ON mv.id = sim.movieId\n" +
+                    "JOIN genres AS g ON g.id = gim.genreId\n" +
+                    "JOIN stars AS s ON sim.starId = s.id\n" +
+                    "LEFT JOIN ratings AS r ON mv.id = r.movieId\n" +
+                    "JOIN (\n" +
+                    "    SELECT starId, COUNT(sim.movieId) AS num_movies\n" +
+                    "    FROM stars_in_movies AS sim\n" +
+                    "    GROUP BY starId\n" +
+                    ") AS sm ON s.id = sm.starId " +
+
+                    "WHERE \n"
                     ;
 
             //|| searchType.equals("")
@@ -145,7 +152,7 @@ public class SearchResultServlet extends HttpServlet {
             if (searchType.equals("genre")) {
                 request.getSession().setAttribute("searchType", "genre");
                 request.getSession().setAttribute("genre", genreId);
-                query += " AND EXISTS ("
+                query += "  EXISTS ("
                         + " SELECT * "
                         + " FROM genres AS g2, movies AS mv2, genres_in_movies AS gim2 "
                         + " WHERE g2.id=gim2.genreId AND gim2.movieId=mv.id AND g2.id=?) ";
@@ -154,9 +161,9 @@ public class SearchResultServlet extends HttpServlet {
                 request.getSession().setAttribute("searchType", "letter");
                 request.getSession().setAttribute("letter", letter);
                 if (letter.equals("")) {
-                    query += " AND mv.title REGEXP '^[^A-Za-z0-9].*' ";
+                    query += "  mv.title REGEXP '^[^A-Za-z0-9].*' ";
                 } else {
-                    query += " AND mv.title LIKE ? ";
+                    query += "  mv.title LIKE ? ";
                 }
 
             }
@@ -171,7 +178,7 @@ public class SearchResultServlet extends HttpServlet {
 
                 if(title != null && !title.isEmpty()){
                     System.out.println("title");
-                    query += "AND mv.title LIKE ? \n";
+                    query += " mv.title LIKE ? \n";
                 }
                 if(star != null && !star.isEmpty()){
                     System.out.println("star");
@@ -277,7 +284,7 @@ public class SearchResultServlet extends HttpServlet {
             // SET ? in prepared statement in CountStatement
             int paramIndex = 1;
             if (searchType.equals("genre")) {
-                countstatement.setString(paramIndex, genreId);
+                countstatement.setInt(paramIndex, Integer.parseInt(genreId));
             } else if (searchType.equals("letter")) {
                 if (!letter.equals("*")) {
                     countstatement.setString(paramIndex, letter + "%");
@@ -291,7 +298,7 @@ public class SearchResultServlet extends HttpServlet {
                     countstatement.setString(paramIndex++, "%" + star + "%");
                 }
                 if (year != null && !year.isEmpty()) {
-                    countstatement.setString(paramIndex++, year);
+                    countstatement.setInt(paramIndex++, Integer.parseInt(year));
                 }
                 if (director != null && !director.isEmpty()) {
                     countstatement.setString(paramIndex, "%" + director + "%");
@@ -329,7 +336,7 @@ public class SearchResultServlet extends HttpServlet {
                     statement.setString(paramIndex++, "%" + star + "%");
                 }
                 if (year != null && !year.isEmpty()) {
-                    statement.setString(paramIndex++, year);
+                    statement.setInt(paramIndex++, Integer.parseInt(year));
                 }
                 if (director != null && !director.isEmpty()) {
                     statement.setString(paramIndex++, "%" + director + "%");

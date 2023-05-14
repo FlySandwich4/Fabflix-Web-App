@@ -52,6 +52,8 @@ public class CastParser {
             addRelationState.executeBatch();
             System.out.println("[SUCCESS]Finished executing Batches");
             connection.commit();
+            addStarState.close();
+            addRelationState.close();
             connection.close();
         }catch (Exception e){
             System.out.println("[ERROR]EXECUTE BATCH ERROR: "+ e);
@@ -185,8 +187,13 @@ public class CastParser {
 
 
             String movieId = movieExistence.get(title);
+
             String starId = starExistence.get(star);
             String s_mId = starId+"-"+movieId;
+            if(title.equals("Forrest Gump")){
+                System.out.println("/n/n/n/n/n/nFORREST GUMP : "+movieId + " " + starId);
+                System.out.println("Exist:? "+connectionExistence.contains(s_mId));
+            }
 
             if(starId==null || movieId==null){
                 //System.out.println("  |  [Warning]StarId or MovieId: " +starId + ", " + movieId+" is null, skip adding");
@@ -205,7 +212,7 @@ public class CastParser {
             addRelationState.setString(2,starId);
             addRelationState.addBatch();
             a++;
-            System.out.println(a);
+            //System.out.println(a);
             star_relation_in++;
         }
         return addRelationState;

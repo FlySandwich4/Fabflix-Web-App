@@ -159,6 +159,10 @@ public class MovieParser {
         addGenreState.executeBatch();
         addMovieGenState.executeBatch();
         connection.commit();
+        statement.close();
+        addGenreState.close();
+        addMovieGenState.close();
+        connection.close();
         System.out.println("\n[RESULT]");
         System.out.println("  |  [Movies]");
         System.out.println("  |    |  Movies inserted: "+mv_in);

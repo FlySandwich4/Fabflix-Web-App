@@ -38,7 +38,7 @@ function submitAddStarForm(formSubmitEvent) {
                 let messageDiv = $("#messageDiv")
                 messageDiv.empty();
                 if(data["success"] === "yes"){
-                    messageDiv.append("Successfully added new Star")
+                    messageDiv.append(data["message"])
                 }else{
                     messageDiv.append("!!! ERROR ADDING NEW STAR !!!")
                 }
@@ -152,9 +152,10 @@ function submitAddMovieForm(formSubmitEvent) {
 
                 messageDiv.empty();
                 if(data["success"] === "yes"){
-                    messageDiv.append("Successfully added new Star")
-                }else{
+                    messageDiv.append("Successfully added new Movie\n")
                     messageDiv.append(data["message"])
+                }else{
+                    messageDiv.append()
                 }
             }
         }

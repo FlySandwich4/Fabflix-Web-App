@@ -9,7 +9,10 @@ CREATE PROCEDURE add_movie (
     IN mv_director VARCHAR(100),
     IN star_name VARCHAR(100),
     IN star_year INT,
-    IN genre_name VARCHAR(100)
+    IN genre_name VARCHAR(100),
+    OUT out_mv_id VARCHAR(10),
+    OUT out_genre_id INT,
+    OUT out_star_id VARCHAR(10)
 )
 BEGIN
     DECLARE star_id VARCHAR(10);
@@ -22,10 +25,15 @@ BEGIN
 
 
 
+
+
     -- Add star and add to stars_in_movies
-    SELECT MAX(id) INTO maxStar FROM stars;
-    SET star_id = CONCAT('nm', LPAD(CAST(SUBSTRING(maxStar, 3) AS UNSIGNED) + 1, 7, '0'));
-    INSERT INTO stars(id, name, birthYear) VALUES (star_id, star_name,star_year);
+    SELECT id INTO star_id FROM stars WHERE name = star_name;
+    IF star_id IS NULL THEN
+        SELECT MAX(id) INTO maxStar FROM stars;
+        SET star_id = CONCAT('nm', LPAD(CAST(SUBSTRING(maxStar, 3) AS UNSIGNED) + 1, 7, '0'));
+        INSERT INTO stars(id, name, birthYear) VALUES (star_id, star_name,star_year);
+    END IF;
 
 
 
@@ -49,5 +57,10 @@ BEGIN
     IF NOT EXISTS (SELECT * FROM genres_in_movies WHERE genreId = genre_id AND movieId = mv_id) THEN
         INSERT INTO genres_in_movies(genreId, movieId) VALUES (genre_id, mv_id);
     END IF;
+
+    SET out_mv_id = mv_id;
+    SET out_genre_id = genre_id;
+    SET out_star_id = star_id;
+
 
 END;
