@@ -155,7 +155,7 @@ function submitAddMovieForm(formSubmitEvent) {
                     messageDiv.append("Successfully added new Movie\n")
                     messageDiv.append(data["message"])
                 }else{
-                    messageDiv.append()
+                    messageDiv.append(data["message"])
                 }
             }
         }
