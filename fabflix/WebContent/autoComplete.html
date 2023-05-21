@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
   <link rel="stylesheet" href="autoComplete.css">
   <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="search.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
@@ -36,9 +37,17 @@
   <input type="text" name="hero" id="autocomplete"
          class="autocomplete-searchbox form-control"
          placeholder="Search Super Heroes"/>
+  <button onclick="handleSearchButton()">Search</button>
+</div>
+
+<div>
+  <div id="searchResult">
+
+  </div>
 </div>
 
 <script src="autoComplete.js"></script>
+
 
 </body>
 </html>
