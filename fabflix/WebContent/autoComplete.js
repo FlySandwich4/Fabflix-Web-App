@@ -9,7 +9,7 @@
  * To read this code, start from the line "$('#autocomplete').autocomplete" and follow the callback functions.
  *
  */
-
+let queryHistory = []
 
 /*
  * This function is called by the library when it needs to lookup a query.
@@ -23,6 +23,16 @@ function handleLookup(query, doneCallback) {
     console.log("sending AJAX request to backend Java Servlet")
 
     // TODO: if you want to check past query results first, you can do it here
+    if(query.length<3){
+        console.log("query Less than 3\n")
+        return
+    }
+    if(queryHistory.includes(query)){
+        console.log("query already done in the past\n")
+        return
+    }
+    queryHistory.push(query)
+
 
     // sending the HTTP GET request to the Java Servlet endpoint hero-suggestion
     // with the query data
@@ -119,7 +129,7 @@ $('#autocomplete').keypress(function(event) {
     // keyCode 13 is the enter key
     if (event.keyCode == 13) {
         // pass the value of the input box to the handler function
-        handleNormalSearch($('#autocomplete').val())
+        handleSearchButton()
     }
 })
 
@@ -135,7 +145,7 @@ function handleSearchButton(){
 }
 
 function handleFullTextSearch(searchResult) {
-    console.log(searchResult);
+    //console.log(searchResult);
     // If login succeeds, it will redirect the user to index.html
     if (searchResult["status"] === "fail") {
         // If login fails, the web page will display
