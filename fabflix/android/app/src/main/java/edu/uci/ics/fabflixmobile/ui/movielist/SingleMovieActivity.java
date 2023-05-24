@@ -27,9 +27,9 @@ import java.util.ArrayList;
 public class SingleMovieActivity extends AppCompatActivity {
 
     private TextView b_title, b_dir, b_year, b_rating, b_stars, b_genres;
-    private final String host = "10.0.2.2";
+    private final String host = "3.101.28.218";
     private final String port = "8443";
-    private final String domain = "fabflix_war";
+    private final String domain = "fabflix";
     private final String baseURL = "https://" + host + ":" + port + "/" + domain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

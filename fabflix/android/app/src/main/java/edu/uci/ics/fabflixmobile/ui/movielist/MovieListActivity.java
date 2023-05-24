@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -22,9 +23,9 @@ import java.util.ArrayList;
 
 public class MovieListActivity extends AppCompatActivity {
 
-    private final String host = "10.0.2.2";
+    private final String host = "3.101.28.218";
     private final String port = "8443";
-    private final String domain = "fabflix_war";
+    private final String domain = "fabflix";
     private final String baseURL = "https://" + host + ":" + port + "/" + domain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +126,8 @@ public class MovieListActivity extends AppCompatActivity {
             int currentPage = intent.getIntExtra("page", 0);
             int previousPage = currentPage - 1;
             if(previousPage < 0){
+                String message = "No more previous page";
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 return;
             }
             // Update the extra data
@@ -139,6 +142,8 @@ public class MovieListActivity extends AppCompatActivity {
             int nextPage = currentPage + 1;
             // Update the extra data
             if(movies.size()<20){
+                String message = "No more next page";
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 return;
             }
             intent.putExtra("page", nextPage);
