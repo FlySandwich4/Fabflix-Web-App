@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class MovieListViewAdapter extends ArrayAdapter<Movie> {
     private static class ViewHolder {
         TextView title;
         TextView subtitle;
-        TextView genre;
+        TextView genre,star,rating;
     }
 
     public MovieListViewAdapter(Context context, ArrayList<Movie> movies) {
@@ -43,6 +44,8 @@ public class MovieListViewAdapter extends ArrayAdapter<Movie> {
             viewHolder.title = convertView.findViewById(R.id.title);
             viewHolder.subtitle = convertView.findViewById(R.id.subtitle);
             viewHolder.genre = convertView.findViewById(R.id.genre);
+            viewHolder.star = convertView.findViewById(R.id.star);
+            viewHolder.rating = convertView.findViewById(R.id.rating);
             // Cache the viewHolder object inside the fresh view
             convertView.setTag(viewHolder);
         } else {
@@ -53,7 +56,10 @@ public class MovieListViewAdapter extends ArrayAdapter<Movie> {
         // into the template view.
         viewHolder.title.setText(movie.getName());
         viewHolder.subtitle.setText(movie.getYear() + "");
-        viewHolder.genre.setText("To Be Continue");
+        viewHolder.star.setText(movie.getStars());
+        viewHolder.genre.setText(movie.getGenres());
+        viewHolder.rating.setText(movie.getRating());
+
         // Return the completed view to render on screen
         return convertView;
     }

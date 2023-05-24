@@ -64,6 +64,7 @@ public class LoginFilter implements Filter {
         allowedURIs.add("login.js");
         allowedURIs.add("login.css");
         allowedURIs.add("api/login");
+        allowedURIs.add("api/android-login");
         allowedURIs.add("api/employee-login");
         //allowedURIs.add("/dashboard/*");
 

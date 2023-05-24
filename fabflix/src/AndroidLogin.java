@@ -16,8 +16,8 @@ import java.sql.ResultSet;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/api/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "AndroidLogin", urlPatterns = "/api/android-login")
+public class AndroidLogin extends HttpServlet {
     private DataSource dataSource;
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -59,22 +59,12 @@ public class LoginServlet extends HttpServlet {
                 // success login set session
                 System.out.println("good password");
                 request.getSession().setAttribute("user", new User(email));
+                System.out.println("Setting session to: " + email);
 
                 // success attribute
                 responseJsonObject.addProperty("status", "success");
                 responseJsonObject.addProperty("message", "success");
-                try {
-                    RecaptchaVerifyUtils.verify(gRecaptchaResponse);
-                } catch (Exception e) {
-                    System.out.println("exception happeaned");
-                    responseJsonObject.addProperty("status", "recaptcha");
-                    responseJsonObject.addProperty("message", "Please do the verification");
-                    // Log error to localhost log
-                    request.getServletContext().log("Error:", e);
-                    // Set response status to 500 (Internal Server Error)
-                    response.setStatus(200);
-                    return;
-                }
+
             }else{
                 System.out.println("bad password");
                 responseJsonObject.addProperty("status", "fail");
@@ -91,7 +81,6 @@ public class LoginServlet extends HttpServlet {
             response.setStatus(500);
         }
         finally{
-            System.out.println("error");
             response.getWriter().write(responseJsonObject.toString());
         }
 

@@ -40,6 +40,7 @@ public class FullTextSearch extends HttpServlet {
 
         response.setContentType("application/json"); // Response mime type
         String search = request.getParameter("query");
+        String page = request.getParameter("page");
         if(search==null){
             return;
         }
@@ -68,7 +69,8 @@ public class FullTextSearch extends HttpServlet {
                 ") AS sm ON s.id = sm.starId " +
 
                 "WHERE MATCH (mv.title) AGAINST (? IN BOOLEAN MODE) "+
-                " GROUP BY mv.id;"
+                " GROUP BY mv.id " +
+                    " LIMIT 20 OFFSET ? ;"
                 ;
 
             PreparedStatement statement = conn.prepareStatement(query);
@@ -82,6 +84,7 @@ public class FullTextSearch extends HttpServlet {
             System.out.println(fulltextQuery);
 
             statement.setString(1,fulltextQuery);
+            statement.setInt(2,Integer.parseInt(page)*20);
             ResultSet rs = statement.executeQuery();
             JsonArray jsonArray = new JsonArray();
 
