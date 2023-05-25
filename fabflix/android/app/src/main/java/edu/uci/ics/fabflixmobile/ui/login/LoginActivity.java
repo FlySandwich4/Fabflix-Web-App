@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void login() {
-        message.setText("Trying to login");
         // use the same network queue across our application
         final RequestQueue queue = NetworkManager.sharedManager(this).queue;
         // request type is POST
@@ -84,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(SearchPage);
                         }else{
                             Log.d("login.fail",rs.getString("message"));
+
+                            message.setText(rs.getString("message"));
                         }
 
 
