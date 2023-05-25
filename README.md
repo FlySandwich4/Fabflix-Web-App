@@ -5,30 +5,9 @@ s23-122b-flysandwich created by GitHub Classroom
 
 https://54.183.250.173:8443/fabflix/
 
-# PROJECT 1 Video Demo Link: #
-https://youtu.be/BRLU-ovfwyc
+# PROJECT 4 Video Demo Link: #
+https://youtu.be/J6qJtmFomug
 
-# PROJECT 2 Video Demo Link: #
-https://youtu.be/5VlfRMb-SyM
-
-    SubString Match Design
-
-    For search:
-
-    - Title:    "abc" matches "%abc%"
-    - Star:     "tom" matches "%tom%"
-    - Director: "tom" matches "%tom%"
-    - Year      "2007" matches specific "2007", no vague search
-
-    For search by character (a,b,c...):
-    - "a" matches "a%" , case insensitive
-
-    For search by genres (drama...) 
-    - "drama" specificly matches "drama"
-
-    For "*" in main page
-    - Regular Expression searching all symbols (no letters or numbers)
-    
 # PROJECT 3 Video Demo Link: #
 https://youtu.be/OAN3ERCI0m8
 
@@ -90,4 +69,30 @@ https://youtu.be/OAN3ERCI0m8
             [END]
        
     
+
+# PROJECT 1 Video Demo Link: #
+https://youtu.be/BRLU-ovfwyc
+
+# PROJECT 2 Video Demo Link: #
+https://youtu.be/5VlfRMb-SyM
+
+    SubString Match Design
+
+    For search:
+
+    - Title:    "abc" matches "%abc%"
+    - Star:     "tom" matches "%tom%"
+    - Director: "tom" matches "%tom%"
+    - Year      "2007" matches specific "2007", no vague search
+
+    For search by character (a,b,c...):
+    - "a" matches "a%" , case insensitive
+
+    For search by genres (drama...) 
+    - "drama" specificly matches "drama"
+
+    For "*" in main page
+    - Regular Expression searching all symbols (no letters or numbers)
+    
+
     
