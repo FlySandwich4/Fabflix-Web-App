@@ -10,6 +10,7 @@
  *
  */
 let queryHistory = []
+let page = 0
 
 /*
  * This function is called by the library when it needs to lookup a query.
@@ -129,18 +130,36 @@ $('#autocomplete').keypress(function(event) {
     // keyCode 13 is the enter key
     if (event.keyCode == 13) {
         // pass the value of the input box to the handler function
-        handleSearchButton()
+        page=0
+        handleSearchButton(page)
     }
 })
 
 // TODO: if you have a "search" button, you may want to bind the onClick event as well of that button
 
 
-function handleSearchButton(){
-    let url="api/fulltextsearch?query="
+function handleSearchButton(p){
+    if(p==null){
+        page=0
+        p = page
+    }
     let query = $('#autocomplete').val()
-    $.ajax(url+query,{
-        success: handleFullTextSearch
+    if(page>p && p < 0){
+        window.alert("not more previous page")
+        return;
+    }
+    let url=`api/fulltextsearch?query=${query}&page=${p}`
+    $.ajax(url,{
+        success: data=>
+            {
+
+                if(page<p && data.length==0){
+                    window.alert("no more next page")
+                    return;
+                }
+                page = p;
+                handleFullTextSearch(data)
+        }
     })
 }
 
@@ -215,6 +234,11 @@ function handleFullTextSearch(searchResult) {
 
             searchResultDiv.append(rowHTML);
         }
+        let pageButtons = "<a href='#' class='element-page' onclick='handleSearchButton("+ (page-1) +")'>"+
+            " Previous </a>"
+        pageButtons += "<a href='#' class='element-page' onclick='handleSearchButton("+ (page+1) +")'>"+
+            " Next </a>"
+        searchResultDiv.append(pageButtons)
     }
 }
 
