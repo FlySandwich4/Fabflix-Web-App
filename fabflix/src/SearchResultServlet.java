@@ -97,7 +97,8 @@ public class SearchResultServlet extends HttpServlet {
                     "    GROUP BY starId\n" +
                     ") AS sm ON s.id = sm.starId " +
 
-                    "WHERE \n"
+                    "WHERE 1=1 \n"
+
                     ;
 
             //|| searchType.equals("")
@@ -152,7 +153,7 @@ public class SearchResultServlet extends HttpServlet {
             if (searchType.equals("genre")) {
                 request.getSession().setAttribute("searchType", "genre");
                 request.getSession().setAttribute("genre", genreId);
-                query += "  EXISTS ("
+                query += " AND EXISTS ("
                         + " SELECT * "
                         + " FROM genres AS g2, movies AS mv2, genres_in_movies AS gim2 "
                         + " WHERE g2.id=gim2.genreId AND gim2.movieId=mv.id AND g2.id=?) ";
@@ -161,9 +162,9 @@ public class SearchResultServlet extends HttpServlet {
                 request.getSession().setAttribute("searchType", "letter");
                 request.getSession().setAttribute("letter", letter);
                 if (letter.equals("")) {
-                    query += "  mv.title REGEXP '^[^A-Za-z0-9].*' ";
+                    query += " AND mv.title REGEXP '^[^A-Za-z0-9].*' ";
                 } else {
-                    query += "  mv.title LIKE ? ";
+                    query += " AND mv.title LIKE ? ";
                 }
 
             }
@@ -178,7 +179,7 @@ public class SearchResultServlet extends HttpServlet {
 
                 if(title != null && !title.isEmpty()){
                     System.out.println("title");
-                    query += " mv.title LIKE ? \n";
+                    query += " AND mv.title LIKE ? \n";
                 }
                 if(star != null && !star.isEmpty()){
                     System.out.println("star");

@@ -42,7 +42,7 @@ public class LoginFilter implements Filter {
         // Redirect to login page if the "user" attribute doesn't exist in session
         if (httpRequest.getSession().getAttribute("user") == null) {
             System.out.println("Login: URL in Re");
-            httpResponse.sendRedirect("login.html");
+            httpResponse.sendRedirect("/fabflix/login.html");
         } else {
             System.out.println("Login: URL in Continue");
             chain.doFilter(request, response);
@@ -59,7 +59,6 @@ public class LoginFilter implements Filter {
     }
 
     public void init(FilterConfig fConfig) {
-        allowedURIs.add("/");
         allowedURIs.add("login.html");
         allowedURIs.add("login.js");
         allowedURIs.add("login.css");
