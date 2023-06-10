@@ -73,17 +73,6 @@ public class SearchResultServlet extends HttpServlet {
                     "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id ORDER BY g.name ASC SEPARATOR ', ' ) AS genres,\n" +
                     "    r.rating \n" +
 
-//                    "FROM movies AS mv, \n" +
-//                    "    genres AS g, \n" +
-//                    "    stars AS s, \n" +
-//                    "    genres_in_movies AS gim, \n" +
-//                    "    stars_in_movies AS sim, \n" +
-//                    "    ratings AS r, " +
-//                    "   (" +
-//                    "       SELECT starId, COUNT(sim.movieId) AS num_movies\n" +
-//                    "       FROM stars_in_movies AS sim\n" +
-//                    "       GROUP BY starId\n" +
-//                    "    ) AS sm  \n" +
 
                     "FROM movies AS mv\n" +
                     "JOIN genres_in_movies AS gim ON mv.id = gim.movieId\n" +
@@ -175,14 +164,14 @@ public class SearchResultServlet extends HttpServlet {
                 request.getSession().setAttribute("year",year);
                 request.getSession().setAttribute("director",director);
 
-                System.out.println(title + " " + star + year + director);
+                //System.out.println(title + " " + star + year + director);
 
                 if(title != null && !title.isEmpty()){
-                    System.out.println("title");
+                    //System.out.println("title");
                     query += " AND mv.title LIKE ? \n";
                 }
                 if(star != null && !star.isEmpty()){
-                    System.out.println("star");
+                    //System.out.println("star");
 //                    query += "AND EXISTS (\n" +
 //                            "            SELECT *\n" +
 //                            "            FROM stars AS s2, movies AS mv2, stars_in_movies AS sim2\n" +
@@ -351,6 +340,10 @@ public class SearchResultServlet extends HttpServlet {
                 }
             }
 
+            System.out.println("\n\nCount ====================================");
+            System.out.println(countstatement);
+            System.out.println("\n\nStatement ====================================");
+            System.out.println(statement);
             ResultSet rs = statement.executeQuery();
 
 

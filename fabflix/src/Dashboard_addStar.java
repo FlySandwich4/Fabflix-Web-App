@@ -28,7 +28,7 @@ public class Dashboard_addStar extends HttpServlet {
         JsonObject responseJsonObject = new JsonObject();
 
         try {
-            dataSource = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/moviedb");
+            dataSource = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/master-moviedb");
         } catch (NamingException e) {
             e.printStackTrace();
         }

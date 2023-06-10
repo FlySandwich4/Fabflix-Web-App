@@ -49,31 +49,58 @@ public class FullTextSearch extends HttpServlet {
 
 
         try(Connection conn = dataSource.getConnection()){
-            String query = "SELECT mv.id,\n" +
-                "    mv.title,\n" +
-                "    mv.director,\n" +
-                "    mv.year,\n" +
-                "    GROUP_CONCAT(DISTINCT s.name, ':' , s.id,':',num_movies ORDER BY num_movies DESC, s.name ASC SEPARATOR ', ' ) AS stars,\n" +
-                "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id ORDER BY g.name ASC SEPARATOR ', ' ) AS genres,\n" +
-                "    r.rating \n" +
-                "FROM movies AS mv\n " +
-                "JOIN genres_in_movies AS gim ON mv.id = gim.movieId\n " +
-                "JOIN stars_in_movies AS sim ON mv.id = sim.movieId\n " +
-                "JOIN genres AS g ON g.id = gim.genreId\n " +
-                "JOIN stars AS s ON sim.starId = s.id\n " +
-                "LEFT JOIN ratings AS r ON mv.id = r.movieId\n " +
-                "JOIN (\n" +
-                "    SELECT starId, COUNT(sim.movieId) AS num_movies\n " +
-                "    FROM stars_in_movies AS sim\n " +
-                "    GROUP BY starId\n " +
-                ") AS sm ON s.id = sm.starId " +
+//            String query = "SELECT mv.id,\n" +
+//                "    mv.title,\n" +
+//                "    mv.director,\n" +
+//                "    mv.year,\n" +
+//                "    GROUP_CONCAT(DISTINCT s.name, ':' , s.id,':',num_movies ORDER BY num_movies DESC, s.name ASC SEPARATOR ', ' ) AS stars,\n" +
+//                "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id ORDER BY g.name ASC SEPARATOR ', ' ) AS genres,\n" +
+//                "    r.rating \n" +
+//                "FROM movies AS mv\n " +
+//                "JOIN genres_in_movies AS gim ON mv.id = gim.movieId\n " +
+//                "JOIN stars_in_movies AS sim ON mv.id = sim.movieId\n " +
+//                "JOIN genres AS g ON g.id = gim.genreId\n " +
+//                "JOIN stars AS s ON sim.starId = s.id\n " +
+//                "LEFT JOIN ratings AS r ON mv.id = r.movieId\n " +
+//                "JOIN (\n" +
+//                "    SELECT starId, COUNT(sim.movieId) AS num_movies\n " +
+//                "    FROM stars_in_movies AS sim\n " +
+//                "    GROUP BY starId\n " +
+//                ") AS sm ON s.id = sm.starId " +
+//
+//                "WHERE MATCH (mv.title) AGAINST (? IN BOOLEAN MODE) "+
+//                " GROUP BY mv.id " +
+//                    " LIMIT 20 OFFSET ? ;"
+//                ;
+            String query = "SELECT mv.id, " +
+                    "mv.title, " +
+                    "mv.director, " +
+                    "mv.year, " +
+                    "GROUP_CONCAT(DISTINCT CONCAT(s.name, ':', s.id, ':', num_movies) ORDER BY num_movies DESC, s.name ASC SEPARATOR ', ') AS stars, " +
+                    "GROUP_CONCAT(DISTINCT CONCAT(g.name, ':', g.id) ORDER BY g.name ASC SEPARATOR ', ') AS genres, " +
+                    "r.rating " +
+                    "FROM (" +
+                    "   SELECT * FROM movies AS m " +
+                    "   WHERE MATCH (m.title) AGAINST (? IN BOOLEAN MODE) " +
+                    "   LIMIT 50 OFFSET ? " +
+                    ") AS mv " +
+                    "LEFT JOIN ratings AS r ON mv.id = r.movieId " +
+                    "JOIN genres_in_movies AS gim ON mv.id = gim.movieId " +
+                    "JOIN genres AS g ON g.id = gim.genreId " +
+                    "JOIN stars_in_movies AS sim ON mv.id = sim.movieId " +
+                    "JOIN stars AS s ON sim.starId = s.id " +
 
-                "WHERE MATCH (mv.title) AGAINST (? IN BOOLEAN MODE) "+
-                " GROUP BY mv.id " +
-                    " LIMIT 20 OFFSET ? ;"
-                ;
+                    "JOIN ( " +
+                    "    SELECT starId, COUNT(sim.movieId) AS num_movies " +
+                    "    FROM stars_in_movies AS sim " +
+                    "    GROUP BY starId " +
+                    ") AS sm ON s.id = sm.starId " +
+
+                    "GROUP BY mv.id ;" ;
+
 
             PreparedStatement statement = conn.prepareStatement(query);
+            System.out.println(statement);
 
             String[] words = search.split("\\s+");
 
@@ -81,7 +108,7 @@ public class FullTextSearch extends HttpServlet {
                     .map(word -> "+" + word + "*")
                     .collect(Collectors.joining(" "));
 
-            System.out.println(fulltextQuery);
+            //System.out.println(fulltextQuery);
 
             statement.setString(1,fulltextQuery);
             statement.setInt(2,Integer.parseInt(page)*20);
@@ -106,7 +133,7 @@ public class FullTextSearch extends HttpServlet {
                 String[] stars = rsStars.split(", ");
                 JsonArray starArr = new JsonArray();
                 for(String eachStar: stars){
-                    System.out.println(eachStar);
+                    //System.out.println(eachStar);
                     String[] starAndId = eachStar.split(":");
                     JsonObject starAndIdJson = new JsonObject();
                     try{
@@ -124,7 +151,7 @@ public class FullTextSearch extends HttpServlet {
                 String[] genres = rsGenres.split(", ");
                 JsonArray genreArr = new JsonArray();
                 for(String eachGenre: genres){
-                    System.out.println(eachGenre);
+                    //System.out.println(eachGenre);
                     String[] genreAndId = eachGenre.split(":");
                     JsonObject genreAndIdJson = new JsonObject();
                     try{
