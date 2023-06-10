@@ -28,6 +28,8 @@ public class Dashboard_addStar extends HttpServlet {
         JsonObject responseJsonObject = new JsonObject();
 
         try {
+
+            // Use Master since modify database
             dataSource = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/master-moviedb");
         } catch (NamingException e) {
             e.printStackTrace();
@@ -91,7 +93,7 @@ public class Dashboard_addStar extends HttpServlet {
         response.setContentType("application/json"); // Response mime type
 
         try {
-            dataSource = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/moviedb");
+            dataSource = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/master-moviedb");
         } catch (NamingException e) {
             e.printStackTrace();
         }
