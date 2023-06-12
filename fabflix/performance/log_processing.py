@@ -1,4 +1,5 @@
-file = "/Users/FlySandwich/Desktop/ts_tj.txt"
+file = "/Users/FlySandwich/Desktop/ts_tj1.txt"
+file2 = "/Users/FlySandwich/Desktop/ts_tj2.txt"
 
 def calculate_average(filename):
     ts_total = 0
@@ -43,6 +44,7 @@ def calculate_average(filename):
     return ts_average, tj_average
 
 ts_average, tj_average = calculate_average(file)
-print(f"TS average: {ts_average}")
-print(f"TJ average: {tj_average}")
+ts_average1, tj_average1 = calculate_average(file2)
+print(f"TS average: {(ts_average + ts_average1)/2}")
+print(f"TJ average: {(tj_average + tj_average1)/2}")
 
