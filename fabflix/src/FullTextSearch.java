@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,6 +51,8 @@ public class FullTextSearch extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        long ts_start = System.nanoTime();
+
         response.setContentType("application/json"); // Response mime type
         String search = request.getParameter("query");
         String page = request.getParameter("page");
@@ -57,32 +61,7 @@ public class FullTextSearch extends HttpServlet {
         }
 
 
-
-
         try(Connection conn = dataSource.getConnection()){
-//            String query = "SELECT mv.id,\n" +
-//                "    mv.title,\n" +
-//                "    mv.director,\n" +
-//                "    mv.year,\n" +
-//                "    GROUP_CONCAT(DISTINCT s.name, ':' , s.id,':',num_movies ORDER BY num_movies DESC, s.name ASC SEPARATOR ', ' ) AS stars,\n" +
-//                "    GROUP_CONCAT(DISTINCT g.name, ':' , g.id ORDER BY g.name ASC SEPARATOR ', ' ) AS genres,\n" +
-//                "    r.rating \n" +
-//                "FROM movies AS mv\n " +
-//                "JOIN genres_in_movies AS gim ON mv.id = gim.movieId\n " +
-//                "JOIN stars_in_movies AS sim ON mv.id = sim.movieId\n " +
-//                "JOIN genres AS g ON g.id = gim.genreId\n " +
-//                "JOIN stars AS s ON sim.starId = s.id\n " +
-//                "LEFT JOIN ratings AS r ON mv.id = r.movieId\n " +
-//                "JOIN (\n" +
-//                "    SELECT starId, COUNT(sim.movieId) AS num_movies\n " +
-//                "    FROM stars_in_movies AS sim\n " +
-//                "    GROUP BY starId\n " +
-//                ") AS sm ON s.id = sm.starId " +
-//
-//                "WHERE MATCH (mv.title) AGAINST (? IN BOOLEAN MODE) "+
-//                " GROUP BY mv.id " +
-//                    " LIMIT 20 OFFSET ? ;"
-//                ;
             String query = "SELECT mv.id, " +
                     "mv.title, " +
                     "mv.director, " +
@@ -123,7 +102,10 @@ public class FullTextSearch extends HttpServlet {
 
             statement.setString(1,fulltextQuery);
             statement.setInt(2,Integer.parseInt(page)*20);
+
+            long tj_start = System.nanoTime();
             ResultSet rs = statement.executeQuery();
+            long tj_end = System.nanoTime();
             JsonArray jsonArray = new JsonArray();
 
             while (rs.next()) {
@@ -185,6 +167,24 @@ public class FullTextSearch extends HttpServlet {
             response.getWriter().write(jsonArray.toString());
             // Set response status to 200 (OK)
             response.setStatus(200);
+            long ts_end = System.nanoTime();
+            long ts_last = ts_end - ts_start;
+            long tj_last = tj_end - tj_start;
+
+            String desktopPath = "/home/ubuntu/logs/";
+            String fileName = desktopPath + "ts_tj.txt";
+            String content = "Query: " + search + "\n" +
+                    "    TS : " + ts_last + "\n" +
+                    "    TJ : " + tj_last + "\n";
+
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+                writer.write(content);
+                writer.newLine();
+                System.out.println("Success appending files");
+            } catch (IOException e) {
+                System.err.println("error in appending files " + e.getMessage());
+            }
 
         }catch(Exception e){
             JsonObject jsonObject = new JsonObject();
