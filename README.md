@@ -13,6 +13,9 @@ https://3.101.28.218:8443/fabflix/
     - #### Names: Yue Wu
     
     - #### Project 5 Video Demo Link:
+    - https://youtu.be/Q4si2Kh5erY
+    - The demo is done in different internet evironment, thoughputs are different with screenshots, settings are totally same.
+    - The demo also shows how to modify the log_process.py to process single/scaled documents.
 
     - #### Instruction of deployment: 
     - git clone repo
@@ -71,6 +74,7 @@ https://3.101.28.218:8443/fabflix/
     - This is a file that reads files from some path and return the avg of TS and TJ
     - The function is defined as: def calculate_average(filename)
     - This function can be generally used by inputing a filename parameter (which is the path)
+    - Comment/Uncomment some part for single/scaled used
     - The format of the file must be like:
 
 Query: Forrest Gump
