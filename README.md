@@ -99,16 +99,16 @@ Query: Million Dollar Baby
 
 | **Single-instance Version Test Plan**          | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
-| Case 1: HTTP/1 thread                          | ![http1](img/task1_single_nopooling.png)   | 25                         | 6.920673                                  | 6.789418                        | It takes long to transfer between servlet and user           |
-| Case 2: HTTP/10 threads                        | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 3: HTTPS/10 threads                       | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 4: HTTP/10 threads/No connection pooling  | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
+| Case 1: HTTP/10 thread no pooling                          | ![task1](/fabflix/performance/img/task1_single_nopooling.png)   | 25                         | 6.920673                                  | 6.789418                        | It takes long to transfer between servlet and user, and nopooling's thoughput is much slower than pooling           |
+| Case 2: HTTP/1 threads                        | ![task2](/fabflix/performance/img/task2_single_http_1thread.png)   | 29                         | ??                                  | ??                        | ??           |
+| Case 3: HTTPS/10 threads                       | ![task3](/fabflix/performance/img/task3_single_http_10threads.png)   | 55                         | ??                                  | ??                        | ??           |
+| Case 4: HTTP/10 threads/No connection pooling  | ![task4](/fabflix/performance/img/task4_single_https_10threads.png)   | 24                         | ??                                  | ??                        | ??           |
 
 | **Scaled Version Test Plan**                   | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
-| Case 1: HTTP/1 thread                          | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 2: HTTP/10 threads                        | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 3: HTTP/10 threads/No connection pooling  | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
+| Case 1: HTTP/10 thread  nopooling                        | ![task5](/fabflix/performance/img/task5_scale_no_pooling.png)   | 418                         | ??                                  | ??                        | ??           |
+| Case 2: HTTP/1 threads                        | ![task6](/fabflix/performance/img/task6_scale_1thread.png)   | 25                         | ??                                  | ??                        | ??           |
+| Case 3: HTTP/10 threads/No connection pooling  | ![task7](/fabflix/performance/img/task7_scale_10thread.png)   | 31                         | ??                                  | ??                        | ??           |
 
 # PROJECT 4 Video Demo Link: #
 https://youtu.be/J6qJtmFomug
