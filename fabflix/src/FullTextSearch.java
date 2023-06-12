@@ -171,8 +171,8 @@ public class FullTextSearch extends HttpServlet {
             long ts_last = ts_end - ts_start;
             long tj_last = tj_end - tj_start;
 
-            String desktopPath = "/home/ubuntu/logs/";
-            String fileName = desktopPath + "ts_tj.txt";
+            String desktopPath = "/var/lib/tomcat10/logs";
+            String fileName = desktopPath + "/ts_tj.txt";
             String content = "Query: " + search + "\n" +
                     "    TS : " + ts_last + "\n" +
                     "    TJ : " + tj_last + "\n";
