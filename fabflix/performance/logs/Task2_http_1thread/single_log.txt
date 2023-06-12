@@ -1,0 +1,3520 @@
+Query: Forrest Gump
+    TS : 3971371
+    TJ : 3613828
+
+Query: The Sixth Sense
+    TS : 4044594
+    TJ : 3783595
+
+Query: Bruce Almighty
+    TS : 1646539
+    TJ : 1379479
+
+Query: Being Human
+    TS : 1686890
+    TJ : 1456762
+
+Query: Batman Begins
+    TS : 1646629
+    TJ : 1340718
+
+Query: Million Dollar Baby
+    TS : 1834495
+    TJ : 1505783
+
+Query: The Two Towers
+    TS : 2005581
+    TJ : 1519395
+
+Query: Live and Let Die
+    TS : 2280601
+    TJ : 1879537
+
+Query: The Lord of the Rings
+    TS : 1648388
+    TJ : 1454252
+
+Query: Shall We Dance
+    TS : 2050693
+    TJ : 1455232
+
+Query: The Spy Who Loved Me
+    TS : 1896088
+    TJ : 1671390
+
+Query: Notting Hill
+    TS : 1550266
+    TJ : 1361618
+
+Query: Ghost World
+    TS : 1721831
+    TJ : 1523514
+
+Query: The Usual Suspects
+    TS : 1886457
+    TJ : 1621318
+
+Query: Vampire Effect
+    TS : 1587256
+    TJ : 1367929
+
+Query: Batman Begins
+    TS : 1526024
+    TJ : 1376610
+
+Query: The Lost Boys
+    TS : 1932549
+    TJ : 1661910
+
+Query: Ghost World
+    TS : 1834515
+    TJ : 1571666
+
+Query: American History X
+    TS : 1778374
+    TJ : 1437491
+
+Query: Seven
+    TS : 321581821
+    TJ : 321157256
+
+Query: Alexander
+    TS : 1495513
+    TJ : 1298887
+
+Query: Sleepy Hollow
+    TS : 1540245
+    TJ : 1355419
+
+Query: Rush Hour 2
+    TS : 1610837
+    TJ : 1412541
+
+Query: Walk in the Clouds
+    TS : 2035802
+    TJ : 1798465
+
+Query: Swimming Upstream
+    TS : 1534234
+    TJ : 1326247
+
+Query: Dr. No
+    TS : 2297331
+    TJ : 2067354
+
+Query: Ocean Twelve
+    TS : 1529835
+    TJ : 1288706
+
+Query: the Last Crusade
+    TS : 1935709
+    TJ : 1593067
+
+Query: License To Kill
+    TS : 2190698
+    TJ : 1991481
+
+Query: Terminator 2
+    TS : 1679670
+    TJ : 1357038
+
+Query: Lemony Snicket
+    TS : 1874897
+    TJ : 1487113
+
+Query: Stepmom
+    TS : 3727493
+    TJ : 2707367
+
+Query: The Lost Boys
+    TS : 1945610
+    TJ : 1715541
+
+Query: The Life Aquatic
+    TS : 1870036
+    TJ : 1682109
+
+Query: The Machinist
+    TS : 1894948
+    TJ : 1666759
+
+Query: The Merchant of Venice
+    TS : 1824305
+    TJ : 1656559
+
+Query: 50 First Dates
+    TS : 1690791
+    TJ : 1546745
+
+Query: Home Alone 2
+    TS : 1830475
+    TJ : 1631578
+
+Query: Amelie
+    TS : 1501003
+    TJ : 1340238
+
+Query: 8 Mile
+    TS : 2034803
+    TJ : 1396030
+
+Query: Racing Stripes
+    TS : 1558406
+    TJ : 1341707
+
+Query: Oceans Twelve
+    TS : 1488023
+    TJ : 1325017
+
+Query: Dumb and Dumber
+    TS : 1912168
+    TJ : 1759952
+
+Query: The Princess Bride
+    TS : 1696630
+    TJ : 1551595
+
+Query: The Two Towers
+    TS : 1800634
+    TJ : 1421820
+
+Query: GoldenEye
+    TS : 1513834
+    TJ : 1326217
+
+Query: Training Day
+    TS : 1632098
+    TJ : 1442331
+
+Query: Hotel Rwanda
+    TS : 1794903
+    TJ : 1645519
+
+Query: Saving Private Ryan
+    TS : 1803894
+    TJ : 1596887
+
+Query: Philadelphia
+    TS : 1540665
+    TJ : 1324927
+
+Query: Spider Man 2
+    TS : 1904858
+    TJ : 1755513
+
+Query: Charlie and the Chocolate Factory
+    TS : 1947069
+    TJ : 1783284
+
+Query: Bicentennial Man
+    TS : 1721502
+    TJ : 1566796
+
+Query: For Your Eyes Only
+    TS : 1756853
+    TJ : 1599407
+
+Query: Proof of Life
+    TS : 5337270
+    TJ : 5178224
+
+Query: City Light
+    TS : 1600487
+    TJ : 1444401
+
+Query: License To Kill
+    TS : 2174697
+    TJ : 1937109
+
+Query: Bowling for Columbine
+    TS : 1520844
+    TJ : 1305557
+
+Query: Son Of The Mask
+    TS : 2553411
+    TJ : 2059573
+
+Query: 8 Mile
+    TS : 1648388
+    TJ : 1315287
+
+Query: Kingdom Of Heaven
+    TS : 1652039
+    TJ : 1353848
+
+Query: The Hunted
+    TS : 1800194
+    TJ : 1584106
+
+Query: Godsend
+    TS : 1544635
+    TJ : 1340138
+
+Query: Alexander
+    TS : 1668919
+    TJ : 1428121
+
+Query: Spider Man 2
+    TS : 2060603
+    TJ : 1744512
+
+Query: Star Wars
+    TS : 2030832
+    TJ : 1876056
+
+Query: Anna and the King
+    TS : 1898578
+    TJ : 1755102
+
+Query: You Only Live Twice
+    TS : 1793974
+    TJ : 1650099
+
+Query: Sleepy Hollow
+    TS : 1815994
+    TJ : 1599857
+
+Query: Alexander
+    TS : 1523145
+    TJ : 1354478
+
+Query: Love the Hard Way
+    TS : 2176688
+    TJ : 2025922
+
+Query: Alien
+    TS : 1883007
+    TJ : 1712101
+
+Query: Hide and Seek
+    TS : 1985971
+    TJ : 1754053
+
+Query: The Matrix Revolutions
+    TS : 1843096
+    TJ : 1573166
+
+Query: Seven
+    TS : 308212596
+    TJ : 307782311
+
+Query: The Fifth Element
+    TS : 1819245
+    TJ : 1428941
+
+Query: The Machinist
+    TS : 1526324
+    TJ : 1386529
+
+Query: I Heart Huckabees
+    TS : 2703766
+    TJ : 2512280
+
+Query: Intolerable Cruelty
+    TS : 1888077
+    TJ : 1745582
+
+Query: Unleashed
+    TS : 1695810
+    TJ : 1519114
+
+Query: Jurassic Park
+    TS : 1664849
+    TJ : 1352268
+
+Query: American Beauty
+    TS : 1669139
+    TJ : 1368259
+
+Query: Dumb and Dumber
+    TS : 2034223
+    TJ : 1639258
+
+Query: The Polar Express
+    TS : 1679930
+    TJ : 1499303
+
+Query: Alien3
+    TS : 1646579
+    TJ : 1433981
+
+Query: Million Dollar Baby
+    TS : 1602787
+    TJ : 1384549
+
+Query: Bride and Prejudice
+    TS : 2472828
+    TJ : 2122225
+
+Query: Rush Hour 2
+    TS : 1726422
+    TJ : 1387549
+
+Query: The Mask
+    TS : 2787689
+    TJ : 2463808
+
+Query: Eternal Sunshine of the Spotless Mind
+    TS : 1564846
+    TJ : 1373928
+
+Query: 50 First Dates
+    TS : 1707321
+    TJ : 1516004
+
+Query: Rush Hour 2
+    TS : 1788314
+    TJ : 1430871
+
+Query: A Clockwork Orange
+    TS : 5179674
+    TJ : 4866323
+
+Query: Almost Famous
+    TS : 1670000
+    TJ : 1382179
+
+Query: Spider Man 2
+    TS : 2004882
+    TJ : 1683490
+
+Query: Any Given Sunday
+    TS : 1620478
+    TJ : 1481912
+
+Query: In Good Company
+    TS : 2138916
+    TJ : 1983701
+
+Query: Indiana Jones
+    TS : 1778693
+    TJ : 1507524
+
+Query: 3000 Miles to Graceland
+    TS : 1815454
+    TJ : 1663899
+
+Query: The World is Not Enough
+    TS : 2591322
+    TJ : 2410366
+
+Query: Being Human
+    TS : 1641758
+    TJ : 1402709
+
+Query: Ride With the Devil
+    TS : 1580516
+    TJ : 1369309
+
+Query: Men In Black
+    TS : 2190558
+    TJ : 1991901
+
+Query: Monty Python and the Holy Grail
+    TS : 1812404
+    TJ : 1628048
+
+Query: Alien
+    TS : 1616708
+    TJ : 1379479
+
+Query: Oceans Twelve
+    TS : 1374859
+    TJ : 1221393
+
+Query: Thunderball
+    TS : 1481223
+    TJ : 1312946
+
+Query: Million Dollar Baby
+    TS : 1730731
+    TJ : 1546105
+
+Query: Hellboy
+    TS : 1626248
+    TJ : 1479362
+
+Query: GoldenEye
+    TS : 1488593
+    TJ : 1282856
+
+Query: Episode I
+    TS : 2178508
+    TJ : 1994451
+
+Query: Independence Day
+    TS : 1671960
+    TJ : 1531454
+
+Query: 24 Hour Party People
+    TS : 1565256
+    TJ : 1334128
+
+Query: Courage Under Fire
+    TS : 1765752
+    TJ : 1604447
+
+Query: The Mummy
+    TS : 1596277
+    TJ : 1416431
+
+Query: Oceans Eleven
+    TS : 1462462
+    TJ : 1279915
+
+Query: National Treasure
+    TS : 1552296
+    TJ : 1342738
+
+Query: Lord of the Rings
+    TS : 1605247
+    TJ : 1381329
+
+Query: The Two Towers
+    TS : 1726512
+    TJ : 1548315
+
+Query: Bone Collector
+    TS : 1559225
+    TJ : 1379110
+
+Query: The Fast and the Furious
+    TS : 2057173
+    TJ : 1831215
+
+Query: The Hunted
+    TS : 1587797
+    TJ : 1408140
+
+Query: Assault on Precinct 13
+    TS : 1668879
+    TJ : 1444372
+
+Query: Hero
+    TS : 319750338
+    TJ : 319010553
+
+Query: Mystic River
+    TS : 1543615
+    TJ : 1353168
+
+Query: The Lord of the Rings
+    TS : 1813795
+    TJ : 1474552
+
+Query: The Far Side of the World
+    TS : 1956090
+    TJ : 1658889
+
+Query: Charlie and the Chocolate Factory
+    TS : 2027432
+    TJ : 1739171
+
+Query: In Good Company
+    TS : 2338864
+    TJ : 2089915
+
+Query: Shall We Dance
+    TS : 1757543
+    TJ : 1506304
+
+Query: Dogma
+    TS : 1491263
+    TJ : 1337157
+
+Query: From Russia with Love
+    TS : 1475882
+    TJ : 1321177
+
+Query: External Sunshine of the Spotless Mind
+    TS : 1515284
+    TJ : 1339807
+
+Query: Revenge of the Sith
+    TS : 1618587
+    TJ : 1431721
+
+Query: Man on Fire
+    TS : 2142217
+    TJ : 1979261
+
+Query: Traffic
+    TS : 1698550
+    TJ : 1529765
+
+Query: Oceans Twelve
+    TS : 1697021
+    TJ : 1508364
+
+Query: Die Another Day
+    TS : 1637039
+    TJ : 1394359
+
+Query: Thunderball
+    TS : 2054893
+    TJ : 1908838
+
+Query: Oceans Eleven
+    TS : 1512844
+    TJ : 1310006
+
+Query: Braveheart
+    TS : 1403510
+    TJ : 1243724
+
+Query: Diamonds are Forever
+    TS : 1664949
+    TJ : 1495053
+
+Query: The Two Towers
+    TS : 1602887
+    TJ : 1441071
+
+Query: Diamonds are Forever
+    TS : 1448081
+    TJ : 1327937
+
+Query: The Phantom of the Opera
+    TS : 1622547
+    TJ : 1487993
+
+Query: The Living Daylights
+    TS : 1639409
+    TJ : 1478882
+
+Query: Bicentennial Man
+    TS : 1808624
+    TJ : 1645358
+
+Query: Kingdom of Heaven
+    TS : 1504453
+    TJ : 1340258
+
+Query: Notting Hill
+    TS : 1841486
+    TJ : 1693620
+
+Query: The Princess Bride
+    TS : 1676079
+    TJ : 1473892
+
+Query: Lost in New York
+    TS : 2141177
+    TJ : 1820655
+
+Query: Alien
+    TS : 1722322
+    TJ : 1584656
+
+Query: Eyes Wide Shut
+    TS : 1681510
+    TJ : 1467582
+
+Query: Coach Carter
+    TS : 1639199
+    TJ : 1433311
+
+Query: Intolerable Cruelty
+    TS : 1529565
+    TJ : 1344318
+
+Query: Ray
+    TS : 1489603
+    TJ : 1322837
+
+Query: Gone with the Wind
+    TS : 4728148
+    TJ : 4533651
+
+Query: Notting Hill
+    TS : 1517254
+    TJ : 1371799
+
+Query: Assault on Precinct 13
+    TS : 1680700
+    TJ : 1505693
+
+Query: Spiderman 2
+    TS : 1564476
+    TJ : 1278946
+
+Query: Moulin Rouge
+    TS : 1597687
+    TJ : 1365978
+
+Query: X2
+    TS : 1599867
+    TJ : 1302297
+
+Query: White Noise
+    TS : 1640258
+    TJ : 1433981
+
+Query: The Machinist
+    TS : 1537215
+    TJ : 1361728
+
+Query: The Royal Tenenbaums
+    TS : 1629778
+    TJ : 1478462
+
+Query: The terminal
+    TS : 1535605
+    TJ : 1381020
+
+Query: Black Hawk Down
+    TS : 1546325
+    TJ : 1390379
+
+Query: Die Another Day
+    TS : 1674799
+    TJ : 1465122
+
+Query: Charlie and the Chocolate Factory
+    TS : 2029512
+    TJ : 1786584
+
+Query: A Series of Unfortunate Events
+    TS : 5429343
+    TJ : 5162234
+
+Query: A Space Odyssey
+    TS : 5065631
+    TJ : 4818892
+
+Query: Shrek
+    TS : 1664959
+    TJ : 1490113
+
+Query: The Phantom of the Opera
+    TS : 1679219
+    TJ : 1530274
+
+Query: A True Underdog Story
+    TS : 4973247
+    TJ : 4806121
+
+Query: Blast From the Past
+    TS : 1771614
+    TJ : 1383149
+
+Query: Rush Hour 2
+    TS : 1704601
+    TJ : 1494173
+
+Query: Bowling for Columbine
+    TS : 1550075
+    TJ : 1373899
+
+Query: In Good Company
+    TS : 2070593
+    TJ : 1902168
+
+Query: The Machinist
+    TS : 1657949
+    TJ : 1512044
+
+Query: Black Hawk Down
+    TS : 2017852
+    TJ : 1866057
+
+Query: The Return of the King
+    TS : 1678129
+    TJ : 1510604
+
+Query: I Heart Huckabees
+    TS : 2686396
+    TJ : 2521059
+
+Query: American History X
+    TS : 1729601
+    TJ : 1497993
+
+Query: Lost in New York
+    TS : 1905678
+    TJ : 1738832
+
+Query: Breakfast at Tiffany
+    TS : 1569776
+    TJ : 1367949
+
+Query: Black Hawk Down
+    TS : 1746982
+    TJ : 1579387
+
+Query: 3000 Miles to Graceland
+    TS : 2039103
+    TJ : 1872106
+
+Query: The Lord of the Rings
+    TS : 1940449
+    TJ : 1792684
+
+Query: For Your Eyes Only
+    TS : 1819975
+    TJ : 1659379
+
+Query: White Noise
+    TS : 1481063
+    TJ : 1321977
+
+Query: National Treasure
+    TS : 1478112
+    TJ : 1354568
+
+Query: Crouching Tiger Hidden Dragon
+    TS : 1782944
+    TJ : 1528805
+
+Query: The Goonies
+    TS : 1661829
+    TJ : 1468883
+
+Query: The Incredibles
+    TS : 1669419
+    TJ : 1518524
+
+Query: Mystic River
+    TS : 1665279
+    TJ : 1451211
+
+Query: Elf
+    TS : 1415280
+    TJ : 1297736
+
+Query: Bicentennial Man
+    TS : 1776043
+    TJ : 1657179
+
+Query: Shrek
+    TS : 1698140
+    TJ : 1570496
+
+Query: Indiana Jones
+    TS : 1550695
+    TJ : 1421391
+
+Query: Coach Carter
+    TS : 1430661
+    TJ : 1304046
+
+Query: When Harry Met Sally
+    TS : 1630678
+    TJ : 1339548
+
+Query: Revenge of the Sith
+    TS : 1491083
+    TJ : 1352898
+
+Query: Bride And Prejudice
+    TS : 1904268
+    TJ : 1752482
+
+Query: Revenge of the Sith
+    TS : 1583447
+    TJ : 1408810
+
+Query: X2
+    TS : 1485473
+    TJ : 1350408
+
+Query: Lost In Translation
+    TS : 1932419
+    TJ : 1778803
+
+Query: 50 First Dates
+    TS : 1566946
+    TJ : 1433421
+
+Query: 24 Hour Party People
+    TS : 1508064
+    TJ : 1383260
+
+Query: American History X
+    TS : 2397196
+    TJ : 2266781
+
+Query: Men in Black II
+    TS : 1969170
+    TJ : 1850856
+
+Query: The Mummy Returns
+    TS : 1534275
+    TJ : 1383309
+
+Query: Ocean Twelve
+    TS : 1493473
+    TJ : 1364419
+
+Query: The Polar Express
+    TS : 1589617
+    TJ : 1420501
+
+Query: Thunderball
+    TS : 1705371
+    TJ : 1588736
+
+Query: Men in Black II
+    TS : 2134166
+    TJ : 1924099
+
+Query: All Over Me
+    TS : 2217459
+    TJ : 2100674
+
+Query: Monty Python and the Holy Grail
+    TS : 2120395
+    TJ : 1995211
+
+Query: Goldfinger
+    TS : 1418440
+    TJ : 1297716
+
+Query: the Last Crusade
+    TS : 1738942
+    TJ : 1570856
+
+Query: Gone in 60 Seconds
+    TS : 1827945
+    TJ : 1696120
+
+Query: the Last Crusade
+    TS : 1768473
+    TJ : 1645269
+
+Query: Daredevil
+    TS : 1363429
+    TJ : 1238794
+
+Query: Gone in 60 Seconds
+    TS : 1942549
+    TJ : 1811924
+
+Query: You Only Live Twice
+    TS : 1770993
+    TJ : 1643528
+
+Query: Aliens
+    TS : 1649158
+    TJ : 1337057
+
+Query: Hide and Seek
+    TS : 2275531
+    TJ : 1997041
+
+Query: Terminator 2
+    TS : 1533645
+    TJ : 1378509
+
+Query: Kingdom Of Heaven
+    TS : 1588667
+    TJ : 1458382
+
+Query: Starsky Hutch
+    TS : 1431971
+    TJ : 1317497
+
+Query: Pretty Woman
+    TS : 1512564
+    TJ : 1398999
+
+Query: Alien
+    TS : 1871816
+    TJ : 1722161
+
+Query: Charlie and the Chocolate Factory
+    TS : 2026162
+    TJ : 1889847
+
+Query: Bourne Identity
+    TS : 1428451
+    TJ : 1300756
+
+Query: Moulin Rouge
+    TS : 1960660
+    TJ : 1710411
+
+Query: Bride And Prejudice
+    TS : 2264060
+    TJ : 2129276
+
+Query: Before Sunrise
+    TS : 1560986
+    TJ : 1400270
+
+Query: Eyes Wide Shut
+    TS : 1587576
+    TJ : 1467612
+
+Query: Elektra
+    TS : 1465042
+    TJ : 1326667
+
+Query: National Treasure
+    TS : 1502714
+    TJ : 1372259
+
+Query: American History X
+    TS : 1722841
+    TJ : 1563896
+
+Query: Charlie and the Chocolate Factory
+    TS : 2065613
+    TJ : 1946499
+
+Query: Any Given Sunday
+    TS : 1632008
+    TJ : 1505483
+
+Query: Mystic River
+    TS : 1615607
+    TJ : 1498634
+
+Query: Oceans Eleven
+    TS : 1434951
+    TJ : 1314387
+
+Query: Aliens
+    TS : 1591497
+    TJ : 1472413
+
+Query: The Others
+    TS : 1644818
+    TJ : 1521304
+
+Query: Moulin Rouge
+    TS : 1928598
+    TJ : 1777803
+
+Query: Star Wars
+    TS : 2163787
+    TJ : 2017352
+
+Query: Indiana Jones
+    TS : 1681150
+    TJ : 1551275
+
+Query: Smallville
+    TS : 1424401
+    TJ : 1296176
+
+Query: Racing Stripes
+    TS : 1621337
+    TJ : 1370979
+
+Query: Kingdom of Heaven
+    TS : 1558326
+    TJ : 1409180
+
+Query: Donnie Darko
+    TS : 1467392
+    TJ : 1348177
+
+Query: Bride And Prejudice
+    TS : 1873816
+    TJ : 1760173
+
+Query: Alien3
+    TS : 1483693
+    TJ : 1346978
+
+Query: Birth
+    TS : 1730521
+    TJ : 1595937
+
+Query: The Lord of the Rings
+    TS : 1723921
+    TJ : 1598917
+
+Query: Hotel Rwanda
+    TS : 1728352
+    TJ : 1590546
+
+Query: Amelie
+    TS : 1407060
+    TJ : 1297676
+
+Query: Oceans Twelve
+    TS : 1442081
+    TJ : 1283696
+
+Query: Million Dollar Baby
+    TS : 1504624
+    TJ : 1390889
+
+Query: The Lord of the Rings
+    TS : 1583627
+    TJ : 1446901
+
+Query: Donnie Darko
+    TS : 1428821
+    TJ : 1314427
+
+Query: Hellboy
+    TS : 1844586
+    TJ : 1719142
+
+Query: Home Alone 2
+    TS : 1741152
+    TJ : 1618747
+
+Query: Elektra
+    TS : 1462132
+    TJ : 1341638
+
+Query: Proof of Life
+    TS : 1658379
+    TJ : 1522894
+
+Query: Eternal Sunshine of the Spotless Mind
+    TS : 1692241
+    TJ : 1497273
+
+Query: Home Alone
+    TS : 1813334
+    TJ : 1598666
+
+Query: You Got Served
+    TS : 1735712
+    TJ : 1601257
+
+Query: Raiders Of The Lost Ark
+    TS : 1719151
+    TJ : 1553365
+
+Query: Vampire Effect
+    TS : 1662099
+    TJ : 1364308
+
+Query: Godsend
+    TS : 1401230
+    TJ : 1289136
+
+Query: Beautiful Boxer
+    TS : 1519644
+    TJ : 1399480
+
+Query: The Lost Boys
+    TS : 2159396
+    TJ : 1956860
+
+Query: The Stepford Wives
+    TS : 1698360
+    TJ : 1572526
+
+Query: Thunderball
+    TS : 1374589
+    TJ : 1260935
+
+Query: You Only Live Twice
+    TS : 1757573
+    TJ : 1630328
+
+Query: Blast From the Past
+    TS : 1395519
+    TJ : 1265245
+
+Query: The Lord of the Rings
+    TS : 1775213
+    TJ : 1461842
+
+Query: Racing Stripes
+    TS : 1779083
+    TJ : 1421741
+
+Query: Spiderman 2
+    TS : 1505213
+    TJ : 1347808
+
+Query: Starship Troopers
+    TS : 1649038
+    TJ : 1349698
+
+Query: From Russia with Love
+    TS : 1486183
+    TJ : 1300546
+
+Query: Hitch
+    TS : 2292831
+    TJ : 2152187
+
+Query: Coach Carter
+    TS : 1475512
+    TJ : 1323797
+
+Query: Good Will Hunting
+    TS : 1662109
+    TJ : 1528884
+
+Query: The Goonies
+    TS : 1709870
+    TJ : 1502924
+
+Query: The Royal Tenenbaums
+    TS : 1639789
+    TJ : 1514384
+
+Query: External Sunshine of the Spotless Mind
+    TS : 1553865
+    TJ : 1398470
+
+Query: The Aviator
+    TS : 1621558
+    TJ : 1461762
+
+Query: Blast From the Past
+    TS : 1430011
+    TJ : 1315987
+
+Query: A True Underdog Story
+    TS : 5344980
+    TJ : 5212966
+
+Query: Catch Me If You Can
+    TS : 1966140
+    TJ : 1843185
+
+Query: Revenge of the Sith
+    TS : 1481943
+    TJ : 1363338
+
+Query: Coach Carter
+    TS : 1534025
+    TJ : 1354578
+
+Query: 3000 Miles to Graceland
+    TS : 1913048
+    TJ : 1789474
+
+Query: Men in Black II
+    TS : 2224619
+    TJ : 2083524
+
+Query: The Hunted
+    TS : 1838456
+    TJ : 1711681
+
+Query: Scarface
+    TS : 1519204
+    TJ : 1365778
+
+Query: Men In Black
+    TS : 3248465
+    TJ : 3126982
+
+Query: The Aviator
+    TS : 1523104
+    TJ : 1392319
+
+Query: X2
+    TS : 1451922
+    TJ : 1333287
+
+Query: Diamonds are Forever
+    TS : 1531244
+    TJ : 1393050
+
+Query: 24 Hour Party People
+    TS : 1582366
+    TJ : 1427811
+
+Query: Monty Python and the Holy Grail
+    TS : 1841496
+    TJ : 1718331
+
+Query: Raiders Of The Lost Ark
+    TS : 1520634
+    TJ : 1356768
+
+Query: A View to a Kill
+    TS : 4851303
+    TJ : 4692338
+
+Query: American History X
+    TS : 1601727
+    TJ : 1443542
+
+Query: X2
+    TS : 2102635
+    TJ : 1985790
+
+Query: Master and Commander
+    TS : 1935009
+    TJ : 1762083
+
+Query: Starsky Hutch
+    TS : 1637048
+    TJ : 1455632
+
+Query: Almost Famous
+    TS : 1562156
+    TJ : 1440831
+
+Query: Alexander
+    TS : 1549855
+    TJ : 1435911
+
+Query: Stepmom
+    TS : 1637719
+    TJ : 1329897
+
+Query: Vampire Effect
+    TS : 1763463
+    TJ : 1603107
+
+Query: The Lord of the Rings
+    TS : 1684740
+    TJ : 1538845
+
+Query: The Matrix Reloaded
+    TS : 1563756
+    TJ : 1406490
+
+Query: Bruce Almighty
+    TS : 1574566
+    TJ : 1396410
+
+Query: Goldfinger
+    TS : 1521534
+    TJ : 1388720
+
+Query: Star Wars
+    TS : 1562235
+    TJ : 1443611
+
+Query: The Phantom of the Opera
+    TS : 1681340
+    TJ : 1558236
+
+Query: Dr. No
+    TS : 2143776
+    TJ : 1971781
+
+Query: Diamonds are Forever
+    TS : 1765133
+    TJ : 1617627
+
+Query: The Matrix Reloaded
+    TS : 1922958
+    TJ : 1758612
+
+Query: Terminator 2
+    TS : 1475323
+    TJ : 1328457
+
+Query: The Lost Boys
+    TS : 1637228
+    TJ : 1437871
+
+Query: Million Dollar Baby
+    TS : 1552175
+    TJ : 1384550
+
+Query: Notting Hill
+    TS : 1524684
+    TJ : 1367469
+
+Query: Bride And Prejudice
+    TS : 1827995
+    TJ : 1674390
+
+Query: White Noise
+    TS : 1545095
+    TJ : 1395540
+
+Query: Eyes Wide Shut
+    TS : 1630748
+    TJ : 1467312
+
+Query: GoldenEye
+    TS : 1961079
+    TJ : 1767473
+
+Query: Sleepy Hollow
+    TS : 1648548
+    TJ : 1363599
+
+Query: All Over Me
+    TS : 1967750
+    TJ : 1796204
+
+Query: Bowling for Columbine
+    TS : 1510854
+    TJ : 1353568
+
+Query: 50 First Dates
+    TS : 1621867
+    TJ : 1480433
+
+Query: The Matrix Reloaded
+    TS : 1768823
+    TJ : 1603447
+
+Query: Bruce Almighty
+    TS : 1584767
+    TJ : 1390259
+
+Query: Eurotrip
+    TS : 1837285
+    TJ : 1674639
+
+Query: Pretty Woman
+    TS : 1695890
+    TJ : 1532005
+
+Query: Notting Hill
+    TS : 1647109
+    TJ : 1516294
+
+Query: 24 Hour Party People
+    TS : 1629668
+    TJ : 1348288
+
+Query: Spider Man 2
+    TS : 2172258
+    TJ : 1850656
+
+Query: Collateral
+    TS : 1566066
+    TJ : 1418320
+
+Query: Coach Carter
+    TS : 1476782
+    TJ : 1325697
+
+Query: Titanic
+    TS : 1412351
+    TJ : 1253154
+
+Query: Ghost World
+    TS : 1646939
+    TJ : 1476553
+
+Query: The terminal
+    TS : 1600227
+    TJ : 1447881
+
+Query: Goldfinger
+    TS : 1549915
+    TJ : 1400050
+
+Query: The Living Daylights
+    TS : 1733702
+    TJ : 1572146
+
+Query: Gone with the Wind
+    TS : 1835445
+    TJ : 1488343
+
+Query: The Lord of the Rings
+    TS : 1549205
+    TJ : 1434301
+
+Query: Elektra
+    TS : 1489283
+    TJ : 1365459
+
+Query: 24 Hour Party People
+    TS : 1558876
+    TJ : 1429061
+
+Query: Stepmom
+    TS : 1435061
+    TJ : 1309476
+
+Query: Racing Stripes
+    TS : 1463962
+    TJ : 1347868
+
+Query: Alien3
+    TS : 1473143
+    TJ : 1357208
+
+Query: Elf
+    TS : 1588016
+    TJ : 1415310
+
+Query: Hide And Seek
+    TS : 1759312
+    TJ : 1640968
+
+Query: Hero
+    TS : 311879946
+    TJ : 311216942
+
+Query: The Matrix Revolutions
+    TS : 1628148
+    TJ : 1478372
+
+Query: A Clockwork Orange
+    TS : 4864114
+    TJ : 4723218
+
+Query: Alexander
+    TS : 1460632
+    TJ : 1314167
+
+Query: The Goonies
+    TS : 1651949
+    TJ : 1527894
+
+Query: A Clockwork Orange
+    TS : 5138142
+    TJ : 5009118
+
+Query: Eternal Sunshine of the Spotless Mind
+    TS : 1518284
+    TJ : 1387050
+
+Query: Ghost World
+    TS : 1665459
+    TJ : 1544595
+
+Query: Spider Man 2
+    TS : 1831225
+    TJ : 1686860
+
+Query: 8 Mile
+    TS : 1576116
+    TJ : 1447161
+
+Query: Shrek
+    TS : 1467123
+    TJ : 1338287
+
+Query: Shrek
+    TS : 1507523
+    TJ : 1379309
+
+Query: Seven
+    TS : 315532335
+    TJ : 315131742
+
+Query: Hide and Seek
+    TS : 1856496
+    TJ : 1719952
+
+Query: The Mummy
+    TS : 1667439
+    TJ : 1540565
+
+Query: Catwoman
+    TS : 1419371
+    TJ : 1281675
+
+Query: The Matrix Reloaded
+    TS : 1620097
+    TJ : 1469882
+
+Query: Insomnia
+    TS : 5660761
+    TJ : 5521057
+
+Query: Ray
+    TS : 1453301
+    TJ : 1336028
+
+Query: Indiana Jones
+    TS : 1611047
+    TJ : 1443221
+
+Query: The Fast and the Furious
+    TS : 1803894
+    TJ : 1628998
+
+Query: Insomnia
+    TS : 1547225
+    TJ : 1364898
+
+Query: Home Alone 2
+    TS : 1699511
+    TJ : 1537805
+
+Query: Cinderella Man
+    TS : 1817855
+    TJ : 1535325
+
+Query: Lemony Snicket
+    TS : 1526984
+    TJ : 1215834
+
+Query: Bride And Prejudice
+    TS : 1840275
+    TJ : 1567356
+
+Query: Hitch
+    TS : 1501633
+    TJ : 1334478
+
+Query: One Eight Seven
+    TS : 1645469
+    TJ : 1485353
+
+Query: Jurassic Park
+    TS : 1533554
+    TJ : 1383359
+
+Query: The Two Towers
+    TS : 1565916
+    TJ : 1408260
+
+Query: City Light
+    TS : 1581676
+    TJ : 1451952
+
+Query: Unleashed
+    TS : 1438071
+    TJ : 1280406
+
+Query: Elf
+    TS : 1657539
+    TJ : 1515013
+
+Query: Raiders Of The Lost Ark
+    TS : 1756222
+    TJ : 1438171
+
+Query: The Godfather
+    TS : 1571066
+    TJ : 1416561
+
+Query: Blast From the Past
+    TS : 1558246
+    TJ : 1435491
+
+Query: Forrest Gump
+    TS : 1631949
+    TJ : 1519434
+
+Query: Catch Me If You Can
+    TS : 1782704
+    TJ : 1634688
+
+Query: Elf
+    TS : 1397829
+    TJ : 1261665
+
+Query: Any Given Sunday
+    TS : 1849746
+    TJ : 1653879
+
+Query: The Return of the King
+    TS : 1653159
+    TJ : 1482473
+
+Query: Bourne Identity
+    TS : 1544555
+    TJ : 1363639
+
+Query: About A Boy
+    TS : 1502464
+    TJ : 1375249
+
+Query: Lord of the Rings
+    TS : 1466892
+    TJ : 1339167
+
+Query: Shrek
+    TS : 1510974
+    TJ : 1373558
+
+Query: The Fellowship of the Ring
+    TS : 1820465
+    TJ : 1682120
+
+Query: Eternal Sunshine of the Spotless Mind
+    TS : 1621127
+    TJ : 1437831
+
+Query: The Matrix Revolutions
+    TS : 1973821
+    TJ : 1657189
+
+Query: The Two Towers
+    TS : 2118706
+    TJ : 1828255
+
+Query: The Return of the King
+    TS : 2227209
+    TJ : 2105995
+
+Query: Donnie Darko
+    TS : 1966020
+    TJ : 1663109
+
+Query: GoldenEye
+    TS : 1431991
+    TJ : 1290556
+
+Query: Smallville
+    TS : 1637218
+    TJ : 1339038
+
+Query: The Mummy
+    TS : 1520345
+    TJ : 1349968
+
+Query: Moulin Rouge
+    TS : 1603066
+    TJ : 1440261
+
+Query: Kingdom Of Heaven
+    TS : 1594807
+    TJ : 1431661
+
+Query: Cinderella Man
+    TS : 1910808
+    TJ : 1622078
+
+Query: Godsend
+    TS : 1463413
+    TJ : 1285366
+
+Query: Godsend
+    TS : 1579726
+    TJ : 1293876
+
+Query: Thunderball
+    TS : 1805014
+    TJ : 1514014
+
+Query: Traffic
+    TS : 1605117
+    TJ : 1316727
+
+Query: The Princess Bride
+    TS : 1737282
+    TJ : 1440281
+
+Query: In Good Company
+    TS : 2399376
+    TJ : 2276851
+
+Query: Dr. No
+    TS : 2175537
+    TJ : 2056373
+
+Query: The Village
+    TS : 2358684
+    TJ : 2213428
+
+Query: Collateral
+    TS : 1771703
+    TJ : 1608857
+
+Query: The Others
+    TS : 1721991
+    TJ : 1562775
+
+Query: The Lord of the Rings
+    TS : 1663149
+    TJ : 1479163
+
+Query: Bone Collector
+    TS : 1589857
+    TJ : 1426100
+
+Query: A Clockwork Orange
+    TS : 5212686
+    TJ : 5074731
+
+Query: GoldenEye
+    TS : 1461572
+    TJ : 1324357
+
+Query: Before Sunrise
+    TS : 1657789
+    TJ : 1540945
+
+Query: Charlie and the Chocolate Factory
+    TS : 1913978
+    TJ : 1767132
+
+Query: Notting Hill
+    TS : 1399730
+    TJ : 1283596
+
+Query: You Only Live Twice
+    TS : 1843565
+    TJ : 1708971
+
+Query: Hero
+    TS : 325590051
+    TJ : 325098574
+
+Query: Spider Man
+    TS : 1915508
+    TJ : 1624168
+
+Query: Million Dollar Baby
+    TS : 1807284
+    TJ : 1488583
+
+Query: Godsend
+    TS : 1444662
+    TJ : 1293166
+
+Query: Stepmom
+    TS : 1610127
+    TJ : 1299886
+
+Query: The Lord of the Rings
+    TS : 1831175
+    TJ : 1703681
+
+Query: All Over Me
+    TS : 2185628
+    TJ : 2006421
+
+Query: Diamonds are Forever
+    TS : 1559646
+    TJ : 1442531
+
+Query: Cube Zero
+    TS : 1780354
+    TJ : 1479632
+
+Query: Men In Black
+    TS : 2106185
+    TJ : 1957220
+
+Query: Kingdom of Heaven
+    TS : 1810994
+    TJ : 1345738
+
+Query: The Machinist
+    TS : 1706261
+    TJ : 1433561
+
+Query: Spider Man 2
+    TS : 2086624
+    TJ : 1789073
+
+Query: White Noise
+    TS : 2395615
+    TJ : 2237260
+
+Query: Are We There Yet
+    TS : 1845305
+    TJ : 1633578
+
+Query: Lord of the Rings
+    TS : 2747608
+    TJ : 2455438
+
+Query: Scarface
+    TS : 1628668
+    TJ : 1432721
+
+Query: Men In Black
+    TS : 2105505
+    TJ : 1863097
+
+Query: On Her Majestys Secret Service
+    TS : 2367114
+    TJ : 2015052
+
+Query: Spider Man 2
+    TS : 2168967
+    TJ : 1978350
+
+Query: Shrek
+    TS : 1491393
+    TJ : 1373399
+
+Query: The Life Aquatic
+    TS : 1903378
+    TJ : 1761503
+
+Query: Seven
+    TS : 317962540
+    TJ : 317599597
+
+Query: The Mummy Returns
+    TS : 1840805
+    TJ : 1673059
+
+Query: A Beautiful Mind
+    TS : 5034269
+    TJ : 4752880
+
+Query: The Return of the King
+    TS : 1707301
+    TJ : 1466983
+
+Query: A View to a Kill
+    TS : 5061590
+    TJ : 4885514
+
+Query: Indiana Jones
+    TS : 1548725
+    TJ : 1387480
+
+Query: Garden State
+    TS : 1554075
+    TJ : 1387660
+
+Query: Proof of Life
+    TS : 1685180
+    TJ : 1373498
+
+Query: Revenge of the Sith
+    TS : 1701490
+    TJ : 1413111
+
+Query: Alien
+    TS : 1577606
+    TJ : 1419330
+
+Query: I Heart Huckabees
+    TS : 2598823
+    TJ : 2372424
+
+Query: Intolerable Cruelty
+    TS : 1630009
+    TJ : 1357768
+
+Query: The Matrix Revolutions
+    TS : 1878457
+    TJ : 1567706
+
+Query: Ray
+    TS : 2746138
+    TJ : 2549071
+
+Query: Shrek
+    TS : 1458352
+    TJ : 1286506
+
+Query: Dumb and Dumber
+    TS : 2118205
+    TJ : 1851236
+
+Query: Moulin Rouge
+    TS : 1552905
+    TJ : 1363918
+
+Query: GoldenEye
+    TS : 1755922
+    TJ : 1604717
+
+Query: Good Will Hunting
+    TS : 1767483
+    TJ : 1562936
+
+Query: Die Another Day
+    TS : 1507383
+    TJ : 1352448
+
+Query: You Got Served
+    TS : 1817125
+    TJ : 1643278
+
+Query: Before Sunrise
+    TS : 1550445
+    TJ : 1390399
+
+Query: A View to a Kill
+    TS : 4862873
+    TJ : 4686167
+
+Query: Terminator 2
+    TS : 1609427
+    TJ : 1380609
+
+Query: Dogma
+    TS : 1708721
+    TJ : 1410111
+
+Query: X2
+    TS : 1996551
+    TJ : 1840315
+
+Query: A Space Odyssey
+    TS : 5046930
+    TJ : 4902364
+
+Query: Miss Congeniality 2
+    TS : 1602457
+    TJ : 1437101
+
+Query: Home Alone
+    TS : 1641048
+    TJ : 1405350
+
+Query: Garden State
+    TS : 1478562
+    TJ : 1324537
+
+Query: Live and Let Die
+    TS : 2091094
+    TJ : 1950770
+
+Query: Home Alone 2
+    TS : 1857526
+    TJ : 1571556
+
+Query: Sleepy Hollow
+    TS : 1661249
+    TJ : 1370619
+
+Query: A Space Odyssey
+    TS : 5232747
+    TJ : 4996238
+
+Query: Lord of the Rings
+    TS : 1482632
+    TJ : 1308517
+
+Query: Bride And Prejudice
+    TS : 1932918
+    TJ : 1784583
+
+Query: Rush Hour 2
+    TS : 1764913
+    TJ : 1480053
+
+Query: In Good Company
+    TS : 2296732
+    TJ : 1969920
+
+Query: A View to a Kill
+    TS : 5837898
+    TJ : 5609020
+
+Query: Lord of the Rings
+    TS : 1662469
+    TJ : 1512094
+
+Query: Alien3
+    TS : 1744522
+    TJ : 1369999
+
+Query: Hellboy
+    TS : 1801574
+    TJ : 1647129
+
+Query: The Lord of the Rings
+    TS : 1672069
+    TJ : 1532234
+
+Query: Black Hawk Down
+    TS : 1597016
+    TJ : 1448662
+
+Query: Seven
+    TS : 426959459
+    TJ : 426455581
+
+Query: Jurassic Park
+    TS : 1547035
+    TJ : 1355768
+
+Query: 12 Monkeys
+    TS : 1387239
+    TJ : 1243924
+
+Query: Ray
+    TS : 1463252
+    TJ : 1310296
+
+Query: Black Hawk Down
+    TS : 1661369
+    TJ : 1453971
+
+Query: Ocean Twelve
+    TS : 1720061
+    TJ : 1559866
+
+Query: The Aviator
+    TS : 1702660
+    TJ : 1574206
+
+Query: Kingdom Of Heaven
+    TS : 1515504
+    TJ : 1397290
+
+Query: Men In Black
+    TS : 2235489
+    TJ : 2105735
+
+Query: Hero
+    TS : 320132959
+    TJ : 319597939
+
+Query: Catch Me If You Can
+    TS : 2074743
+    TJ : 1918838
+
+Query: Hotel Rwanda
+    TS : 1570416
+    TJ : 1393429
+
+Query: Hide And Seek
+    TS : 1770533
+    TJ : 1603707
+
+Query: Proof of Life
+    TS : 1515794
+    TJ : 1337407
+
+Query: Roman Holiday
+    TS : 1669889
+    TJ : 1499574
+
+Query: Indiana Jones
+    TS : 1508404
+    TJ : 1348508
+
+Query: The Lord of the Rings
+    TS : 1719642
+    TJ : 1534824
+
+Query: The Lord of the Rings
+    TS : 1626218
+    TJ : 1472233
+
+Query: The Goonies
+    TS : 1617717
+    TJ : 1465612
+
+Query: Vampire Effect
+    TS : 1585366
+    TJ : 1424661
+
+Query: Hero
+    TS : 335642350
+    TJ : 335128802
+
+Query: Revenge of the Sith
+    TS : 1583476
+    TJ : 1428220
+
+Query: ARMED AND FABULOUS
+    TS : 1603287
+    TJ : 1437581
+
+Query: Live and Let Die
+    TS : 1992300
+    TJ : 1777933
+
+Query: Hotel Rwanda
+    TS : 1526165
+    TJ : 1383669
+
+Query: Goldfinger
+    TS : 1549425
+    TJ : 1394070
+
+Query: Hero
+    TS : 347564185
+    TJ : 346981594
+
+Query: Along Came Polly
+    TS : 1629968
+    TJ : 1477993
+
+Query: The Incredibles
+    TS : 1619007
+    TJ : 1453472
+
+Query: The Return of the King
+    TS : 1623498
+    TJ : 1475763
+
+Query: Oceans Twelve
+    TS : 1550346
+    TJ : 1390069
+
+Query: The Lost Boys
+    TS : 1779373
+    TJ : 1647319
+
+Query: X2
+    TS : 1842886
+    TJ : 1650549
+
+Query: Spider Man 2
+    TS : 2066074
+    TJ : 1911538
+
+Query: Revenge of the Sith
+    TS : 1696610
+    TJ : 1527785
+
+Query: X2
+    TS : 1438841
+    TJ : 1284726
+
+Query: Driven
+    TS : 2537520
+    TJ : 2372415
+
+Query: National Treasure
+    TS : 1584366
+    TJ : 1405920
+
+Query: A Space Odyssey
+    TS : 5231836
+    TJ : 4950226
+
+Query: GoldenEye
+    TS : 1453781
+    TJ : 1277206
+
+Query: Along Came Polly
+    TS : 2554290
+    TJ : 2168477
+
+Query: Die Another Day
+    TS : 1544915
+    TJ : 1392730
+
+Query: Indiana Jones
+    TS : 1563036
+    TJ : 1339658
+
+Query: All or Nothing
+    TS : 1999031
+    TJ : 1801474
+
+Query: Revenge of the Sith
+    TS : 1615078
+    TJ : 1487173
+
+Query: In Good Company
+    TS : 2351503
+    TJ : 2019292
+
+Query: Alexander
+    TS : 1630418
+    TJ : 1483023
+
+Query: Before Sunrise
+    TS : 1586606
+    TJ : 1410221
+
+Query: The Mask
+    TS : 1735492
+    TJ : 1561065
+
+Query: License To Kill
+    TS : 1881567
+    TJ : 1694550
+
+Query: Million Dollar Baby
+    TS : 1597977
+    TJ : 1475823
+
+Query: Bruce Almighty
+    TS : 1550355
+    TJ : 1379229
+
+Query: X2
+    TS : 1516974
+    TJ : 1353698
+
+Query: Runaway Bride
+    TS : 1645959
+    TJ : 1489563
+
+Query: The Stepford Wives
+    TS : 1756543
+    TJ : 1532414
+
+Query: Bourne Identity
+    TS : 1570986
+    TJ : 1419681
+
+Query: Ghost World
+    TS : 1612718
+    TJ : 1446641
+
+Query: Vampire Effect
+    TS : 1536585
+    TJ : 1364299
+
+Query: Hero
+    TS : 314407115
+    TJ : 313246955
+
+Query: Episode III
+    TS : 2219979
+    TJ : 1316327
+
+Query: Meet the Fockers
+    TS : 1578276
+    TJ : 1411470
+
+Query: the Temple of Doom
+    TS : 1662129
+    TJ : 1469882
+
+Query: A View to a Kill
+    TS : 4972606
+    TJ : 4806001
+
+Query: A True Underdog Story
+    TS : 5899280
+    TJ : 5743405
+
+Query: Philadelphia
+    TS : 2015292
+    TJ : 1861656
+
+Query: Are We There Yet
+    TS : 1663329
+    TJ : 1503304
+
+Query: Hotel Rwanda
+    TS : 1591936
+    TJ : 1432341
+
+Query: The Hunted
+    TS : 1681890
+    TJ : 1499074
+
+Query: 24 Hour Party People
+    TS : 1720311
+    TJ : 1447872
+
+Query: Stepmom
+    TS : 1602377
+    TJ : 1309776
+
+Query: GoldenEye
+    TS : 1467662
+    TJ : 1316126
+
+Query: Vampire Effect
+    TS : 1587456
+    TJ : 1408281
+
+Query: National Treasure
+    TS : 1543785
+    TJ : 1387089
+
+Query: The Two Towers
+    TS : 1890037
+    TJ : 1607497
+
+Query: Snatch
+    TS : 1788913
+    TJ : 1621768
+
+Query: You Got Served
+    TS : 1740102
+    TJ : 1612277
+
+Query: Ghost World
+    TS : 2398605
+    TJ : 2276991
+
+Query: Son Of The Mask
+    TS : 1548105
+    TJ : 1409731
+
+Query: About A Boy
+    TS : 1394470
+    TJ : 1257385
+
+Query: American History X
+    TS : 1739182
+    TJ : 1575026
+
+Query: Shogun
+    TS : 1450041
+    TJ : 1328087
+
+Query: Birth
+    TS : 3847887
+    TJ : 1424040
+
+Query: Traffic
+    TS : 1426051
+    TJ : 1270375
+
+Query: Diamonds are Forever
+    TS : 1500703
+    TJ : 1352788
+
+Query: Alone in the Dark
+    TS : 1981450
+    TJ : 1823555
+
+Query: Dr. No
+    TS : 2083864
+    TJ : 1959730
+
+Query: The Godfather
+    TS : 1596587
+    TJ : 1481562
+
+Query: The Phantom of the Opera
+    TS : 1543195
+    TJ : 1413980
+
+Query: Snatch
+    TS : 1453142
+    TJ : 1335157
+
+Query: The Godfather
+    TS : 1600677
+    TJ : 1485803
+
+Query: Sleepy Hollow
+    TS : 1631378
+    TJ : 1512784
+
+Query: Thunderball
+    TS : 1534964
+    TJ : 1314847
+
+Query: The Lord of the Rings
+    TS : 1675040
+    TJ : 1525014
+
+Query: A True Underdog Story
+    TS : 5653131
+    TJ : 5493176
+
+Query: Die Another Day
+    TS : 1733002
+    TJ : 1502633
+
+Query: Diamonds are Forever
+    TS : 2634784
+    TJ : 2483448
+
+Query: Oceans Twelve
+    TS : 1444552
+    TJ : 1292306
+
+Query: Stepmom
+    TS : 1482213
+    TJ : 1299286
+
+Query: The Mummy Returns
+    TS : 1767503
+    TJ : 1615328
+
+Query: Before Sunrise
+    TS : 1959090
+    TJ : 1786313
+
+Query: Men In Black
+    TS : 2493579
+    TJ : 2174867
+
+Query: Monty Python and the Holy Grail
+    TS : 2174557
+    TJ : 1940059
+
+Query: A View to a Kill
+    TS : 5851078
+    TJ : 5457904
+
+Query: The Matrix Reloaded
+    TS : 1797744
+    TJ : 1627498
+
+Query: Braveheart
+    TS : 1864896
+    TJ : 1565896
+
+Query: Love Actually
+    TS : 2078514
+    TJ : 1771353
+
+Query: Meet the Fockers
+    TS : 2909134
+    TJ : 2276481
+
+Query: Are We There Yet
+    TS : 1956950
+    TJ : 1674270
+
+Query: Oceans Eleven
+    TS : 1457572
+    TJ : 1292526
+
+Query: Coach Carter
+    TS : 1513154
+    TJ : 1384210
+
+Query: Alien
+    TS : 1547495
+    TJ : 1383109
+
+Query: The terminal
+    TS : 1659619
+    TJ : 1513184
+
+Query: The Lord of the Rings
+    TS : 1680400
+    TJ : 1495873
+
+Query: 24 Hour Party People
+    TS : 1751822
+    TJ : 1553215
+
+Query: From Russia with Love
+    TS : 1854916
+    TJ : 1739342
+
+Query: Pretty Woman
+    TS : 3342739
+    TJ : 3211565
+
+Query: The Mask
+    TS : 1740822
+    TJ : 1613017
+
+Query: Assault on Precinct 13
+    TS : 1682570
+    TJ : 1563725
+
+Query: The Royal Tenenbaums
+    TS : 1623167
+    TJ : 1480613
+
+Query: Unleashed
+    TS : 1409550
+    TJ : 1278056
+
+Query: ARMED AND FABULOUS
+    TS : 1547175
+    TJ : 1425981
+
+Query: Finding Neverland
+    TS : 1755823
+    TJ : 1628008
+
+Query: Spiderman 2
+    TS : 1679890
+    TJ : 1543745
+
+Query: White Chicks
+    TS : 1565806
+    TJ : 1446421
+
+Query: Hero
+    TS : 321538110
+    TJ : 320846004
+
+Query: Assault on Precinct 13
+    TS : 1831005
+    TJ : 1702490
+
+Query: The Mask
+    TS : 1798304
+    TJ : 1675729
+
+Query: Hellboy
+    TS : 1521914
+    TJ : 1403830
+
+Query: Blast From the Past
+    TS : 1829415
+    TJ : 1712051
+
+Query: Bad Company
+    TS : 1741151
+    TJ : 1620578
+
+Query: Racing Stripes
+    TS : 1742992
+    TJ : 1627818
+
+Query: Hitch
+    TS : 1695781
+    TJ : 1525084
+
+Query: Training Day
+    TS : 1555215
+    TJ : 1398270
+
+Query: Cinderella Man
+    TS : 1751042
+    TJ : 1624478
+
+Query: Son Of The Mask
+    TS : 1652109
+    TJ : 1532624
+
+Query: 8 Mile
+    TS : 1607607
+    TJ : 1482483
+
+Query: The Spy Who Loved Me
+    TS : 1741072
+    TJ : 1580506
+
+Query: The terminal
+    TS : 1643188
+    TJ : 1401290
+
+Query: Revenge of the Sith
+    TS : 1547795
+    TJ : 1364499
+
+Query: National Treasure
+    TS : 1560546
+    TJ : 1385289
+
+Query: Traffic
+    TS : 1730672
+    TJ : 1445202
+
+Query: the Last Crusade
+    TS : 1619447
+    TJ : 1465702
+
+Query: Shrek
+    TS : 11419736
+    TJ : 1450182
+
+Query: The Lord of the Rings
+    TS : 2550771
+    TJ : 2359374
+
+Query: GoldenEye
+    TS : 1423091
+    TJ : 1270945
+
+Query: External Sunshine of the Spotless Mind
+    TS : 1513814
+    TJ : 1335468
+
+Query: Million Dollar Baby
+    TS : 1696320
+    TJ : 1525205
+
+Query: Raiders Of The Lost Ark
+    TS : 1734032
+    TJ : 1528604
+
+Query: Traffic
+    TS : 1479973
+    TJ : 1328887
+
+Query: Love the Hard Way
+    TS : 1945529
+    TJ : 1701931
+
+Query: Revenge of the Sith
+    TS : 1548445
+    TJ : 1388329
+
+Query: The New World
+    TS : 1682960
+    TJ : 1511134
+
+Query: Blast From the Past
+    TS : 1614477
+    TJ : 1446292
+
+Query: For Your Eyes Only
+    TS : 1683840
+    TJ : 1567905
+
+Query: Raiders Of The Lost Ark
+    TS : 1553356
+    TJ : 1401630
+
+Query: The Mummy Returns
+    TS : 1681340
+    TJ : 1523044
+
+Query: Miss Congeniality 2
+    TS : 1725841
+    TJ : 1570016
+
+Query: Alexander
+    TS : 1544514
+    TJ : 1425861
+
+Query: Hellboy
+    TS : 1585176
+    TJ : 1418130
+
+Query: Mystic River
+    TS : 1743992
+    TJ : 1496764
+
+Query: The Stepford Wives
+    TS : 1689120
+    TJ : 1399910
+
+Query: Oceans Eleven
+    TS : 1644888
+    TJ : 1343918
+
+Query: The Lord of the Rings
+    TS : 1926108
+    TJ : 1622308
+
+Query: The Return of the King
+    TS : 1879726
+    TJ : 1549175
+
+Query: National Treasure
+    TS : 1710911
+    TJ : 1530145
+
+Query: A Space Odyssey
+    TS : 5009598
+    TJ : 4829011
+
+Query: Almost Famous
+    TS : 1548045
+    TJ : 1381919
+
+Query: Racing Stripes
+    TS : 1997401
+    TJ : 1661429
+
+Query: Ghost World
+    TS : 1910828
+    TJ : 1600787
+
+Query: Proof of Life
+    TS : 1667459
+    TJ : 1495564
+
+Query: the Last Crusade
+    TS : 1673739
+    TJ : 1453792
+
+Query: Alien
+    TS : 1740962
+    TJ : 1580356
+
+Query: Insomnia
+    TS : 1550255
+    TJ : 1340658
+
+Query: The Polar Express
+    TS : 1579866
+    TJ : 1421491
+
+Query: 50 First Dates
+    TS : 1695940
+    TJ : 1376950
+
+Query: Amelie
+    TS : 1372879
+    TJ : 1265475
+
+Query: Braveheart
+    TS : 1786443
+    TJ : 1350698
+
+Query: Intolerable Cruelty
+    TS : 1601787
+    TJ : 1453292
+
+Query: Meet the Fockers
+    TS : 1720031
+    TJ : 1373539
+
+Query: A Space Odyssey
+    TS : 5645092
+    TJ : 5236256
+
+Query: Hellboy
+    TS : 1653359
+    TJ : 1380479
+
+Query: 8 Mile
+    TS : 1551185
+    TJ : 1386219
+
+Query: Scarface
+    TS : 1464942
+    TJ : 1348117
+
+Query: Saving Private Ryan
+    TS : 1656999
+    TJ : 1452782
+
+Query: Rush Hour 2
+    TS : 1677419
+    TJ : 1557816
+
+Query: Good Will Hunting
+    TS : 1839545
+    TJ : 1716591
+
+Query: Collateral
+    TS : 1385969
+    TJ : 1271595
+
+Query: Snatch
+    TS : 1517214
+    TJ : 1402640
+
+Query: Godsend
+    TS : 1444732
+    TJ : 1316567
+
+Query: Insomnia
+    TS : 1563125
+    TJ : 1405390
+
+Query: Racing Stripes
+    TS : 1469312
+    TJ : 1349768
+
+Query: Shrek
+    TS : 1431221
+    TJ : 1317836
+
+Query: Any Given Sunday
+    TS : 1901828
+    TJ : 1742702
+
+Query: Daredevil
+    TS : 1322957
+    TJ : 1210043
+
+Query: The Incredibles
+    TS : 1680419
+    TJ : 1371049
+
+Query: The Affair of the Necklace
+    TS : 1948959
+    TJ : 1552775
+
+Query: Spiderman 2
+    TS : 1443122
+    TJ : 1262735
+
+Query: The Goonies
+    TS : 1820605
+    TJ : 1515434
+
+Query: Charlie and the Chocolate Factory
+    TS : 2058334
+    TJ : 1904658
+
+Query: Insomnia
+    TS : 1420991
+    TJ : 1271405
+
+Query: Vanilla Sky
+    TS : 1598397
+    TJ : 1445701
+
+Query: Dr. No
+    TS : 2842791
+    TJ : 2684055
+
+Query: The Machinist
+    TS : 1830905
+    TJ : 1671120
+
+Query: Breakfast at Tiffany
+    TS : 1579077
+    TJ : 1417590
+
+Query: The Mask
+    TS : 1814065
+    TJ : 1549015
+
+Query: Finding Neverland
+    TS : 1563966
+    TJ : 1408990
+
+Query: The Spy Who Loved Me
+    TS : 1926749
+    TJ : 1752623
+
+Query: Goldfinger
+    TS : 1468462
+    TJ : 1317317
+
+Query: Eternal Sunshine of the Spotless Mind
+    TS : 1654949
+    TJ : 1359388
+
+Query: Lord of the Rings
+    TS : 1785733
+    TJ : 1455052
+
+Query: External Sunshine of the Spotless Mind
+    TS : 1944709
+    TJ : 1512834
+
+Query: I Heart Huckabees
+    TS : 2612333
+    TJ : 2489379
+
+Query: Live and Let Die
+    TS : 1988761
+    TJ : 1857727
+
+Query: Hide and Seek
+    TS : 1904687
+    TJ : 1753592
+
+Query: You Only Live Twice
+    TS : 2002081
+    TJ : 1590956
+
+Query: Seven
+    TS : 337764526
+    TJ : 337339801
+
+Query: Traffic
+    TS : 1902437
+    TJ : 1368029
+
+Query: Coach Carter
+    TS : 1500483
+    TJ : 1339978
+
+Query: Alone in the Dark
+    TS : 2086764
+    TJ : 1902737
+
+Query: The Polar Express
+    TS : 1776434
+    TJ : 1586686
+
+Query: Ghost World
+    TS : 1803344
+    TJ : 1468222
+
+Query: Licence to Kill
+    TS : 1859227
+    TJ : 1642769
+
+Query: The World is Not Enough
+    TS : 2159897
+    TJ : 1954190
+
+Query: The Lord of the Rings
+    TS : 1859756
+    TJ : 1651149
+
+Query: Thunderball
+    TS : 1756813
+    TJ : 1558425
+
+Query: Coach Carter
+    TS : 1492873
+    TJ : 1349678
+
+Query: Dogma
+    TS : 2597332
+    TJ : 2422416
+
+Query: Rush Hour 2
+    TS : 1845936
+    TJ : 1574276
+
+Query: The Lost Boys
+    TS : 1947260
+    TJ : 1543195
+
+Query: The Polar Express
+    TS : 1785853
+    TJ : 1624368
+
+Query: Spider Man 2
+    TS : 1959660
+    TJ : 1769573
+
+Query: Hotel Rwanda
+    TS : 1463492
+    TJ : 1319247
+
+Query: Master and Commander
+    TS : 1764633
+    TJ : 1603047
+
+Query: The Lost Boys
+    TS : 1720531
+    TJ : 1559596
+
+Query: The Sixth Sense
+    TS : 1669000
+    TJ : 1515994
+
+Query: Beautiful Boxer
+    TS : 1723211
+    TJ : 1422221
+
+Query: Mystic River
+    TS : 1733231
+    TJ : 1424771
+
+Query: The Mummy Returns
+    TS : 1799974
+    TJ : 1499823
+
+Query: The Far Side of the World
+    TS : 1552445
+    TJ : 1428341
+
+Query: Monty Python and the Holy Grail
+    TS : 1885177
+    TJ : 1738721
+
+Query: X2
+    TS : 1536674
+    TJ : 1381589
+
+Query: Snatch
+    TS : 1706331
+    TJ : 1560666
+
+Query: Rush Hour 2
+    TS : 1615648
+    TJ : 1462922
+
+Query: The Village
+    TS : 1620438
+    TJ : 1490384
+
+Query: Catch Me If You Can
+    TS : 2118575
+    TJ : 1902348
+
+Query: Dr. No
+    TS : 2248650
+    TJ : 2086884
+
+Query: The Sixth Sense
+    TS : 1699390
+    TJ : 1536075
+
+Query: Braveheart
+    TS : 1455112
+    TJ : 1334187
+
+Query: Rush Hour 2
+    TS : 1722231
+    TJ : 1567916
+
+Query: The Far Side of the World
+    TS : 1828805
+    TJ : 1707191
+
+Query: The Machinist
+    TS : 1615147
+    TJ : 1423801
+
+Query: American Beauty
+    TS : 1604947
+    TJ : 1468042
+
+Query: Star Wars
+    TS : 1560765
+    TJ : 1445062
+
+Query: Oceans Twelve
+    TS : 1565916
+    TJ : 1439851
+
+Query: Love the Hard Way
+    TS : 1852296
+    TJ : 1727132
+
+Query: Garden State
+    TS : 1739012
+    TJ : 1613598
+
+Query: Hitch
+    TS : 2193588
+    TJ : 2079544
+
+Query: Before Sunrise
+    TS : 1566696
+    TJ : 1449171
+
+Query: Hero
+    TS : 319859228
+    TJ : 319396881
+
+Query: Dumb and Dumber
+    TS : 1708880
+    TJ : 1587616
+
+Query: National Treasure
+    TS : 1423391
+    TJ : 1309946
+
+Query: The Lost Boys
+    TS : 1599607
+    TJ : 1485482
+
+Query: Season 3
+    TS : 1505363
+    TJ : 1355728
+
+Query: Man on Fire
+    TS : 2520270
+    TJ : 2235409
+
+Query: From Russia with Love
+    TS : 3349589
+    TJ : 3233545
+
+Query: In Good Company
+    TS : 2071504
+    TJ : 1933678
+
+Query: The Matrix Revolutions
+    TS : 1707441
+    TJ : 1570195
+
+Query: Hotel Rwanda
+    TS : 1498714
+    TJ : 1380669
+
+Query: Star Wars
+    TS : 2520560
+    TJ : 2376914
+
+Query: Almost Famous
+    TS : 1450201
+    TJ : 1330117
+
+Query: Blade Runner
+    TS : 1493323
+    TJ : 1359919
+
+Query: Zoolander
+    TS : 1324717
+    TJ : 1211693
+
+Query: Son Of The Mask
+    TS : 1609507
+    TJ : 1461362
+
+Query: 50 First Dates
+    TS : 1634708
+    TJ : 1484663
+
+Query: Hitch
+    TS : 1727311
+    TJ : 1582777
+
+Query: Notting Hill
+    TS : 1524684
+    TJ : 1373769
+
+Query: White Chicks
+    TS : 1640169
+    TJ : 1521584
+
+Query: Lord of the Rings
+    TS : 1544995
+    TJ : 1414530
+
+Query: Amelie
+    TS : 1432131
+    TJ : 1317597
+
+Query: The Lord of the Rings
+    TS : 1604267
+    TJ : 1473963
+
+Query: Die Another Day
+    TS : 1761743
+    TJ : 1636548
+
+Query: Troy
+    TS : 1428550
+    TJ : 1311117
+
+Query: When Harry Met Sally
+    TS : 1531394
+    TJ : 1411520
+
+Query: Terminator 2
+    TS : 1582936
+    TJ : 1458182
+
+Query: Ride With the Devil
+    TS : 1501213
+    TJ : 1368559
+
+Query: Finding Neverland
+    TS : 1414731
+    TJ : 1297376
+
+Query: Forrest Gump
+    TS : 1500133
+    TJ : 1380419
+
+Query: External Sunshine of the Spotless Mind
+    TS : 1519024
+    TJ : 1378680
+
+Query: Birth
+    TS : 1417001
+    TJ : 1298636
+
+Query: A True Underdog Story
+    TS : 10956430
+    TJ : 10760312
+
+Query: Alexander
+    TS : 1616387
+    TJ : 1504964
+
+Query: Home Alone
+    TS : 1700951
+    TJ : 1557225
+
+Query: Birth
+    TS : 2715086
+    TJ : 2589212
+
+Query: Hotel Rwanda
+    TS : 1495293
+    TJ : 1354548
+
+Query: Moulin Rouge
+    TS : 1650329
+    TJ : 1532155
+
+Query: The Far Side of the World
+    TS : 2070554
+    TJ : 1898608
+
+Query: 8 Mile
+    TS : 1641408
+    TJ : 1486993
+
+Query: The Two Towers
+    TS : 1904428
+    TJ : 1566075
+
+Query: Shrek
+    TS : 1568206
+    TJ : 1295506
+
+Query: Kingdom Of Heaven
+    TS : 1519264
+    TJ : 1339547
+
+Query: Dr. No
+    TS : 2432356
+    TJ : 2138426
+
+Query: Revenge of the Sith
+    TS : 1647429
+    TJ : 1394389
+
+Query: Moulin Rouge
+    TS : 1548585
+    TJ : 1304657
+
+Query: Starsky Hutch
+    TS : 1836085
+    TJ : 1528785
+
+Query: The Far Side of the World
+    TS : 1678770
+    TJ : 1545955
+
+Query: Birth
+    TS : 1555315
+    TJ : 1433251
+
+Query: Catch Me If You Can
+    TS : 2110015
+    TJ : 1824255
+
+Query: Blade Runner
+    TS : 1871017
+    TJ : 1668909
+
+Query: The Far Side of the World
+    TS : 1831745
+    TJ : 1543295
+
+Query: Rush Hour 2
+    TS : 1699041
+    TJ : 1467812
+
+Query: In Good Company
+    TS : 2080814
+    TJ : 1925679
+
+Query: When Harry Met Sally
+    TS : 1781173
+    TJ : 1596987
+
+Query: Son Of The Mask
+    TS : 1781053
+    TJ : 1489893
+
+Query: Spiderman 2
+    TS : 1548826
+    TJ : 1328697
+
+Query: The Machinist
+    TS : 1770113
+    TJ : 1481092
+
+Query: Training Day
+    TS : 1737302
+    TJ : 1417360
+
+Query: Bride And Prejudice
+    TS : 2047793
+    TJ : 1719511
+
+Query: Godsend
+    TS : 1709741
+    TJ : 1372709
+
+Query: Elf
+    TS : 1565816
+    TJ : 1344247
+
+Query: Troy
+    TS : 1837225
+    TJ : 1397500
+
+Query: Lost in New York
+    TS : 2172067
+    TJ : 1870736
+
+Query: American Beauty
+    TS : 1546605
+    TJ : 1380269
+
+Query: Love the Hard Way
+    TS : 1932298
+    TJ : 1744202
+
+Query: Star Wars
+    TS : 1667489
+    TJ : 1522704
+
+Query: Hotel Rwanda
+    TS : 1556916
+    TJ : 1387079
+
+Query: Raiders Of The Lost Ark
+    TS : 1541755
+    TJ : 1377149
+
+Query: Gone with the Wind
+    TS : 1871027
+    TJ : 1533274
+
+Query: Roman Holiday
+    TS : 1620428
+    TJ : 1446262
+
+Query: All or Nothing
+    TS : 2133725
+    TJ : 1977980
+
+Query: The Matrix Revolutions
+    TS : 2443297
+    TJ : 2226299
+
+Query: Any Given Sunday
+    TS : 1623138
+    TJ : 1475282
+
+Query: Licence to Kill
+    TS : 1608387
+    TJ : 1452861
+
+Query: A View to a Kill
+    TS : 4958796
+    TJ : 4837412
+
+Query: Eurotrip
+    TS : 1423601
+    TJ : 1303836
+
+Query: Racing Stripes
+    TS : 1545265
+    TJ : 1426661
+
+Query: 8 Mile
+    TS : 1637558
+    TJ : 1479802
+
+Query: Dumb and Dumber
+    TS : 2029823
+    TJ : 1911008
+
+Query: Shogun
+    TS : 1423511
+    TJ : 1294306
+
+Query: The World is Not Enough
+    TS : 1780764
+    TJ : 1646928
+
+Query: Home Alone 2
+    TS : 1734322
+    TJ : 1615947
+
+Query: Are We There Yet
+    TS : 2839481
+    TJ : 2686066
+
+Query: Snatch
+    TS : 1659199
+    TJ : 1496663
+
+Query: The Village
+    TS : 2058443
+    TJ : 1599767
+
+Query: Bride And Prejudice
+    TS : 1787843
+    TJ : 1626428
+
+Query: Cinderella Man
+    TS : 1765153
+    TJ : 1591846
+
+Query: Pretty Woman
+    TS : 1824535
+    TJ : 1520784
+
+Query: One Eight Seven
+    TS : 2312572
+    TJ : 2157207
+
+Query: American Beauty
+    TS : 1878627
+    TJ : 1698551
+
+Query: Star Wars
+    TS : 1652009
+    TJ : 1475842
+
+Query: Stepmom
+    TS : 1558366
+    TJ : 1388399
+
+Query: From Russia with Love
+    TS : 2333613
+    TJ : 2108335
+
+Query: Shrek
+    TS : 1564206
+    TJ : 1408301
+
+Query: Shall We Dance
+    TS : 1652459
+    TJ : 1462692
+
+Query: Bourne Identity
+    TS : 1678079
+    TJ : 1383819
+
+Query: Forrest Gump
+    TS : 1585117
+    TJ : 1437581
+
+Query: A Clockwork Orange
+    TS : 5129683
+    TJ : 4952047
+
+Query: Sleepy Hollow
+    TS : 1964909
+    TJ : 1487483
+
+Query: When Harry Met Sally
+    TS : 1930749
+    TJ : 1637338
+
+Query: Alexander
+    TS : 1676679
+    TJ : 1376949
+
+Query: Love the Hard Way
+    TS : 2081114
+    TJ : 1772953
+
+Query: Spiderman 2
+    TS : 1715881
+    TJ : 1560915
+
+Query: Monty Python and the Holy Grail
+    TS : 1727372
+    TJ : 1579727
+
+Query: Almost Famous
+    TS : 2093925
+    TJ : 1693910
+
+Query: The Man with the Golden Gun
+    TS : 1924328
+    TJ : 1767363
+
+Query: Beautiful Boxer
+    TS : 1661909
+    TJ : 1468843
+
+Query: From Russia with Love
+    TS : 1697460
+    TJ : 1434881
+
+Query: White Noise
+    TS : 1892507
+    TJ : 1716911
+
+Query: Jurassic Park
+    TS : 1697880
+    TJ : 1530075
+
+Query: A Nightmare On Elm Street
+    TS : 5867609
+    TJ : 5456595
+
+Query: The Lord of the Rings
+    TS : 1872167
+    TJ : 1515064
+
+Query: Alexander
+    TS : 1516924
+    TJ : 1354318
+
+Query: Men In Black
+    TS : 2792009
+    TJ : 2164747
+
+Query: Hitch
+    TS : 1603987
+    TJ : 1448161
+
+Query: Charlie and the Chocolate Factory
+    TS : 1936489
+    TJ : 1774264
+
+Query: Breakfast at Tiffany
+    TS : 1627748
+    TJ : 1455002
+
+Query: Alexander
+    TS : 1754422
+    TJ : 1587287
+
+Query: Revenge of the Sith
+    TS : 1630499
+    TJ : 1357288
+
+Query: Oceans Eleven
+    TS : 1645309
+    TJ : 1310487
+
+Query: Oceans Twelve
+    TS : 1681419
+    TJ : 1508784
+
