@@ -1,9 +1,7 @@
-# s23-122b-flysandwich
-s23-122b-flysandwich created by GitHub Classroom
-
 # CURRENT LINK OF THE WEBSITE #
 
-https://3.101.28.218:8443/fabflix/
+~~https://3.101.28.218:8443/fabflix/~~
+Not Deployed Currently
 
 # PROJECT 5 #
 
@@ -13,7 +11,7 @@ https://3.101.28.218:8443/fabflix/
     - #### Names: Yue Wu
     
     - #### Project 5 Video Demo Link:
-    - https://youtu.be/Q4si2Kh5erY
+    - ~~https://youtu.be/Q4si2Kh5erY~~ Currently Unaviable Since Privacy Issue
     - The demo is done in different internet evironment, thoughputs are different with screenshots, settings are totally same.
     - The demo also shows how to modify the log_process.py to process single/scaled documents.
 
